@@ -5,7 +5,7 @@ Es un único archivo HTML autocontenido: se abre con doble clic, funciona sin in
 
 ## Cómo usar
 
-Abrí [`Practica - Campanas de Comunicacion (Capriotti).html`](./Practica%20-%20Campanas%20de%20Comunicacion%20(Capriotti).html) en cualquier navegador.
+Abrí [`index.html`](./index.html) en cualquier navegador (o entrá a la URL del sitio publicado).
 
 En la pantalla de inicio elegís el texto a practicar:
 
