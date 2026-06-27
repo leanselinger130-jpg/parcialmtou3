@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Práctica Parcial · Capriotti — Campañas de Comunicación</title>
+<style>
+  :root{
+    --bg:#0f1623; --panel:#16203200; --card:#1b2638; --card2:#212f44;
+    --ink:#e8eef7; --muted:#9fb0c8; --line:#2c3a52;
+    --accent:#4f8cff; --accent2:#6ea8ff;
+    --ok:#37c990; --okbg:#10341f; --bad:#ff6b6b; --badbg:#3a1414;
+    --warn:#ffcf5c; --chip:#243349;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(1200px 600px at 50% -200px,#1c2b45 0%,var(--bg) 60%);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; min-height:100vh;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:28px 18px 80px}
+  h1{font-size:1.55rem;margin:.2em 0 .1em;letter-spacing:.2px}
+  h2{font-size:1.05rem;color:var(--accent2);margin:.2em 0}
+  .sub{color:var(--muted);font-size:.95rem}
+  .badge{display:inline-block;font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--muted);border:1px solid var(--line)}
+  .badge.dif-Fácil{color:#7fe3b0;border-color:#1f5a3d}
+  .badge.dif-Media{color:#ffd98a;border-color:#5a4a1f}
+  .badge.dif-Difícil{color:#ff9aa2;border-color:#5a2630}
+  .badge.type{color:#bcd1ff;border-color:#2b4374}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .center{text-align:center}
+  .muted{color:var(--muted)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .spread{justify-content:space-between}
+  button{font-family:inherit;font-size:1rem;cursor:pointer;border:none;border-radius:12px;padding:12px 18px;transition:.15s;font-weight:600}
+  .btn{background:var(--accent);color:#fff}
+  .btn:hover{background:var(--accent2)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn.ghost{background:transparent;color:var(--accent2);border:1px solid var(--line)}
+  .btn.ghost:hover{background:#1d2a40}
+  .opt{display:block;width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);color:var(--ink);
+       border-radius:12px;padding:13px 15px;margin:9px 0;font-weight:500;line-height:1.45;position:relative}
+  .opt:hover:not(.locked){border-color:var(--accent);background:#26344c}
+  .opt .lab{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:7px;
+            background:#2c3c57;color:var(--accent2);font-weight:700;margin-right:10px;font-size:.85rem;vertical-align:top}
+  .opt.sel{border-color:var(--accent);background:#26344c}
+  .opt.locked{cursor:default}
+  .opt.correct{border-color:var(--ok);background:var(--okbg)}
+  .opt.correct .lab{background:var(--ok);color:#06231a}
+  .opt.wrong{border-color:var(--bad);background:var(--badbg)}
+  .opt.wrong .lab{background:var(--bad);color:#2a0a0a}
+  .opt .why{display:none;margin-top:8px;font-size:.86rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px}
+  .opt.locked .why{display:block}
+  .opt .mark{position:absolute;right:14px;top:12px;font-weight:800}
+  .progress{height:8px;background:#1a2538;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+  .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:.3s}
+  .feedback{margin-top:16px;border-radius:14px;border:1px solid var(--line);padding:16px;background:#13203a;display:none}
+  .feedback.show{display:block}
+  .feedback h3{margin:.1em 0 .4em;font-size:1rem}
+  .feedback .res-ok{color:var(--ok)}
+  .feedback .res-bad{color:var(--bad)}
+  .ref{font-size:.85rem;color:var(--muted);margin-top:10px;border-left:3px solid var(--accent);padding-left:10px}
+  .rule{font-size:.88rem;margin-top:12px;background:#2a2412;border:1px solid #5a4a1f;color:#ffe6a8;border-radius:10px;padding:10px 12px}
+  .stat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-align:center;flex:1;min-width:120px}
+  .stat b{font-size:1.5rem;display:block}
+  label.check{display:flex;gap:9px;align-items:center;cursor:pointer;color:var(--muted);font-size:.92rem;user-select:none}
+  input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+  select{background:var(--card2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-family:inherit;font-size:.92rem}
+  .kbd{font-size:.78rem;color:var(--muted)}
+  .topiclist{columns:2;font-size:.86rem;color:var(--muted)}
+  .review-item{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--card2)}
+  .review-item .q{font-weight:600;margin-bottom:6px}
+  a.lnk{color:var(--accent2)}
+  @media(max-width:560px){.topiclist{columns:1}}
+  .textmenu{display:flex;flex-direction:column;gap:10px}
+  .textcard{display:block;width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:14px 16px;cursor:pointer;transition:.15s}
+  .textcard:hover{border-color:var(--accent);background:#26344c}
+  .textcard.active{border-color:var(--accent);background:#26344c;box-shadow:0 0 0 1px var(--accent) inset}
+  .tc-title{font-weight:700;font-size:1.02rem}
+  .tc-sub{color:var(--accent2);font-size:.92rem;margin-top:2px}
+  .tc-meta{color:var(--muted);font-size:.82rem;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="center" style="margin-bottom:18px">
+      <div class="badge type">Marketing Táctico y Operativo · Unidad 3</div>
+      <h1>Práctica de Parcial — Multiple Choice</h1>
+      <div class="sub">Elegí un texto para practicar</div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h2 style="margin:0 0 4px">📚 ¿Qué texto querés practicar?</h2>
+      <p class="muted" style="margin:0 0 12px;font-size:.9rem">Seleccioná uno y configurá la práctica abajo.</p>
+      <div id="textMenu" class="textmenu"></div>
+    </div>
+
+    <div class="card">
+      <p class="muted" style="margin-top:0" id="introText">
+        Banco de preguntas de nivel universitario con corrección detallada por pregunta.
+      </p>
+      <div class="row" style="margin:14px 0">
+        <div class="stat"><b id="qcount">0</b><span class="muted">preguntas</span></div>
+        <div class="stat"><b>4</b><span class="muted">opciones c/u</span></div>
+        <div class="stat"><b>↑</b><span class="muted">dificultad alta</span></div>
+      </div>
+
+      <div class="row" style="gap:18px;margin:6px 0 16px">
+        <label class="check"><input type="checkbox" id="optShuffleQ" checked> Orden aleatorio de preguntas</label>
+        <label class="check"><input type="checkbox" id="optShuffleO" checked> Mezclar posición de las opciones</label>
+      </div>
+      <div class="row" style="margin-bottom:18px">
+        <span class="muted" style="font-size:.92rem">Dificultad:</span>
+        <select id="optDif">
+          <option value="all">Todas</option>
+          <option value="Difícil">Solo difíciles</option>
+          <option value="Media">Solo medias</option>
+          <option value="Fácil">Solo fáciles</option>
+        </select>
+      </div>
+
+      <button class="btn" id="startBtn" style="width:100%">Comenzar práctica ▶</button>
+      <p class="kbd center" style="margin:14px 0 0">Atajos: teclas <b>1–4</b> o <b>A–D</b> para elegir · <b>Enter</b> para comprobar / siguiente</p>
+    </div>
+
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" style="display:none">
+    <div class="row spread" style="margin-bottom:10px">
+      <div class="row" style="gap:8px">
+        <span class="badge" id="qIndex">1 / 47</span>
+        <span class="badge type" id="qTopic">Tema</span>
+        <span class="badge" id="qType" style="display:none"></span>
+      </div>
+      <span class="badge" id="qDif">Media</span>
+    </div>
+    <div class="progress" style="margin-bottom:16px"><i id="bar"></i></div>
+
+    <div class="card">
+      <h2 id="stem" style="font-size:1.12rem;color:var(--ink);line-height:1.5"></h2>
+      <div id="opts" style="margin-top:14px"></div>
+
+      <div id="feedback" class="feedback">
+        <h3 id="resLine"></h3>
+        <div id="expl" class="muted"></div>
+        <div id="ref" class="ref"></div>
+        <div id="rule" class="rule" style="display:none"></div>
+      </div>
+
+      <div class="row spread" style="margin-top:18px">
+        <span class="muted" style="font-size:.9rem">Aciertos: <b id="score">0</b></span>
+        <div class="row">
+          <button class="btn ghost" id="quitBtn">Salir</button>
+          <button class="btn" id="checkBtn" disabled>Comprobar</button>
+          <button class="btn" id="nextBtn" style="display:none">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" style="display:none">
+    <div class="card center">
+      <h1 style="margin-top:0">Resultado</h1>
+      <div style="font-size:3rem;font-weight:800" id="finalPct">0%</div>
+      <p class="muted" id="finalLine">—</p>
+      <div class="row" style="margin:16px 0">
+        <div class="stat"><b id="rOk" class="res-ok">0</b><span class="muted">correctas</span></div>
+        <div class="stat"><b id="rBad" class="res-bad">0</b><span class="muted">incorrectas</span></div>
+        <div class="stat"><b id="rTot">0</b><span class="muted">total</span></div>
+      </div>
+      <div class="row center" style="justify-content:center">
+        <button class="btn ghost" id="reviewBtn">Ver las que fallé</button>
+        <button class="btn ghost" id="redoWrongBtn">Repetir solo las falladas</button>
+        <button class="btn" id="restartBtn">Reiniciar todo</button>
+      </div>
+    </div>
+    <div id="review" style="margin-top:16px"></div>
+  </section>
+
+</div>
+
+<script>
+/* ============ BANCO DE PREGUNTAS ============
+   c:true marca la opción correcta · w: por qué de cada opción
+   e: explicación general + referencia al texto · r: regla práctica (opcional)
+   noShuffle: opciones que referencian posición (no mezclar)            */
+const BANK_CAPRIOTTI = [
+{t:"Definición",d:"Media",
+ q:"¿Cuál de las siguientes opciones define mejor una campaña de comunicación según Capriotti?",
+ opts:[
+  {t:"Iniciativa individual y puntual que responde a una necesidad inmediata en el muy corto plazo.",w:"Eso describe una ACCIÓN de comunicación (unidad operativa), no una campaña."},
+  {t:"Conjunto coordinado de actuaciones para alcanzar una meta en un tiempo limitado.",c:true,w:"Es la definición de campaña: actividades coordinadas + meta + tiempo limitado."},
+  {t:"Acción estable y flexible que fija lineamientos estructurales a medio y largo plazo.",w:"Eso es la gestión ESTRATÉGICA, no una campaña (que es táctica y de corto plazo)."},
+  {t:"Documento que asigna recursos y responsables a cada una de las acciones previstas.",w:"Eso remite al presupuesto/estructura, no a la definición de campaña."}
+ ],
+ e:"La campaña es una iniciativa de intervención comunicativa específica sobre un objeto/sujeto, compuesta de un conjunto coordinado de actividades para alcanzar una meta en un período de tiempo limitado (corto o muy corto plazo).",
+ r:"Campaña = conjunto INTEGRADO y coordinado con una meta. Acción = unidad individual. Gestión estratégica = lineamientos de largo plazo."},
+
+{t:"Campaña vs. acción",d:"Media",type:"Excepción",
+ q:"Todas las siguientes afirmaciones distinguen correctamente una campaña de una acción de comunicación, EXCEPTO:",
+ opts:[
+  {t:"La campaña es un conjunto integrado de actuaciones; la acción es una unidad individual.",w:"Correcto: la campaña integra varias actuaciones; la acción es individualizada."},
+  {t:"La campaña opera en el corto plazo; la acción responde en el muy corto plazo.",w:"Correcto: campaña = corto plazo; acción = muy corto plazo / día a día."},
+  {t:"La acción siempre forma parte de una campaña y nunca se ejecuta de forma aislada.",c:true,w:"FALSO (es la excepción): la acción puede integrarse en una campaña O realizarse aislada."},
+  {t:"La campaña es la unidad de acción táctica; la acción es la unidad de acción operativa.",w:"Correcto: campaña = unidad táctica; acción = unidad operativa."}
+ ],
+ e:"El texto aclara que las acciones 'pueden estar integradas en las campañas o bien realizarse de forma aislada y puntual'. Por eso la afirmación con 'siempre/nunca' es falsa.",
+ r:"Desconfía de los absolutos ('siempre', 'nunca') en multiple choice: suelen marcar el distractor falso."},
+
+{t:"Táctica vs. estratégica",d:"Media",
+ q:"¿Cuál es la diferencia esencial entre la gestión táctica y la gestión estratégica de comunicación?",
+ opts:[
+  {t:"La táctica es estructural y estable; la estratégica, situacional y coyuntural.",w:"Está invertido: lo estructural/estable es la estratégica."},
+  {t:"La táctica es situacional y de corto plazo; la estratégica, de largo plazo.",c:true,w:"Correcto: táctica = situacional/corto plazo; estratégica = estructural/largo plazo."},
+  {t:"La táctica se ocupa de los planes plurianuales; la estratégica, de campañas.",w:"Invertido: los planes plurianuales son de la estratégica; campañas, de la táctica."},
+  {t:"La táctica fija los lineamientos generales y la estratégica los ejecuta.",w:"Invertido: la estratégica fija lineamientos; la táctica los hace operativos."}
+ ],
+ e:"La gestión táctica es situacional (corto/muy corto plazo) y se implementa con campañas y acciones; la estratégica es estructural (medio-largo plazo) y se implementa con planes plurianuales y anuales.",
+ r:"Asocia: TÁCTICA → situacional, corto plazo, campañas/acciones. ESTRATÉGICA → estructural, largo plazo, planes."},
+
+{t:"Plan anual / plurianual",d:"Difícil",
+ q:"En la gestión estratégica, ¿qué instrumento actúa como nexo de vinculación entre los planes plurianuales y las campañas tácticas?",
+ opts:[
+  {t:"El plan de campaña.",w:"El plan de campaña documenta una campaña concreta; no es el nexo."},
+  {t:"El plan plurianual de comunicación.",w:"Es uno de los extremos que el nexo conecta, no el nexo en sí."},
+  {t:"El plan anual de comunicación.",c:true,w:"Correcto: el plan anual une los planes plurianuales (estrategia) y las campañas (táctica)."},
+  {t:"El calendario general de la campaña.",w:"Es una herramienta interna de la etapa de Temporización."}
+ ],
+ e:"El plan anual organiza la actividad de un año y 'actúa como nexo de vinculación entre la gestión estratégica (planes plurianuales) y la gestión táctico-operativa (campañas)'.",
+ r:"Pirámide: Plurianual (3-5 años) → Plan anual (nexo) → Campañas → Acciones."},
+
+{t:"Plan plurianual",d:"Fácil",
+ q:"El plan plurianual de comunicación organiza la línea directriz en un período de:",
+ opts:[
+  {t:"Un año fiscal o natural.",w:"Ese es el plan anual, no el plurianual."},
+  {t:"3 a 5 años.",c:true,w:"Correcto: el plurianual abarca un período amplio de 3 a 5 años."},
+  {t:"Días, semanas o meses.",w:"Ese horizonte corresponde a las campañas/acciones (gestión táctica)."},
+  {t:"Más de 10 años.",w:"Excede el horizonte que define Capriotti para el plurianual."}
+ ],
+ e:"El plan plurianual es el instrumento clave de la gestión estratégica y organiza la línea directriz en un período amplio de 3 a 5 años."},
+
+{t:"Características del proceso",d:"Media",
+ q:"La característica del proceso que implica rapidez de respuesta, simplicidad y fluidez para adaptarse a un entorno cambiante es:",
+ opts:[
+  {t:"Especificidad.",w:"La especificidad refiere a que cada campaña es única."},
+  {t:"Situacional.",w:"Lo situacional refiere a actuar según situaciones concretas."},
+  {t:"Agilidad.",c:true,w:"Correcto: agilidad es flexibilidad, rapidez de respuesta, simplicidad y fluidez."},
+  {t:"Linealidad.",w:"La linealidad refiere a fases sucesivas y ordenadas."}
+ ],
+ e:"La agilidad exige flexibilidad y capacidad de adaptación: rapidez de respuesta, simplicidad y fluidez ante un entorno cambiante."},
+
+{t:"Características del proceso",d:"Media",
+ q:"Que cada campaña sea una actuación única, propia y diferencial, con sus particularidades, corresponde a la característica de:",
+ opts:[
+  {t:"Especificidad.",c:true,w:"Correcto: la especificidad implica que cada campaña es singular y diferencial."},
+  {t:"Temporalidad.",w:"La temporalidad refiere a la corta duración con inicio y final delimitados."},
+  {t:"Situacional.",w:"Lo situacional refiere a responder a situaciones concretas."},
+  {t:"Agilidad.",w:"La agilidad refiere a rapidez y flexibilidad, no a la unicidad."}
+ ],
+ e:"La especificidad: 'toda campaña es una actuación que responde a necesidades concretas o distintivas… cada actuación es única, propia y diferencial'."},
+
+{t:"RACE vs. 5 fases",d:"Difícil",type:"Comparación",
+ q:"Respecto a la relación entre el modelo RACE y el modelo de Capriotti, ¿cuál afirmación es correcta?",
+ opts:[
+  {t:"Ambos modelos constan de cinco fases totalmente equivalentes.",w:"No: RACE tiene cuatro fases; el de Capriotti, cinco."},
+  {t:"Capriotti reduce RACE a tres fases para ganar en agilidad.",w:"No reduce: amplía RACE de cuatro a cinco fases."},
+  {t:"Capriotti amplía RACE a cinco fases separando Dirección de Planificación.",c:true,w:"Correcto: la quinta fase surge de separar Dirección y Planificación."},
+  {t:"RACE es posterior y más completo que el modelo de cinco fases de Capriotti.",w:"Al revés: RACE es el modelo clásico/anterior."}
+ ],
+ e:"El modelo de Capriotti (5 fases) es una evolución del clásico RACE (4 fases), añadiendo la distinción entre Dirección y Planificación.",
+ r:"RACE = 4 fases. Capriotti = 5 fases. La 'fase extra' nace de separar Dirección (línea) de Planificación (selección táctica)."},
+
+{t:"RACE",d:"Media",
+ q:"El acrónimo RACE corresponde, en orden, a:",
+ opts:[
+  {t:"Research, Action, Communication, Evaluation.",c:true,w:"Correcto: Investigación, Acción/Planificación, Comunicación/Ejecución, Evaluación."},
+  {t:"Research, Analysis, Communication, Execution.",w:"La A es Action y la E es Evaluation, no Analysis/Execution."},
+  {t:"Reach, Action, Content, Evaluation.",w:"La R es Research (no Reach) y la C es Communication (no Content)."},
+  {t:"Research, Action, Control, Engagement.",w:"La C es Communication y la E es Evaluation, no Control/Engagement."}
+ ],
+ e:"RACE: Research (Investigación), Action (Planificación), Communication (Ejecución) y Evaluation (Evaluación)."},
+
+{t:"Las 5 fases",d:"Media",
+ q:"¿Cuál es el orden correcto de las cinco fases del proceso de campaña?",
+ opts:[
+  {t:"Análisis – Planificación – Dirección – Implementación – Evaluación.",w:"Dirección va ANTES que Planificación; aquí están invertidas."},
+  {t:"Dirección – Análisis – Planificación – Evaluación – Implementación.",w:"El proceso inicia con Análisis y la Implementación va antes de la Evaluación."},
+  {t:"Análisis – Dirección – Planificación – Implementación – Evaluación.",c:true,w:"Correcto: A-B-C-D-E en su orden lineal."},
+  {t:"Análisis – Dirección – Implementación – Planificación – Evaluación.",w:"La Planificación (C) precede a la Implementación (D)."}
+ ],
+ e:"Las cinco fases son lineales y ordenadas: A Análisis, B Dirección, C Planificación, D Implementación, E Evaluación."},
+
+{t:"Las 15 etapas",d:"Difícil",type:"Combinación",
+ q:"Considere las siguientes asignaciones etapa-fase y elija la combinación correcta:\nI. Objetivos pertenece a la Fase B (Dirección).\nII. Temporización pertenece a la Fase C (Planificación).\nIII. Investigación pertenece a la Fase B (Dirección).\nIV. Seguimiento pertenece a la Fase D (Implementación).",
+ opts:[
+  {t:"Las afirmaciones I, II y IV.",c:true,w:"Correcto: Objetivos (B), Temporización (C) y Seguimiento (D) están bien asignadas."},
+  {t:"Las afirmaciones I, III y IV.",w:"III es falsa: Investigación es la etapa 2 de la Fase A (Análisis)."},
+  {t:"Las afirmaciones II, III y IV.",w:"III es falsa y omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones.",w:"No todas: III es falsa porque Investigación pertenece a la Fase A."}
+ ],
+ e:"Fase A: Situación e Investigación. Fase B: Meta, Públicos, Objetivos, Estrategias. Fase C: Contenidos, Medios, Temporización, Control, Estructura, Presupuesto. Fase D: Operativa, Seguimiento. Fase E: Resultados.",
+ r:"Memoriza el bloque A (1-2): Situación e Investigación. Casi todas las confusiones nacen de colocar mal esas dos."},
+
+{t:"Fase C",d:"Media",
+ q:"Dentro de la Fase C (Planificación), las dos etapas consideradas centrales o principales son:",
+ opts:[
+  {t:"Temporización y Presupuesto.",w:"Son complementarias, no centrales."},
+  {t:"Contenidos y Medios.",c:true,w:"Correcto: son las centrales; las otras cuatro son complementarias."},
+  {t:"Control y Estructura.",w:"Ambas son etapas complementarias de la Fase C."},
+  {t:"Medios y Temporización.",w:"Medios sí es central, pero Temporización es complementaria."}
+ ],
+ e:"La Fase C tiene seis etapas: dos centrales (Contenidos y Medios) y cuatro complementarias (Temporización, Control, Estructura y Presupuesto)."},
+
+{t:"Fase A",d:"Media",
+ q:"¿Cuál es la función principal de la Fase A (Análisis)?",
+ opts:[
+  {t:"Definir la línea estratégica y las decisiones clave de la campaña.",w:"Eso es la Fase B (Dirección)."},
+  {t:"Establecer la situación y buscar y valorar información relevante.",c:true,w:"Correcto: el Análisis define la situación y obtiene información para las demás fases."},
+  {t:"Medir los resultados finales y el grado de cumplimiento de objetivos.",w:"Eso es la Fase E (Evaluación)."},
+  {t:"Seleccionar las tácticas de contenidos y de medios de la campaña.",w:"Eso es la Fase C (Planificación)."}
+ ],
+ e:"El Análisis define la situación que origina la campaña y realiza la búsqueda, selección, interpretación y valoración de información relevante; es la base para las fases siguientes."},
+
+{t:"Meta",d:"Media",
+ q:"La meta general de la campaña se caracteriza porque:",
+ opts:[
+  {t:"Expresa el impacto concreto y medible que se busca en cada público.",w:"Eso describe al objetivo, no a la meta."},
+  {t:"Define el propósito global e inicial que responde a la situación.",c:true,w:"Correcto: la meta es el propósito global que da respuesta a la situación (etapa 1)."},
+  {t:"Detalla las acciones tácticas que se implementarán en la campaña.",w:"Las acciones tácticas se definen en la Planificación, no son la meta."},
+  {t:"Establece los recursos financieros disponibles para la campaña.",w:"Eso corresponde al presupuesto."}
+ ],
+ e:"La meta es un propósito o planteamiento inicial que define la intención esencial de la campaña; indica de forma global lo que la marca quiere lograr y responde a la situación de la etapa 1.",
+ r:"META = global e inicial (qué quiere lograr la marca). OBJETIVO = impacto concreto y medible en cada público."},
+
+{t:"Meta (GOMDE)",d:"Media",type:"Excepción",
+ q:"¿Cuál de las siguientes NO es una característica de la meta según el acrónimo GOMDE?",
+ opts:[
+  {t:"General.",w:"Sí lo es: la 'G' de GOMDE (plantea de forma amplia lo que se quiere lograr)."},
+  {t:"Motivadora.",w:"Sí lo es: la 'M' de GOMDE (inspiradora y movilizadora)."},
+  {t:"Medible.",c:true,w:"NO es de la meta: 'Medible' es una característica SMART de los OBJETIVOS."},
+  {t:"Estable.",w:"Sí lo es: la 'E' de GOMDE (no cambia durante la campaña)."}
+ ],
+ e:"GOMDE = Generales, Orientadas, Motivadoras, Directas, Estables. 'Medible' pertenece a SMART (objetivos).",
+ r:"Si lees 'Medible / Específico / Realista' pensá en OBJETIVOS (SMART), nunca en META (GOMDE)."},
+
+{t:"Meta — tipología",d:"Media",
+ q:"Una meta que busca establecer actitudes, opiniones o valoraciones en relación con la marca es de tipo:",
+ opts:[
+  {t:"Conocimiento.",w:"El conocimiento busca DAR A CONOCER aspectos de la marca."},
+  {t:"Predisposición.",c:true,w:"Correcto: la predisposición trabaja actitudes, opiniones y valoraciones."},
+  {t:"Comportamiento.",w:"El comportamiento busca promover conductas o actuaciones."},
+  {t:"Notoriedad.",w:"No es uno de los tres tipos de metas que define el texto."}
+ ],
+ e:"Tipología de metas: Conocimiento (dar a conocer), Predisposición (actitudes/opiniones/valoraciones) y Comportamiento (conductas).",
+ r:"Conocimiento = saber · Predisposición = sentir/opinar · Comportamiento = hacer."},
+
+{t:"Meta vs. objetivo",d:"Difícil",type:"Comparación",
+ q:"¿Cuál de las siguientes afirmaciones distingue correctamente la meta del objetivo?",
+ opts:[
+  {t:"La meta es medible y específica por público; el objetivo es global y estable.",w:"Está invertido: lo medible/específico por público es el objetivo."},
+  {t:"La meta es global y el objetivo es medible por cada público.",c:true,w:"Correcto: meta global (responde a la situación) vs. objetivo medible por público."},
+  {t:"Meta y objetivo son sinónimos y se redactan con la estructura SMART.",w:"No son sinónimos; SMART aplica a objetivos, no a la meta."},
+  {t:"La meta se redacta por público y el objetivo una vez para la campaña.",w:"Invertido: los objetivos se elaboran por público; la meta es general."}
+ ],
+ e:"La meta es el propósito global que responde a la situación; los objetivos se derivan de ella y concretan el impacto medible para cada público.",
+ r:"Meta: una, global, GOMDE. Objetivos: varios, por público, SMART."},
+
+{t:"Públicos",d:"Difícil",type:"Comparación",
+ q:"La diferencia entre públicos objetivos e influenciadores radica en que:",
+ opts:[
+  {t:"Los objetivos inciden indirectamente y los influenciadores de forma directa.",w:"Está invertido: los objetivos condicionan directamente."},
+  {t:"Los objetivos inciden directamente y los influenciadores de forma indirecta.",c:true,w:"Correcto: distinción por el tipo de incidencia (directa vs. indirecta)."},
+  {t:"Los objetivos son siempre prioritarios y los influenciadores secundarios.",w:"Mezcla dos clasificaciones: rol (objetivo/influenciador) ≠ prioridad."},
+  {t:"Los objetivos salen del mapa de públicos y los influenciadores del calendario.",w:"Ambos se seleccionan del mapa de públicos; el calendario no interviene."}
+ ],
+ e:"Públicos objetivos: condicionan directamente la meta. Públicos influenciadores: inciden sobre los objetivos y, por tanto, afectan la meta de forma indirecta.",
+ r:"Dos clasificaciones independientes: por ROL (objetivo/influenciador = directo/indirecto) y por PRIORIDAD (prioritario/secundario = mayor/menor esfuerzo). No las cruces."},
+
+{t:"Públicos",d:"Media",
+ q:"Los públicos prioritarios se definen como aquellos que:",
+ opts:[
+  {t:"Inciden indirectamente sobre los públicos objetivos.",w:"Eso describe a los influenciadores (otra clasificación)."},
+  {t:"Son muy relevantes para la meta y concentran el mayor esfuerzo.",c:true,w:"Correcto: prioritarios = muy relevantes, mayor esfuerzo."},
+  {t:"Se usan solo para reforzar el impacto general con menor esfuerzo.",w:"Eso define a los públicos secundarios."},
+  {t:"Provienen exclusivamente de la investigación de la etapa 2.",w:"Los públicos se toman del mapa de públicos."}
+ ],
+ e:"Públicos prioritarios: muy relevantes para alcanzar la meta, en ellos se centra el mayor esfuerzo. Secundarios: menor importancia, acción de refuerzo."},
+
+{t:"Públicos",d:"Media",
+ q:"¿De dónde se seleccionan y priorizan los públicos de una campaña?",
+ opts:[
+  {t:"Del calendario general.",w:"El calendario organiza tiempos, no públicos."},
+  {t:"Del mapa de públicos de la marca.",c:true,w:"Correcto: la determinación implica selección y priorización del mapa de públicos."},
+  {t:"Del presupuesto de investigación.",w:"El presupuesto asigna recursos, no define públicos."},
+  {t:"Del sistema de indicadores tácticos.",w:"Los indicadores miden resultados; no son la fuente de los públicos."}
+ ],
+ e:"La determinación de los públicos implica un proceso de selección y priorización de los grupos identificados en el mapa de públicos de la marca (vinculado a la etapa 2)."},
+
+{t:"Objetivos (SMART)",d:"Fácil",
+ q:"El acrónimo SMART, aplicado a los objetivos, significa:",
+ opts:[
+  {t:"Específicos, Medibles, Asumibles, Realistas, Tiempo.",c:true,w:"Correcto: es la definición de SMART que usa Capriotti."},
+  {t:"Simples, Medibles, Alcanzables, Rápidos, Tácticos.",w:"Varios términos no corresponden (Simples, Rápidos, Tácticos)."},
+  {t:"Estratégicos, Motivadores, Aplicables, Realistas, Temporales.",w:"Mezcla rasgos de la meta (Motivadores) con otros inexactos."},
+  {t:"Específicos, Mensurables, Ambiciosos, Rentables, Tangibles.",w:"No es la definición del texto (Asumibles, Realistas, Tiempo)."}
+ ],
+ e:"SMART = Específicos, Medibles, Asumibles, Realistas y Tiempo (limitado)."},
+
+{t:"Objetivos — enfoque",d:"Difícil",type:"Aplicación",
+ q:"¿Cuál de los siguientes está correctamente redactado como objetivo (enfoque de impacto)?",
+ opts:[
+  {t:"Realizar una gran campaña de publicidad en redes sociales este verano.",w:"Es una acción/medio (enfoque de realización), no un objetivo."},
+  {t:"Difundir cinco piezas audiovisuales en todas las plataformas digitales.",w:"Describe lo que se hará (realización), no el resultado en el público."},
+  {t:"Incrementar la notoriedad entre los jóvenes un 15% en 4 meses.",c:true,w:"Correcto: expresa el resultado en el público + medida + plazo (impacto)."},
+  {t:"Implementar un completo plan de medios con influencers del sector.",w:"Es la implementación de un medio, no el impacto buscado."}
+ ],
+ e:"El enfoque de impacto redacta el resultado/efecto en los públicos; el de realización redacta acciones o medios y NO constituye un objetivo válido.",
+ r:"Si la frase dice lo que vas a HACER → realización (mal). Si dice el RESULTADO en el público (cuánto + cuándo) → impacto (bien)."},
+
+{t:"Objetivos — estructura",d:"Difícil",
+ q:"En el objetivo 'Incrementar la notoriedad de la marca en los clientes un 20% en 3 meses', el componente 'un 20%' corresponde a:",
+ opts:[
+  {t:"La dirección.",w:"La dirección es 'incrementar' (la orientación del impacto)."},
+  {t:"La intención.",w:"La intención es 'notoriedad' (impacto de conocimiento)."},
+  {t:"La medida.",c:true,w:"Correcto: 'un 20%' es la cuantificación o grado de impacto = la medida."},
+  {t:"El foco.",w:"El foco es 'los clientes' (el público al que se dirige)."}
+ ],
+ e:"Estructura del objetivo (5 partes): Dirección ('incrementar'), Intención ('notoriedad'), Foco ('clientes'), Medida ('20%') y Plazo ('3 meses')."},
+
+{t:"Objetivos",d:"Media",
+ q:"Según Capriotti, si a un objetivo le falta alguno de sus cinco componentes estructurales, entonces:",
+ opts:[
+  {t:"Sigue siendo válido si conserva al menos la medida y el plazo.",w:"No: deben estar los cinco componentes para que sea evaluable."},
+  {t:"Se considera solo una 'buena intención' no evaluable.",c:true,w:"Correcto: sin los cinco componentes es una 'buena intención', no un objetivo."},
+  {t:"Se transforma de forma automática en una meta general.",w:"No 'se convierte' en meta; deja de ser un objetivo válido."},
+  {t:"Debe reescribirse usando el enfoque de realización.",w:"El enfoque de realización es justamente el incorrecto."}
+ ],
+ e:"Para ser SMART, el objetivo debe tener las 5 partes; si falta alguna, solo puede considerarse 'buena intención' porque no podrá monitorizarse ni evaluarse."},
+
+{t:"Estrategias",d:"Difícil",type:"Combinación",
+ q:"Considere las siguientes estrategias:\nI. Identidad · II. Medios · III. Concepto · IV. Interacción · V. Estilo.\n¿Cuáles integran el Núcleo Comunicativo?",
+ opts:[
+  {t:"Las estrategias I, III y V.",c:true,w:"Correcto: el Núcleo Comunicativo lo forman Identidad, Concepto y Estilo."},
+  {t:"Las estrategias II, IV y V.",w:"Medios e Interacción son del Sistema Mediático; solo Estilo es del Núcleo."},
+  {t:"Las estrategias I, II y III.",w:"Medios (II) pertenece al Sistema Mediático, no al Núcleo."},
+  {t:"Las estrategias II, IV y I.",w:"Medios e Interacción son del Sistema Mediático; solo Identidad es del Núcleo."}
+ ],
+ e:"Núcleo Comunicativo = Identidad, Concepto, Estilo. Sistema Mediático = Medios, Interacción.",
+ r:"Núcleo Comunicativo = el MENSAJE (qué/cómo): Identidad-Concepto-Estilo. Sistema Mediático = la DIFUSIÓN (dónde): Medios-Interacción."},
+
+{t:"Estrategias",d:"Media",
+ q:"El orden correcto para tomar las decisiones estratégicas de la campaña va:",
+ opts:[
+  {t:"Del Sistema Mediático al Núcleo Comunicativo (de lo visible a lo central).",w:"Está invertido: primero lo central (Núcleo), luego lo visible."},
+  {t:"Del Núcleo Comunicativo al Sistema Mediático (de lo central a lo visible).",c:true,w:"Correcto: de lo más esencial (Núcleo) a lo más superficial (Sistema Mediático)."},
+  {t:"De los medios a los contenidos, y de ahí a la identidad.",w:"Invierte la lógica: primero el mensaje, luego los medios."},
+  {t:"Indistinto, ya que todas las estrategias tienen igual jerarquía.",w:"El texto fija un orden explícito: de lo central a lo visible."}
+ ],
+ e:"El orden debe ir de lo más central o esencial (Núcleo Comunicativo) a lo más superficial o visible (Sistema Mediático)."},
+
+{t:"Fase C",d:"Media",
+ q:"La Fase C (Planificación) se describe como el 'centro neurálgico' de la campaña porque:",
+ opts:[
+  {t:"Es donde se mide el cumplimiento final de los objetivos.",w:"Eso es la Evaluación (Fase E)."},
+  {t:"Es donde se seleccionan y diseñan las tácticas con los públicos.",c:true,w:"Correcto: la Planificación define y programa todo el plan de acción."},
+  {t:"Es donde se define la meta general y los públicos de la campaña.",w:"Eso es la Dirección (Fase B)."},
+  {t:"Es donde se ejecutan operativamente las acciones del día a día.",w:"Eso es la Implementación (Fase D)."}
+ ],
+ e:"La Planificación materializa las directrices estratégicas en un plan de acción: es el centro neurálgico donde se seleccionan y diseñan las tácticas con los públicos."},
+
+{t:"Contenidos",d:"Media",
+ q:"Las tres decisiones que implica la etapa de Contenidos son:",
+ opts:[
+  {t:"Identificación, valoración y selección.",w:"Eso corresponde al mix de Medios, no a Contenidos."},
+  {t:"Composición, expresión y formato.",c:true,w:"Correcto: son las tres decisiones de la etapa de Contenidos."},
+  {t:"Alcance, rentabilidad y eficacia.",w:"Son criterios de valoración de los medios (AREA)."},
+  {t:"Contexto, desempeño e impacto.",w:"Son las dimensiones del control táctico."}
+ ],
+ e:"Contenidos = Composición (qué temas/mensajes) + Expresión (tono de voz) + Formato (explicativo/narrativo)."},
+
+{t:"Contenidos",d:"Media",
+ q:"El formato de contenidos 'narrativo' (story-telling) se caracteriza porque:",
+ opts:[
+  {t:"Describe de forma directa las particularidades de la marca.",w:"Eso es el formato explicativo (fact-telling)."},
+  {t:"Construye los contenidos como un relato o historia de marca.",c:true,w:"Correcto: el narrativo presenta los contenidos como relato/historia."},
+  {t:"Consiste solo en datos técnicos y especificaciones del producto.",w:"Eso se acerca al fact-telling, no al story-telling."},
+  {t:"Es incompatible con cualquier formato de tipo explicativo.",w:"Falso: ambos no son contrapuestos; suelen usarse híbridos."}
+ ],
+ e:"Formato explicativo (fact-telling): descripción directa de la marca. Narrativo (story-telling): relato/historia. Habitualmente se aplican formatos híbridos."},
+
+{t:"Contenidos ↔ estrategias",d:"Difícil",type:"Relación",
+ q:"La etapa de Contenidos representa la concreción de las estrategias del:",
+ opts:[
+  {t:"El Sistema Mediático (medios e interacción de la marca).",w:"Ese lo concreta la etapa de Medios, no la de Contenidos."},
+  {t:"El Núcleo Comunicativo (identidad, concepto y estilo).",c:true,w:"Correcto: Contenidos concreta las estrategias de identidad, concepto y estilo."},
+  {t:"El plan plurianual de comunicación de toda la marca.",w:"El plan plurianual es de la gestión estratégica."},
+  {t:"El control táctico (contexto, desempeño e impacto).",w:"El control táctico evalúa la campaña; no lo concretan los contenidos."}
+ ],
+ e:"Contenidos concreta el Núcleo Comunicativo (identidad, concepto, estilo); Medios concreta el Sistema Mediático (medios, interacción).",
+ r:"Cruce clave: Contenidos ↔ Núcleo Comunicativo · Medios ↔ Sistema Mediático."},
+
+{t:"Medios",d:"Media",
+ q:"El proceso para determinar el mix de medios sigue el orden:",
+ opts:[
+  {t:"Selección, luego valoración y, por último, identificación.",w:"Está invertido: primero se identifica, al final se selecciona."},
+  {t:"Identificación, luego valoración y, por último, selección.",c:true,w:"Correcto: identificar el mapa de medios, valorarlos y seleccionar el mix."},
+  {t:"Valoración, luego identificación y, por último, selección.",w:"No se puede valorar sin antes identificar los medios disponibles."},
+  {t:"Identificación, luego selección y, por último, valoración.",w:"La selección es el paso final, posterior a la valoración."}
+ ],
+ e:"Mix de medios: Identificación (mapa de medios) → Valoración (comparar con criterios) → Selección (elegir el mix)."},
+
+{t:"Medios",d:"Media",type:"Excepción",
+ q:"Todos los siguientes son criterios habituales de valoración de los medios, EXCEPTO:",
+ opts:[
+  {t:"Alcance.",w:"Sí es criterio: volumen de personas del público al que se llega."},
+  {t:"Rentabilidad.",w:"Sí es criterio: análisis coste/alcance o coste/beneficio."},
+  {t:"Innovación.",c:true,w:"NO es criterio: la innovación es un signo distintivo del mix de medios."},
+  {t:"Adecuación.",w:"Sí es criterio: conveniencia según contenidos y públicos."}
+ ],
+ e:"Los cuatro criterios de valoración son Alcance, Rentabilidad, Eficacia y Adecuación. La innovación es un rasgo diferenciador del mix, no un criterio.",
+ r:"Criterios de valoración = A-R-E-A (Alcance, Rentabilidad, Eficacia, Adecuación). 'Innovación' y 'creatividad' son rasgos distintivos, no criterios."},
+
+{t:"Medios",d:"Difícil",type:"Combinación",
+ q:"Sobre la clasificación de medios, considere:\nI. Los medios propios son controlados.\nII. Los medios pagados son controlados.\nIII. Los medios ganados son no controlados.\nIV. Los medios digitales son siempre no controlados.\n¿Cuáles son correctas?",
+ opts:[
+  {t:"Las afirmaciones I, II y III.",c:true,w:"Correcto: controlados = propios + pagados; no controlados = ganados."},
+  {t:"Las afirmaciones I, III y IV.",w:"IV es falsa: una web propia es digital y controlada."},
+  {t:"Las afirmaciones II, III y IV.",w:"IV es falsa y omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones.",w:"IV es falsa: digital no equivale a 'no controlado'."}
+ ],
+ e:"Medios controlados = propios y pagados; no controlados = ganados. Analógico/digital es una dimensión independiente del control.",
+ r:"Dos ejes distintos: control (controlados/no controlados) y soporte (analógico/digital). Un medio digital puede ser controlado o no."},
+
+{t:"Medios",d:"Media",
+ q:"Los 'recursos interactivos' en la etapa de Medios se caracterizan por:",
+ opts:[
+  {t:"Transmitir información de forma unidireccional a públicos pasivos.",w:"Eso describe a los recursos expositivos."},
+  {t:"Funcionar como llamados a la acción que fomentan la participación.",c:true,w:"Correcto: los interactivos son 'call to action' que buscan participación."},
+  {t:"Medir la eficacia individual de cada pieza de la campaña.",w:"Eso es función del control, no de los recursos de interacción."},
+  {t:"Asignar los responsables a cada actividad de comunicación.",w:"Eso corresponde a la etapa de Estructura."}
+ ],
+ e:"Recursos expositivos: unidireccionales, para explicar/transmitir. Recursos interactivos: 'call to action' para fomentar opinión, recomendación o acción."},
+
+{t:"Temporización",d:"Difícil",type:"Comparación",
+ q:"¿Cuál afirmación sobre los calendarios de la temporización es correcta?",
+ opts:[
+  {t:"El general es operativo y detalla tareas; el específico es táctico.",w:"Invertido: el general es táctico; el específico, operativo."},
+  {t:"El general es táctico con visión global; el específico, operativo.",c:true,w:"Correcto: general = táctico/visión global; específico = operativo/detalle."},
+  {t:"Ambos son operativos y difieren solamente en su duración total.",w:"No: difieren en su naturaleza (táctico vs. operativo)."},
+  {t:"El calendario específico ofrece la visión panorámica de toda la campaña.",w:"La visión panorámica la da el calendario general."}
+ ],
+ e:"Calendario general: táctico, visión global (qué y cuándo). Calendario específico: operativo, detalle paso a paso de cada acción (cómo y quién).",
+ r:"General = panorámica (táctico). Específico = detalle de cada acción (operativo). Si dudás, 'general = global'."},
+
+{t:"Control",d:"Difícil",type:"Combinación",
+ q:"Respecto a los niveles de control, considere:\nI. El control operativo evalúa cada acción individual.\nII. El control táctico evalúa la campaña en su conjunto.\nIII. El control táctico analiza contexto, desempeño e impacto.\nIV. El control operativo se subdivide en control de realización y de eficacia.\n¿Cuáles son correctas?",
+ opts:[
+  {t:"Las afirmaciones I y II.",w:"Incompletas: III y IV también son correctas según el texto."},
+  {t:"Las afirmaciones I, II y III.",w:"Falta la IV, que también es correcta (realización y eficacia)."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: las cuatro afirmaciones son verdaderas."},
+  {t:"Las afirmaciones II y III.",w:"La I y la IV también son correctas."}
+ ],
+ e:"Control operativo: evalúa cada acción individual y se subdivide en control de realización y de eficacia. Control táctico: evalúa la campaña en conjunto vía contexto, desempeño e impacto.",
+ r:"Operativo = la PIEZA (realización + eficacia). Táctico = el CONJUNTO (contexto + desempeño + impacto)."},
+
+{t:"Control",d:"Media",type:"Excepción",
+ q:"El control táctico analiza la campaña en su conjunto a través de las siguientes dimensiones, EXCEPTO:",
+ opts:[
+  {t:"El contexto.",w:"Sí es dimensión: monitorea cambios del entorno durante la campaña."},
+  {t:"El desempeño.",w:"Sí es dimensión: alineación entre lo planificado y lo ejecutado."},
+  {t:"El impacto.",w:"Sí es dimensión: progreso/logro de resultados en los públicos."},
+  {t:"La rentabilidad.",c:true,w:"NO es dimensión: la rentabilidad es un criterio de valoración de medios."}
+ ],
+ e:"El control táctico analiza contexto, desempeño e impacto. La rentabilidad pertenece a los criterios de valoración de los medios (AREA)."},
+
+{t:"Control — indicadores",d:"Media",
+ q:"¿Por qué es importante vincular cada objetivo con indicadores desde la etapa de Objetivos?",
+ opts:[
+  {t:"Para incrementar el presupuesto de la partida de investigación.",w:"Los indicadores no buscan inflar el presupuesto."},
+  {t:"Para permitir el seguimiento, el control y la evaluación.",c:true,w:"Correcto: sin indicadores no se puede medir el cumplimiento de cada objetivo."},
+  {t:"Para reemplazar por completo la fase de evaluación final.",w:"Los indicadores alimentan la evaluación, no la reemplazan."},
+  {t:"Para definir el tono de voz de los contenidos de la campaña.",w:"El tono de voz es parte de la 'expresión' en Contenidos."}
+ ],
+ e:"Cada objetivo debe vincularse con indicadores para facilitar el seguimiento, el control (etapa 10) y la evaluación del cumplimiento (etapa 15)."},
+
+{t:"Estructura",d:"Difícil",type:"Combinación",
+ q:"La etapa de Estructura considera la definición de:\nI. Responsable de la campaña.\nII. Equipo de trabajo.\nIII. Funciones y responsabilidades.\nIV. Agencias y colaboradores externos.\n¿Cuáles corresponden a esta etapa?",
+ opts:[
+  {t:"Las afirmaciones I y II.",w:"Incompletas: III y IV también forman parte de la Estructura."},
+  {t:"Las afirmaciones I, II y III.",w:"Falta IV (agencias y colaboradores externos)."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: los cuatro aspectos clave de la etapa de Estructura."},
+  {t:"Las afirmaciones III y IV.",w:"También I y II son parte de la Estructura."}
+ ],
+ e:"La Estructura define cuatro cuestiones clave: responsable de campaña, equipo de trabajo, funciones y responsabilidades, y agencias/colaboradores externos.",
+ r:"Este punto suele faltar en los resúmenes: la Estructura no es solo 'quién manda', son 4 cuestiones (responsable, equipo, funciones, externos)."},
+
+{t:"Presupuesto",d:"Media",type:"Excepción",
+ q:"¿Cuál de las siguientes NO es una de las cuatro partidas del presupuesto de campaña?",
+ opts:[
+  {t:"Ejecución.",w:"Sí es partida: cubre la producción y realización de las acciones."},
+  {t:"Administración.",w:"Sí es partida: gastos de gestión y coordinación de la campaña."},
+  {t:"Contingencias.",w:"Sí es partida: reserva para imprevistos ('colchón' de seguridad)."},
+  {t:"Temporización.",c:true,w:"NO es una partida: es una etapa (calendarios), no un componente del presupuesto."}
+ ],
+ e:"Las cuatro partidas son: Ejecución, Administración, Investigación y Contingencias.",
+ r:"4 partidas fijas: Ejecución + Administración + Investigación + Contingencias."},
+
+{t:"Presupuesto — métodos",d:"Difícil",
+ q:"Entre los métodos de asignación presupuestaria, el método 'por objetivos' consiste en:",
+ opts:[
+  {t:"Asignar una cantidad fija prefijada sin un criterio claro.",w:"Eso mezcla los métodos 'por cantidad fija' y 'aleatorio'."},
+  {t:"Definir el presupuesto a partir de la meta y los objetivos.",c:true,w:"Correcto: el método 'por objetivos' parte de la meta y los objetivos."},
+  {t:"Establecer el presupuesto como un porcentaje de las ventas.",w:"Ese es el método 'por porcentaje de ventas'."},
+  {t:"Asignar recursos según el número de actividades a realizar.",w:"Ese es el método 'por cantidad de actividades'."}
+ ],
+ e:"Métodos de asignación: aleatorio/arbitrario, cantidad fija, cantidad de actividades, porcentaje de ventas y por objetivos. No hay método infalible; suele haber parte fija y parte variable.",
+ r:"Contenido que el resumen omite: existen 5 métodos de asignación presupuestaria."},
+
+{t:"Presupuesto ↔ fases",d:"Difícil",type:"Relación",
+ q:"La partida presupuestaria de Investigación se vincula directamente con:",
+ opts:[
+  {t:"Las fases de Análisis (A) y Evaluación (E).",c:true,w:"Correcto: cubre el análisis inicial (Fase A) y la medición final (Fase E)."},
+  {t:"Únicamente la fase de Implementación (D).",w:"La implementación no es el destino principal de esta partida."},
+  {t:"La etapa de Estructura (11) de la campaña.",w:"La Estructura organiza el equipo humano, no la investigación."},
+  {t:"El núcleo comunicativo de la fase de Dirección.",w:"El núcleo comunicativo son estrategias de mensaje, no investigación."}
+ ],
+ e:"La partida de Investigación cubre la obtención de información antes (Fase A), durante (seguimiento) y después (Fase E) de la campaña.",
+ r:"No confundas la PARTIDA 'Investigación' con la FASE A: se vinculan, pero la partida también financia la evaluación (Fase E)."},
+
+{t:"Fase E",d:"Media",
+ q:"La Fase E (Evaluación) tiene como objeto:",
+ opts:[
+  {t:"Definir los públicos y los objetivos de la campaña.",w:"Eso es la Fase B (Dirección)."},
+  {t:"Medir los resultados y el cumplimiento de objetivos.",c:true,w:"Correcto: la Evaluación mide resultados y valora el cumplimiento."},
+  {t:"Seleccionar el mix de medios y de contenidos de la campaña.",w:"Eso es la Fase C (Planificación)."},
+  {t:"Poner en marcha las acciones que fueron planificadas.",w:"Eso es la Fase D (Implementación)."}
+ ],
+ e:"La Evaluación es la fase final: establece la medición de resultados y la valoración del grado de cumplimiento de los objetivos definidos en la Dirección."},
+
+{t:"Feedback / feedforward",d:"Difícil",type:"Comparación",
+ q:"Sobre el feedback y el feedforward en la fase de Evaluación, ¿cuál afirmación es la más precisa según el texto?",
+ opts:[
+  {t:"La evaluación produce únicamente feedforward y reemplaza al feedback.",w:"Inexacto: el texto dice que se obtiene feedback Y también feedforward."},
+  {t:"La evaluación genera feedback y también feedforward para el futuro.",c:true,w:"Correcto: produce ambos; el feedforward aporta a campañas futuras."},
+  {t:"El feedback proyecta al futuro y el feedforward corrige el pasado.",w:"Está invertido: feedback mira atrás; feedforward proyecta."},
+  {t:"El feedforward solo aplica a la gestión estratégica, no a campañas.",w:"El feedforward se plantea para el ciclo de campañas."}
+ ],
+ e:"El texto: la evaluación 'permitirá obtener un feedback... También facilita establecer un feedforward'. El resumen tiende a sobreenfatizar el feedforward, pero se producen ambos.",
+ r:"Feedback = mira atrás (corrige). Feedforward = mira adelante (los resultados de hoy son el análisis de mañana). La evaluación da los DOS."},
+
+{t:"Proceso (integradora)",d:"Difícil",type:"Todas/Ninguna",noShuffle:true,
+ q:"Señale la opción correcta. En relación con el proceso de campaña de Capriotti:",
+ opts:[
+  {t:"El modelo consta de cuatro fases y de doce etapas.",w:"Falso: son cinco fases y quince etapas."},
+  {t:"La Dirección se ubica después de la Planificación.",w:"Falso: la Dirección (B) precede a la Planificación (C)."},
+  {t:"La Implementación es la fase inicial del proceso.",w:"Falso: la fase inicial es el Análisis (A)."},
+  {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
+ ],
+ e:"5 fases y 15 etapas; el orden es A-B-C-D-E (Dirección antes que Planificación; Análisis es la fase inicial). Por eso la respuesta es 'ninguna de las anteriores'.",
+ r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado antes de descartarla."},
+
+{t:"Aplicación integradora",d:"Difícil",type:"Aplicación",
+ q:"Una marca detecta una caída de imagen tras una crisis y lanza una iniciativa de 2 meses, con varias acciones coordinadas dirigidas a periodistas y clientes, para recuperar la confianza. Según Capriotti, esto es:",
+ opts:[
+  {t:"Una acción de comunicación aislada de tipo operativo.",w:"No es aislada: integra varias acciones coordinadas con una meta."},
+  {t:"Una campaña de gestión táctica situacional.",c:true,w:"Correcto: iniciativa específica, integrada, de corto plazo y situacional."},
+  {t:"Un plan plurianual de la gestión estratégica general.",w:"El plurianual es estructural (3-5 años), no una respuesta de 2 meses."},
+  {t:"Un plan anual de comunicación de la organización.",w:"El plan anual organiza un año entero; aquí hay una iniciativa puntual."}
+ ],
+ e:"Reúne los rasgos de campaña: intervención específica, conjunto coordinado de acciones, meta (recuperar confianza), públicos definidos y tiempo limitado situacional (corto plazo).",
+ r:"Si ves varias acciones coordinadas + meta + plazo corto + situación concreta → es una CAMPAÑA táctica."},
+
+{t:"Características del proceso",d:"Media",type:"Todas/Ninguna",
+ q:"¿Cuáles de las siguientes son características del proceso de gestión de una campaña?\nI. Linealidad · II. Especificidad · III. Agilidad · IV. Temporalidad.",
+ opts:[
+  {t:"Solo las afirmaciones I y II.",w:"Incompletas: III y IV también son características del proceso."},
+  {t:"Solo las afirmaciones III y IV.",w:"Incompletas: I y II también lo son."},
+  {t:"Solo las afirmaciones I, II y IV.",w:"Falta III (Agilidad), que también es característica."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: las cuatro son características (junto con 'situacional', la quinta)."}
+ ],
+ e:"Las cinco características del proceso son: Linealidad, Especificidad, Situacional, Agilidad y Temporalidad. Las cuatro listadas son válidas.",
+ r:"Son 5 características: Linealidad, Especificidad, Situacional, Agilidad, Temporalidad."}
+];
+
+const BANK_MARTI = [
+{t:"Conceptos básicos",d:"Media",
+ q:"Según Martí, el orden lógico en que se definen los conceptos de un plan de comunicación es:",
+ opts:[
+  {t:"Tácticas, luego estrategias y, por último, los objetivos.",w:"Está invertido: el plan parte de los objetivos, no de las tácticas."},
+  {t:"Objetivos, luego estrategias y, por último, las tácticas.",c:true,w:"Correcto: primero el qué se quiere lograr, luego el cómo y, por fin, las acciones."},
+  {t:"Estrategias, luego objetivos y, por último, las tácticas.",w:"Los objetivos se fijan antes que la estrategia, que se diseña para alcanzarlos."},
+  {t:"Objetivos, luego tácticas y, por último, las estrategias.",w:"Las tácticas concretan la estrategia, así que van después de ella."}
+ ],
+ e:"Imagen 1 'Qué es qué': Objetivos (los resultados que se quieren lograr) → Estrategias (la forma en que se van a conseguir) → Tácticas (las acciones concretas que se van a ejecutar).",
+ r:"Cadena fija: Objetivo (qué) → Estrategia (cómo) → Táctica (acción concreta)."},
+
+{t:"Metáfora del viaje",d:"Media",
+ q:"En la metáfora del viaje que usa Martí, la estrategia equivale a:",
+ opts:[
+  {t:"El destino final al que se quiere llegar con el viaje.",w:"El destino es el objetivo, no la estrategia."},
+  {t:"La ruta que se elige para llegar hasta ese destino.",c:true,w:"Correcto: fijado el destino (objetivo), la estrategia es elegir la ruta."},
+  {t:"El equipaje y todo lo que se necesita para el viaje.",w:"Eso se asocia a lo operativo/táctico, no a la ruta."},
+  {t:"El imprevisto que obliga a cambiar de rumbo en el camino.",w:"No forma parte de la metáfora que plantea la autora."}
+ ],
+ e:"Martí: una vez fijado el destino (objetivo), es el momento de elegir la ruta (crear la estrategia)."},
+
+{t:"Objetivos",d:"Difícil",
+ q:"Según Martí, ¿por qué factores están definidos los objetivos del plan de comunicación?",
+ opts:[
+  {t:"Por las tácticas elegidas y los proveedores externos contratados.",w:"Las tácticas se derivan de la estrategia; no definen los objetivos."},
+  {t:"Por las prioridades de la institución y el análisis del entorno.",c:true,w:"Correcto: varían según las prioridades y según amenazas y oportunidades del entorno."},
+  {t:"Solo por el presupuesto publicitario del que se dispone.",w:"El presupuesto es un recurso a revisar, no lo que define los objetivos."},
+  {t:"Por las herramientas de comunicación interna que se utilicen.",w:"Las herramientas son medios de ejecución, no el origen de los objetivos."}
+ ],
+ e:"Los objetivos responden a lo que se quiere conseguir; varían según las prioridades de la institución y están definidos por las amenazas y oportunidades del análisis del entorno."},
+
+{t:"Objetivos (SMART)",d:"Media",
+ q:"Para Martí, el acrónimo SMART (en inglés) que describe un buen objetivo corresponde a:",
+ opts:[
+  {t:"Specific, Measurable, Achievable, Realistic, Time-Bound.",c:true,w:"Correcto: específicos, medibles, alcanzables, realistas y temporalizados."},
+  {t:"Simple, Measurable, Attainable, Relevant, Tangible.",w:"Varios términos no corresponden (Simple, Relevant, Tangible)."},
+  {t:"Specific, Meaningful, Achievable, Realistic, Timely.",w:"La M es Measurable (no Meaningful) según el texto."},
+  {t:"Strategic, Measurable, Ambitious, Realistic, Time-Bound.",w:"La S es Specific (no Strategic) y la A es Achievable (no Ambitious)."}
+ ],
+ e:"SMART = Specific (específicos), Measurable (medibles), Achievable (alcanzables), Realistic (realistas) y Time-Bound (temporalizados).",
+ r:"Ojo: en Martí la 'A' es Achievable (alcanzables). En Capriotti la 'A' de SMART es 'Asumibles'. No los mezcles."},
+
+{t:"Objetivos (SMART)",d:"Difícil",
+ q:"En la caracterización SMART de Martí, ¿qué implica que un objetivo sea 'alcanzable' (Achievable)?",
+ opts:[
+  {t:"Que esté cuantificado para contrastarlo con la planificación.",w:"Eso es 'medible', no 'alcanzable'."},
+  {t:"Que se acuerde con los implicados para alinearlos y comprometerlos.",c:true,w:"Correcto: Martí define 'alcanzable' por el consenso y compromiso de los implicados."},
+  {t:"Que se fije el plazo dentro del cual se debe cumplir el objetivo.",w:"Eso es 'temporalizado'."},
+  {t:"Que sea posible lograr el nivel de cambio que refleja el objetivo.",w:"Eso es 'realista', no 'alcanzable'."}
+ ],
+ e:"Martí: Alcanzables = es conveniente hablarlos con todos los implicados para que estén alineados y comprometidos con ellos.",
+ r:"No confundas 'alcanzable' (consenso/compromiso de los implicados) con 'realista' (que el nivel de cambio sea posible)."},
+
+{t:"Objetivos (SMART)",d:"Difícil",
+ q:"Según Martí, que un objetivo sea 'medible' sirve fundamentalmente para:",
+ opts:[
+  {t:"Fijar el plazo dentro del cual debe cumplirse el objetivo.",w:"Eso es 'temporalizado'."},
+  {t:"Contrastarlo con lo planificado y aplicar medidas correctivas.",c:true,w:"Correcto: medir permite comparar con lo planificado y corregir desvíos."},
+  {t:"Alinear y comprometer a todos los implicados en el plan.",w:"Eso es 'alcanzable'."},
+  {t:"Identificar con precisión aquello que se quiere lograr.",w:"Eso es 'específico'."}
+ ],
+ e:"Medibles: al medirlo, se puede contrastar con la planificación y decidir, en caso de variaciones, qué medidas correctivas se van a adoptar."},
+
+{t:"Estrategias",d:"Media",
+ q:"Para Martí, la estrategia de comunicación debe:",
+ opts:[
+  {t:"Ejecutar las acciones concretas en el muy corto plazo.",w:"Eso describe a las tácticas, no a la estrategia."},
+  {t:"Generar los efectos persuasivos que plantean los objetivos.",c:true,w:"Correcto: persigue los efectos persuasivos de los objetivos desde la esencia de la marca."},
+  {t:"Medir el retorno de la inversión de cada influencer.",w:"Eso es una tendencia del marketing de influencers, no la estrategia."},
+  {t:"Ser breve en el tiempo y resultar fácilmente medible.",w:"Esas son características de las tácticas."}
+ ],
+ e:"La estrategia debe generar los efectos persuasivos planteados en los objetivos y plantear una línea comunicativa basada en la esencia de la organización (valores, creencias y principios)."},
+
+{t:"Estrategias (Carrillo)",d:"Difícil",
+ q:"Según la definición de Carrillo que cita Martí, la estrategia de comunicación es un esfuerzo de gestión que hay que realizar:",
+ opts:[
+  {t:"A muy corto plazo, de manera puntual y siempre coyuntural.",w:"Carrillo la define explícitamente a largo plazo."},
+  {t:"A largo plazo, para que la relación con los públicos sume valor.",c:true,w:"Correcto: esfuerzo a largo plazo, alineado con la visión y misión de la empresa."},
+  {t:"Únicamente dentro del ámbito de la comunicación comercial.",w:"Abarca comunicación comercial, corporativa e interna, no solo la comercial."},
+  {t:"Al margen de la visión y la misión global de toda la empresa.",w:"Al contrario: se basa en la visión y misión de la estrategia global."}
+ ],
+ e:"Carrillo (2014): es el esfuerzo de gestión de la comunicación que hay que realizar a largo plazo para que la relación con los públicos de interés sume beneficios, en línea con la visión y misión de la estrategia global de la empresa."},
+
+{t:"Comunicación estratégica",d:"Difícil",
+ q:"La 'comunicación estratégica', según la autora citada por Martí, surge cuando:",
+ opts:[
+  {t:"La comunicación se usa como una herramienta aislada en sí misma.",w:"Es justo lo contrario de lo que plantea el texto."},
+  {t:"Se la pone al servicio de la estrategia y de los objetivos.",c:true,w:"Correcto: esa subordinación a la estrategia da lugar a la comunicación estratégica."},
+  {t:"Se busca comunicar la mayor cantidad posible de mensajes.",w:"El texto aclara que no se trata de cantidad, sino de eficacia."},
+  {t:"Se prioriza el esfuerzo publicitario sobre el enfoque integral.",w:"El éxito depende menos del esfuerzo publicitario y más de lo integral."}
+ ],
+ e:"La comunicación no como herramienta aislada, sino al servicio de la estrategia trazada para el cumplimiento de los objetivos, da lugar a la comunicación estratégica."},
+
+{t:"Estrategias — 5 preguntas",d:"Difícil",type:"Combinación",
+ q:"Al definir una estrategia, Martí propone responder cinco preguntas. Considere:\nI. Qué → ¿Cuál es el mensaje?\nII. A quién → ¿Tipo de público?\nIII. Cómo → ¿En qué momento y con qué frecuencia?\nIV. Dónde → ¿Qué medios se utilizarán?\n¿Cuáles asociaciones son correctas?",
+ opts:[
+  {t:"Las afirmaciones I, II y IV.",c:true,w:"Correcto: la III está mal asignada (esa es la pregunta 'Cuándo')."},
+  {t:"Las afirmaciones I, II y III.",w:"III es falsa: 'Cómo' se refiere a la diferenciación de competidores."},
+  {t:"Las afirmaciones II, III y IV.",w:"III es falsa y omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones.",w:"III es falsa: confunde 'Cómo' con 'Cuándo'."}
+ ],
+ e:"Qué = ¿Cuál es el mensaje? · A quién = ¿Tipo de público? · Cómo = ¿Diferenciación de los competidores? · Cuándo = ¿En qué momento/s y con qué frecuencia? · Dónde = ¿Qué medios?",
+ r:"'Cómo' = diferenciación frente a competidores. 'Cuándo' = momento y frecuencia. No los confundas."},
+
+{t:"Tácticas",d:"Media",
+ q:"Según Martí, las tácticas se caracterizan porque:",
+ opts:[
+  {t:"Abordan un período de tiempo más amplio que la estrategia.",w:"Es al revés: abordan un período más breve que la estrategia."},
+  {t:"Están acotadas en el tiempo y son fácilmente medibles.",c:true,w:"Correcto: son acotadas y medibles, y materializan la estrategia."},
+  {t:"Definen la línea comunicativa basada en la esencia de la marca.",w:"Eso corresponde a la estrategia."},
+  {t:"Constituyen el destino o resultado final que se quiere lograr.",w:"El resultado a alcanzar es el objetivo."}
+ ],
+ e:"Las tácticas permiten desarrollar y concretar las estrategias; deben estar limitadas en el tiempo (más breve que la estrategia) y ser fácilmente medibles."},
+
+{t:"Qué es qué",d:"Difícil",type:"Comparación",
+ q:"¿Cuál de las siguientes asociaciones es correcta según el esquema 'Qué es qué' de Martí?",
+ opts:[
+  {t:"Objetivos: la forma en que se van a conseguir los resultados.",w:"Esa es la definición de estrategias."},
+  {t:"Estrategias: las acciones concretas que se van a ejecutar.",w:"Esa es la definición de tácticas."},
+  {t:"Tácticas: las acciones concretas que se van a ejecutar.",c:true,w:"Correcto: las tácticas son las acciones concretas que se ejecutan."},
+  {t:"Tácticas: los resultados que se quieren conseguir o lograr.",w:"Esa es la definición de objetivos."}
+ ],
+ e:"Objetivos = los resultados que se quieren lograr; Estrategias = la forma en que se van a conseguir; Tácticas = las acciones concretas que se van a ejecutar."},
+
+{t:"Tres ingredientes (Argenti)",d:"Media",
+ q:"Según Argenti (citado por Martí), los tres pilares de una estrategia son: determinar los objetivos de cada comunicación, definir los recursos disponibles y...",
+ opts:[
+  {t:"Realizar un diagnóstico previo de la reputación corporativa.",c:true,w:"Correcto: el tercer pilar es el diagnóstico de la reputación."},
+  {t:"Contratar a los influencers más relevantes de todo el sector.",w:"No es uno de los tres pilares de Argenti."},
+  {t:"Elegir desde el inicio el formato narrativo de los mensajes.",w:"No figura entre los tres ingredientes."},
+  {t:"Diseñar el manual de bienvenida para cada nuevo empleado.",w:"Es solo un ejemplo de táctica/herramienta interna."}
+ ],
+ e:"Los tres ingredientes (Argenti, 2014): determinar los objetivos perseguidos con cada comunicación, definir los recursos disponibles y realizar un diagnóstico previo de la reputación corporativa."},
+
+{t:"Recursos disponibles",d:"Media",type:"Excepción",
+ q:"Al 'definir los recursos disponibles', Martí señala revisar tres elementos. ¿Cuál NO es uno de ellos?",
+ opts:[
+  {t:"El presupuesto disponible.",w:"Sí es uno de los recursos a revisar."},
+  {t:"Los recursos humanos asignados.",w:"Sí es uno de los recursos a revisar."},
+  {t:"El tiempo del que se dispone.",w:"Sí es uno de los recursos a revisar."},
+  {t:"La reputación corporativa.",c:true,w:"NO es un 'recurso': es el tercer ingrediente (el diagnóstico previo)."}
+ ],
+ e:"Para delimitar los recursos hay que revisar el presupuesto, los recursos humanos y el tiempo. La reputación es objeto del tercer ingrediente, no un recurso."},
+
+{t:"Reputación corporativa",d:"Difícil",
+ q:"Según Martí, la credibilidad y legitimidad de una organización se basan principalmente en:",
+ opts:[
+  {t:"En su propia realidad interna, más que en lo que perciben otros.",w:"Es al revés: pesa más la percepción que la realidad propia."},
+  {t:"En la percepción que los públicos tienen, más que en su realidad.",c:true,w:"Correcto: la reputación se basa en la percepción de los públicos."},
+  {t:"En el volumen de inversión publicitaria en los medios masivos.",w:"La inversión no determina por sí sola la credibilidad."},
+  {t:"En la cantidad de herramientas de comunicación que la marca usa.",w:"La cantidad de herramientas no define la reputación."}
+ ],
+ e:"La credibilidad y legitimidad se basan en la percepción que las partes y públicos tienen de la organización, más que en su propia realidad.",
+ r:"Reputación = percepción de los públicos por encima de la realidad objetiva."},
+
+{t:"Auditoría de comunicación",d:"Media",
+ q:"La herramienta que Martí destaca para obtener un diagnóstico preciso de la reputación es:",
+ opts:[
+  {t:"El plan de medios con enfoque 360°.",w:"El enfoque 360° es de difusión, no la herramienta de diagnóstico citada."},
+  {t:"La auditoría de comunicación.",c:true,w:"Correcto: mide la efectividad y cómo es percibida la comunicación."},
+  {t:"El branded content de la marca.",w:"Es una técnica de contenidos, no una herramienta de diagnóstico."},
+  {t:"El marketing de guerrilla.",w:"Es una herramienta externa de difusión, no de diagnóstico."}
+ ],
+ e:"La auditoría de comunicación es una herramienta de gran utilidad para obtener un diagnóstico preciso: mide la efectividad de la comunicación y cómo es percibida."},
+
+{t:"Elegir el canal",d:"Media",
+ q:"Al 'elegir el canal de comunicación apropiado', Martí subraya la necesidad de:",
+ opts:[
+  {t:"Limitarse solo a los medios offline más tradicionales.",w:"El texto pide dominar tanto on como offline."},
+  {t:"Dominar los medios on y offline ante un ciclo 24/7.",c:true,w:"Correcto: el ciclo en tiempo real exige dominar medios on y offline."},
+  {t:"Concentrar todo en un único canal para dar coherencia.",w:"Plantea una multiplicidad de posibilidades, no un único canal."},
+  {t:"Priorizar siempre lo interno por encima de lo externo.",w:"No establece esa jerarquía al elegir el canal."}
+ ],
+ e:"El ciclo de información en tiempo real, 24 horas y 7 días, exige un dominio de medios on y offline."},
+
+{t:"Tiempos y posibilidades",d:"Difícil",type:"Combinación",
+ q:"En el esquema 'Tiempos y posibilidades', Martí asocia tipos de comunicación con herramientas. Considere:\nI. Interna → newsletter, intranet.\nII. Institucional → rueda de prensa, web corporativa, redes sociales.\nIII. Comercial → influencers, publicidad en revistas, banners.\nIV. Interna → influencers y banners.\n¿Cuáles asociaciones son correctas?",
+ opts:[
+  {t:"Las afirmaciones I, II y III.",c:true,w:"Correcto: la IV es falsa (influencers y banners son comunicación comercial)."},
+  {t:"Las afirmaciones I, II y IV.",w:"IV es falsa: esos elementos son de la comunicación comercial."},
+  {t:"Las afirmaciones II, III y IV.",w:"IV es falsa y omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones.",w:"IV es falsa."}
+ ],
+ e:"Interna: newsletter, intranet. Institucional: rueda de prensa, web corporativa, redes sociales. Comercial: influencers, publicidad en revistas, banners."},
+
+{t:"Estructura del mensaje",d:"Difícil",type:"Comparación",
+ q:"Según Rodríguez Ardura (citado por Martí), ¿qué distingue a los mensajes racionales de los emocionales?",
+ opts:[
+  {t:"Los racionales despiertan sentimientos; los emocionales argumentan.",w:"Está invertido."},
+  {t:"Los racionales usan argumentos; los emocionales, sentimientos.",c:true,w:"Correcto: racional = cognitivo/argumentos; emocional = afectivo/notoriedad."},
+  {t:"Ambos se dirigen solo a los aspectos cognitivos del consumidor.",w:"Los emocionales apelan a lo afectivo, no a lo cognitivo."},
+  {t:"Los emocionales evalúan méritos; los racionales generan afecto.",w:"Está invertido respecto del texto."}
+ ],
+ e:"Mensajes racionales: solidez de argumentos sobre las cualidades del producto, inciden en lo cognitivo y facilitan evaluar méritos. Emocionales: despiertan sentimientos, llaman la atención y aumentan la notoriedad.",
+ r:"Racional = argumentos/cualidades/cognitivo. Emocional = sentimientos/notoriedad/afectivo."},
+
+{t:"Premisas de la comunicación",d:"Media",
+ q:"Las dos premisas que, según Martí, hay que tener siempre presentes son:",
+ opts:[
+  {t:"Que solo comunica lo que se dice de forma verbal y planificada.",w:"El texto afirma que TODO comunica, también lo no verbal y lo espontáneo."},
+  {t:"Que todo comunica y siempre, por múltiples vías y registros.",c:true,w:"Correcto: todo comunica, en todo momento, de forma multicanal y diversa."},
+  {t:"Que la comunicación interna pesa más que la externa siempre.",w:"No es una de las dos premisas planteadas."},
+  {t:"Que el éxito depende sobre todo del esfuerzo en publicidad.",w:"El texto sostiene lo contrario."}
+ ],
+ e:"Premisa 1: todo, absolutamente todo comunica, y en todo momento. Premisa 2: la comunicación es inmediata, multicanal, consciente, inconsciente, formal, informal, verbal, no verbal, individual, colectiva, planificada y espontánea."},
+
+{t:"Comunicación 360°",d:"Difícil",
+ q:"La comunicación 360° que describe Martí se caracteriza porque:",
+ opts:[
+  {t:"Cada acción interna y externa parte de objetivos distintos.",w:"Al contrario: parten de objetivos comunes y un mensaje similar."},
+  {t:"Las acciones internas y externas parten de objetivos comunes.",c:true,w:"Correcto: modelo integral, mensaje coherente y refuerzo armónico."},
+  {t:"Se centra solo en los medios sociales y deja los tradicionales.",w:"Integra medios tradicionales y sociales, no descarta ninguno."},
+  {t:"Suprime la diferencia entre comunicación interna y externa.",w:"Para una 360° eficaz es necesario diferenciar interna y externa."}
+ ],
+ e:"La 360° se soporta en un modelo integral; las acciones internas y externas parten de objetivos comunes con un mensaje que se refuerza de forma armónica y congruente con todos los públicos."},
+
+{t:"Interna vs. externa",d:"Difícil",
+ q:"¿Por qué Martí considera a los trabajadores 'prescriptores fundamentales'?",
+ opts:[
+  {t:"Porque son los usuarios finales de los productos de la marca.",w:"Los usuarios finales son el destinatario de la comunicación externa."},
+  {t:"Porque comparten los valores y generan sentido de pertenencia.",c:true,w:"Correcto: trabajadores que conocen y comparten los valores se vuelven prescriptores."},
+  {t:"Porque son quienes definen el presupuesto de publicidad anual.",w:"No es el motivo que señala la autora."},
+  {t:"Porque reemplazan a los influencers en la parte comercial.",w:"No es lo que plantea el texto."}
+ ],
+ e:"La comunicación interna mejora la relación con los trabajadores (prescriptores fundamentales): al conocer y compartir los principios y valores generan sentido de pertenencia e integración."},
+
+{t:"Herramientas internas",d:"Media",type:"Excepción",
+ q:"¿Cuál de las siguientes NO es una herramienta de comunicación interna según Martí?",
+ opts:[
+  {t:"El buzón de sugerencias del personal.",w:"Sí es interna."},
+  {t:"El manual de bienvenida al empleado.",w:"Sí es interna."},
+  {t:"La rueda de prensa con periodistas.",c:true,w:"NO es interna: es una actividad de comunicación externa/institucional (RR.PP.)."},
+  {t:"La revista corporativa de la empresa.",w:"Sí es interna."}
+ ],
+ e:"Las herramientas internas incluyen reuniones, newsletter, revista corporativa, circular, cartelería, intranet, red social profesional, buzón de sugerencias, desayuno de trabajo, eventos internos, videoconferencia, manual de bienvenida y encuestas. La rueda de prensa es externa."},
+
+{t:"Publicidad",d:"Difícil",
+ q:"Según Martí, ¿cuál de los siguientes es un medio NO convencional de la publicidad?",
+ opts:[
+  {t:"La televisión nacional.",w:"Es un medio convencional."},
+  {t:"Los diarios de tirada general.",w:"Son un medio convencional."},
+  {t:"El mailing personalizado.",c:true,w:"Correcto: el mailing personalizado es un medio no convencional."},
+  {t:"El cine en salas comerciales.",w:"Es un medio convencional."}
+ ],
+ e:"Convencionales: TV, Internet, diarios, exterior, revistas, suplementos, dominicales y cine. No convencionales: ferias/exposiciones, mailing personalizado, marketing telefónico y tarjetas de fidelización offline."},
+
+{t:"Publicidad — fines",d:"Media",type:"Todas/Ninguna",
+ q:"Según Martí, ¿cuáles de los siguientes son fines posibles de la publicidad?\nI. Informar y aumentar las ventas.\nII. Fidelizar y crear imagen de marca.\nIII. Posicionar y despertar necesidades.\nIV. Persuadir al consumidor.",
+ opts:[
+  {t:"Solo las afirmaciones I y II.",w:"Incompletas: III y IV también son fines de la publicidad."},
+  {t:"Solo las afirmaciones I, II y III.",w:"Falta IV (persuadir), que también es un fin."},
+  {t:"Solo las afirmaciones III y IV.",w:"También I y II son fines de la publicidad."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: la publicidad puede perseguir todos esos fines."}
+ ],
+ e:"La publicidad puede informar, aumentar las ventas, fidelizar, crear imagen de marca, posicionarla, despertar necesidades y persuadir al consumidor."},
+
+{t:"Relaciones públicas",d:"Media",
+ q:"Las relaciones públicas, según Martí, buscan principalmente:",
+ opts:[
+  {t:"Un alza rápida y temporal de las ventas con incentivos.",w:"Eso describe a las promociones."},
+  {t:"Conseguir credibilidad y confianza ante los públicos.",c:true,w:"Correcto: las RR.PP. buscan credibilidad y confianza."},
+  {t:"Segmentar el mercado y medir resultados de forma directa.",w:"Eso es el marketing directo."},
+  {t:"Lograr máxima difusión mediática con una inversión mínima.",w:"Eso es el marketing de guerrilla."}
+ ],
+ e:"Las relaciones públicas permiten conseguir credibilidad y confianza, y se dirigen tanto a públicos directos como indirectos (comunicados, ruedas de prensa, blogs, patrocinio, etc.)."},
+
+{t:"Marketing directo",d:"Difícil",
+ q:"¿A qué debe su éxito el marketing directo según Martí?",
+ opts:[
+  {t:"A reforzar la imagen de marca con acciones multicanal.",w:"Eso es propio del patrocinio de eventos."},
+  {t:"A segmentar bien los públicos y medir de forma directa.",c:true,w:"Correcto: segmentación precisa más medición directa de resultados."},
+  {t:"A usar técnicas poco convencionales con baja inversión.",w:"Eso es el marketing de guerrilla."},
+  {t:"A las recomendaciones que se propagan entre consumidores.",w:"Eso es el marketing boca-oreja."}
+ ],
+ e:"El éxito del marketing directo se debe a la posibilidad de segmentar el mercado en públicos objetivos bien definidos y de evaluar los resultados de forma directa y medible."},
+
+{t:"Herramientas externas",d:"Difícil",type:"Excepción",
+ q:"Relacione cada herramienta externa con su rasgo distintivo. ¿Cuál asociación es INCORRECTA?",
+ opts:[
+  {t:"Promociones: incentivos para subir rápido y temporalmente las ventas.",w:"Asociación correcta."},
+  {t:"Patrocinio de eventos: refuerza la imagen con acciones multicanal.",w:"Asociación correcta."},
+  {t:"Marketing de guerrilla: técnicas poco usuales con baja inversión.",w:"Asociación correcta."},
+  {t:"Boca-oreja: promociona una idea o servicio con medios pagados.",c:true,w:"INCORRECTA: eso es la publicidad; el boca-oreja son recomendaciones entre consumidores."}
+ ],
+ e:"El marketing boca-oreja son recomendaciones entre consumidores que se propagan de forma exponencial (potenciadas por las redes y los influencers). Lo descrito en esa opción corresponde a la publicidad."},
+
+{t:"Publicidad en Internet",d:"Media",type:"Excepción",
+ q:"Entre las ventajas de la publicidad en Internet que menciona Martí, ¿cuál NO figura?",
+ opts:[
+  {t:"Alta efectividad y bajo coste para la marca.",w:"Sí figura entre sus ventajas."},
+  {t:"Facilidad de uso y de medición de resultados.",w:"Sí figura entre sus ventajas."},
+  {t:"Flexibilidad en los formatos disponibles.",w:"Sí figura entre sus ventajas."},
+  {t:"Viralidad garantizada y asegurada siempre.",c:true,w:"NO se menciona: la viralidad nunca está 'asegurada'."}
+ ],
+ e:"Ventajas de la publicidad en Internet: alta efectividad, bajo coste, facilidad de uso, facilidad de medición y flexibilidad (modalidades: banners, pop-up, e-mail marketing, RRSS, SEO, SEM)."},
+
+{t:"Marketing de guerrilla",d:"Media",
+ q:"¿Cuál de los siguientes es un ejemplo de marketing de guerrilla según Martí?",
+ opts:[
+  {t:"Los banners y las ventanas pop-up en webs.",w:"Son modalidades de publicidad en Internet."},
+  {t:"Los flashmobs y los vídeos virales.",c:true,w:"Correcto: junto con el ambient marketing y la publicidad encubierta."},
+  {t:"Los cupones de descuento y los packs 3x2.",w:"Son técnicas de promociones."},
+  {t:"Las newsletters y la revista corporativa.",w:"Son herramientas de comunicación interna."}
+ ],
+ e:"El marketing de guerrilla usa técnicas poco convencionales con inversión mínima: ambient marketing, publicidad encubierta, vídeos virales y flashmobs."},
+
+{t:"Marketing boca-oreja",d:"Media",
+ q:"El marketing boca-oreja, según Martí, gana fuerza especialmente gracias a:",
+ opts:[
+  {t:"Los medios convencionales, como la televisión.",w:"El texto destaca el mundo digital, no los convencionales."},
+  {t:"El mundo digital y las redes sociales.",c:true,w:"Correcto: las redes y los influencers potencian el boca-oreja."},
+  {t:"La auditoría de comunicación de la empresa.",w:"Es una herramienta de diagnóstico, no impulsa el boca-oreja."},
+  {t:"El patrocinio de grandes eventos deportivos.",w:"Es otra herramienta externa distinta."}
+ ],
+ e:"Las recomendaciones entre consumidores se propagan de manera exponencial gracias al mundo digital y, sobre todo, a las redes sociales; aquí los influencers tienen mucho que decir."},
+
+{t:"Branded content",d:"Difícil",type:"Combinación",
+ q:"Según ADECEC (citado por Martí), el auge del branded content y el storytelling se asocia a rasgos como:\nI. La simplificación.\nII. La conexión emocional.\nIII. La credibilidad.\nIV. El aporte de valor.",
+ opts:[
+  {t:"Solo los rasgos I y III.",w:"Incompletos: II y IV también son rasgos."},
+  {t:"Solo los rasgos II y IV.",w:"Incompletos: I y III también lo son."},
+  {t:"Solo los rasgos I, II y III.",w:"Falta IV (el aporte de valor)."},
+  {t:"Los cuatro rasgos.",c:true,w:"Correcto: además se suma la extensión a toda industria o marca."}
+ ],
+ e:"Rasgos del branded content/storytelling: simplificación, conexión, credibilidad, aporte de valor y extensión a toda industria o marca."},
+
+{t:"Storytelling vs. storydoing",d:"Difícil",type:"Comparación",
+ q:"¿Cuál es la diferencia entre storytelling y storydoing según Martí?",
+ opts:[
+  {t:"El storytelling hace participar; el storydoing solo cuenta.",w:"Está invertido."},
+  {t:"El storytelling cuenta; el storydoing hace participar.",c:true,w:"Correcto: contar (telling) frente a hacer/participar (doing)."},
+  {t:"Ambos son sinónimos de la publicidad encubierta de marca.",w:"No lo son; son enfoques de narrativa de marca."},
+  {t:"El storydoing es interno y el storytelling es externo.",w:"No es una distinción interna/externa."}
+ ],
+ e:"El storytelling son historias contadas; el storydoing promueve la participación activa de las audiencias para que sean protagonistas de las narraciones.",
+ r:"Storytelling = contar. Storydoing = hacer/participar (audiencia protagonista)."},
+
+{t:"Tendencias",d:"Difícil",
+ q:"El término 'phigital' que aparece en el texto de Martí hace referencia a:",
+ opts:[
+  {t:"La sustitución total de lo físico por lo digital.",w:"No sustituye: combina ambos."},
+  {t:"La unión de la experiencia física con lo digital.",c:true,w:"Correcto: 'phigital' = físico más digital."},
+  {t:"Un tipo de marketing telefónico de proximidad.",w:"Eso se acerca al bluetooth o marketing de proximidad."},
+  {t:"Una modalidad de publicidad pensada para móviles.",w:"No es una modalidad publicitaria móvil."}
+ ],
+ e:"La era 'phigital' alude a experiencias de relación con la marca con un alto componente físico, ahora unido a lo digital."},
+
+{t:"Influencers",d:"Media",
+ q:"Según Martí, ¿qué se erige como la clave para construir relaciones duraderas entre marcas y consumidores?",
+ opts:[
+  {t:"El volumen total de la inversión publicitaria de la marca.",w:"No es lo que el texto identifica como clave."},
+  {t:"La confianza en un influencer honesto o un vendedor digital.",c:true,w:"Correcto: la confianza es la clave."},
+  {t:"La cantidad de seguidores que llegue a tener el influencer.",w:"El texto valora la confianza y la autenticidad, no el número de seguidores."},
+  {t:"La saturación de contenidos que hoy existe en las redes.",w:"La saturación es un problema, no una clave de relación."}
+ ],
+ e:"La confianza se erige como la clave para construir relaciones duraderas, apoyándose en un influencer honesto y confiable o en un 'vendedor digital'."},
+
+{t:"Tendencias influencers",d:"Difícil",type:"Excepción",
+ q:"Entre las ocho tendencias de éxito en marketing de influencers que recoge Martí, ¿cuál NO figura?",
+ opts:[
+  {t:"Los microinfluencers ganan cada vez más terreno.",w:"Sí figura (tendencia 1)."},
+  {t:"La autenticidad del mensaje será muy importante.",w:"Sí figura (tendencia 3)."},
+  {t:"Hay que medir los resultados y el ROI generado.",w:"Sí figura (tendencia 5)."},
+  {t:"Priorizar siempre las relaciones pagadas con ellos.",c:true,w:"NO figura: la tendencia es establecer relaciones NO pagadas y combinarlas."}
+ ],
+ e:"Las 8 tendencias: microinfluencers, relaciones no pagadas, autenticidad, gestionar mejor la relación, medir resultados, llegada de la IA, relaciones a largo plazo y que lo importante es la influencia."},
+
+{t:"Microinfluencers",d:"Media",
+ q:"¿Por qué, según el texto, los microinfluencers 'ganan terreno'?",
+ opts:[
+  {t:"Porque impactan en el mayor número posible de consumidores.",w:"Justamente impactan en un número menor, pero más valioso."},
+  {t:"Porque conectan con audiencias muy especializadas.",c:true,w:"Correcto: calidad y especialización por encima del volumen."},
+  {t:"Porque siempre trabajan con relaciones de tipo pagado.",w:"El texto no asocia microinfluencers con relaciones pagadas."},
+  {t:"Porque la inteligencia artificial termina reemplazándolos.",w:"La IA es otra tendencia distinta."}
+ ],
+ e:"Se valora más a los influencers que, aunque impactan en un número menor de consumidores, conectan con audiencias muy valiosas por su alto nivel de especialización."},
+
+{t:"Integradora",d:"Difícil",type:"Todas/Ninguna",noShuffle:true,
+ q:"Señale la opción correcta sobre el capítulo de Martí.",
+ opts:[
+  {t:"Los objetivos se definen después de las tácticas.",w:"Falso: los objetivos van primero (Objetivo → Estrategia → Táctica)."},
+  {t:"La estrategia es una herramienta aislada de los objetivos.",w:"Falso: la estrategia se pone al servicio de los objetivos."},
+  {t:"La comunicación 360° descarta los medios tradicionales.",w:"Falso: integra tradicionales y sociales."},
+  {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
+ ],
+ e:"Los objetivos se definen primero; la estrategia se subordina a ellos; y la 360° integra medios tradicionales y sociales. Por eso, ninguna de las anteriores es correcta.",
+ r:"En preguntas con 'ninguna de las anteriores', validá cada afirmación por separado antes de descartarla."},
+
+{t:"Aplicación",d:"Difícil",type:"Aplicación",
+ q:"Una empresa lanza muestras gratuitas y un 3x2 para incrementar rápidamente sus ventas durante un mes. Según la clasificación de Martí, esto corresponde a:",
+ opts:[
+  {t:"A las relaciones públicas.",w:"Las RR.PP. buscan credibilidad y confianza, no un alza rápida de ventas."},
+  {t:"A las promociones.",c:true,w:"Correcto: incentivos que buscan un incremento rápido y temporal de las ventas."},
+  {t:"Al marketing de guerrilla.",w:"Usa técnicas poco convencionales para difusión, no incentivos de venta."},
+  {t:"Al branded content.",w:"Es una técnica de contenidos de marca, no un incentivo promocional."}
+ ],
+ e:"Las muestras gratuitas y el 3x2 son técnicas de promociones: incentivos para el consumidor que buscan un incremento rápido y temporal de las ventas."},
+
+{t:"Comunicación eficaz",d:"Difícil",
+ q:"Según Martí (a partir del primer ingrediente de Argenti), ¿cuándo se considera eficaz una comunicación?",
+ opts:[
+  {t:"Cuando llega al mayor número posible de receptores.",w:"La eficacia no se mide por volumen de alcance."},
+  {t:"Cuando logra en el receptor la respuesta deseada.",c:true,w:"Correcto: eficaz = logra la respuesta buscada en el receptor."},
+  {t:"Cuando usa a la vez todos los canales disponibles.",w:"Usar más canales no garantiza eficacia."},
+  {t:"Cuando reduce al mínimo el presupuesto invertido.",w:"El ahorro no es el criterio de eficacia."}
+ ],
+ e:"Hay que preguntar qué quiere la organización que haga cada receptor como resultado de la comunicación: esta se considera eficaz en la medida en que consigue en el receptor la respuesta deseada."}
+];
+
+const TEXTS = [
+  {id:"capriotti", title:"Capriotti (2024)", subtitle:"Campañas de Comunicación",
+   desc:"Capriotti (2024), Campañas de Comunicación (Guía Práctica). Del concepto de campaña a las 15 etapas del proceso, con las trampas conceptuales y los matices del texto original. Corrección detallada por pregunta.",
+   bank:BANK_CAPRIOTTI},
+  {id:"marti", title:"Martí (2017)", subtitle:"Estrategias de Comunicación",
+   desc:"Martí (2017), Estrategias de Comunicación (en 'Plan de comunicación on y off en la práctica'). Objetivos/estrategias/tácticas, los 3 ingredientes, comunicación 360°, herramientas internas y externas, branded content, storydoing e influencers.",
+   bank:BANK_MARTI}
+];
+let currentTextId = "capriotti";
+function currentBank(){return TEXTS.find(t=>t.id===currentTextId).bank;}
+
+/* ============ LÓGICA ============ */
+const $ = id => document.getElementById(id);
+let order=[], cur=0, score=0, answered=false, picked=-1, wrongIds=[], sessionQs=[];
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function buildSession(){
+  const dif=$("optDif").value;
+  let pool=currentBank().map((q,i)=>({q,i})).filter(x=>dif==="all"||x.q.d===dif);
+  if($("optShuffleQ").checked) shuffle(pool);
+  sessionQs = pool.map(x=>{
+    const q=x.q;
+    let opts=q.opts.map((o,oi)=>({...o,oi}));
+    if($("optShuffleO").checked && !q.noShuffle) shuffle(opts);
+    return {...q, _opts:opts};
+  });
+}
+
+function start(){
+  buildSession();
+  if(sessionQs.length===0){alert("No hay preguntas para ese filtro.");return;}
+  cur=0;score=0;wrongIds=[];
+  $("home").style.display="none";
+  $("results").style.display="none";
+  $("quiz").style.display="block";
+  render();
+}
+
+function render(){
+  answered=false;picked=-1;
+  const q=sessionQs[cur];
+  $("qIndex").textContent=(cur+1)+" / "+sessionQs.length;
+  $("qTopic").textContent=q.t;
+  const dEl=$("qDif");dEl.textContent=q.d;dEl.className="badge dif-"+q.d;
+  const tEl=$("qType");
+  if(q.type){tEl.style.display="";tEl.textContent=q.type;tEl.className="badge type";}else{tEl.style.display="none";}
+  $("bar").style.width=(cur/sessionQs.length*100)+"%";
+  $("stem").textContent=q.q;
+  $("score").textContent=score;
+
+  const box=$("opts");box.innerHTML="";
+  q._opts.forEach((o,idx)=>{
+    const b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML='<span class="lab">'+String.fromCharCode(65+idx)+'</span><span class="otxt">'+o.t+
+                '</span><span class="mark"></span><div class="why">'+o.w+'</div>';
+    b.onclick=()=>pick(idx);
+    box.appendChild(b);
+  });
+  $("feedback").className="feedback";
+  $("checkBtn").style.display="";$("checkBtn").disabled=true;
+  $("nextBtn").style.display="none";
+  $("nextBtn").textContent = (cur===sessionQs.length-1)?"Ver resultados":"Siguiente →";
+}
+
+function pick(idx){
+  if(answered)return;
+  picked=idx;
+  [...$("opts").children].forEach((el,i)=>el.classList.toggle("sel",i===idx));
+  $("checkBtn").disabled=false;
+}
+
+function check(){
+  if(answered||picked<0)return;
+  answered=true;
+  const q=sessionQs[cur];
+  const opts=[...$("opts").children];
+  opts.forEach((el,i)=>{
+    el.classList.add("locked");
+    const correct=q._opts[i].c===true;
+    const mk=el.querySelector(".mark");
+    if(correct){el.classList.add("correct");mk.textContent="✓";}
+    if(i===picked&&!correct){el.classList.add("wrong");mk.textContent="✗";}
+  });
+  const isOk=q._opts[picked].c===true;
+  if(isOk)score++; else wrongIds.push(cur);
+  $("score").textContent=score;
+
+  $("resLine").innerHTML = isOk
+    ? '<span class="res-ok">✓ ¡Correcto!</span>'
+    : '<span class="res-bad">✗ Incorrecto</span>';
+  $("expl").innerHTML="<b>Por qué:</b> "+q.e;
+  const _ct=TEXTS.find(t=>t.id===currentTextId);
+  $("ref").innerHTML="📖 <b>Referencia:</b> "+q.t+(q.type?" · "+q.type:"")+" — "+_ct.title+", "+_ct.subtitle+".";
+  if(q.r){$("rule").style.display="";$("rule").innerHTML="💡 <b>Regla práctica:</b> "+q.r;}
+  else{$("rule").style.display="none";}
+  $("feedback").className="feedback show";
+  $("checkBtn").style.display="none";
+  $("nextBtn").style.display="";
+  $("bar").style.width=((cur+1)/sessionQs.length*100)+"%";
+}
+
+function next(){
+  if(cur<sessionQs.length-1){cur++;render();window.scrollTo({top:0,behavior:"smooth"});}
+  else finish();
+}
+
+function finish(){
+  $("quiz").style.display="none";
+  $("results").style.display="block";
+  const tot=sessionQs.length, ok=score, pct=Math.round(ok/tot*100);
+  $("finalPct").textContent=pct+"%";
+  $("rOk").textContent=ok;$("rBad").textContent=tot-ok;$("rTot").textContent=tot;
+  let msg;
+  if(pct>=90)msg="Excelente. Dominás el tema; llegás al parcial con margen.";
+  else if(pct>=75)msg="Muy bien. Repasá las falladas y quedás sólido.";
+  else if(pct>=60)msg="Aprobado justo. Conviene reforzar los conceptos que confundís.";
+  else msg="A reforzar: repasá el texto original y volvé a intentar.";
+  $("finalLine").textContent=msg;
+  $("review").innerHTML="";
+}
+
+function showReview(){
+  const r=$("review");
+  if(wrongIds.length===0){r.innerHTML='<div class="card center muted">No fallaste ninguna. 🎉</div>';return;}
+  r.innerHTML='<h2 style="margin:18px 0 6px">Preguntas que fallaste</h2>';
+  wrongIds.forEach(ci=>{
+    const q=sessionQs[ci];
+    const corr=q._opts.find(o=>o.c===true);
+    const div=document.createElement("div");
+    div.className="review-item";
+    div.innerHTML='<div class="q">'+q.q.replace(/\n/g,"<br>")+'</div>'+
+      '<div class="muted"><b class="res-ok">Correcta:</b> '+corr.t+'</div>'+
+      '<div class="muted" style="margin-top:6px"><b>Por qué:</b> '+q.e+'</div>'+
+      (q.r?'<div class="rule" style="margin-top:8px">💡 '+q.r+'</div>':'');
+    r.appendChild(div);
+  });
+  r.scrollIntoView({behavior:"smooth"});
+}
+
+function redoWrong(){
+  if(wrongIds.length===0){alert("No hay preguntas falladas para repetir.");return;}
+  sessionQs = wrongIds.map(i=>sessionQs[i]);
+  cur=0;score=0;wrongIds=[];
+  $("results").style.display="none";$("quiz").style.display="block";
+  render();window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function home(){
+  $("quiz").style.display="none";$("results").style.display="none";$("home").style.display="block";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// eventos
+function renderMenu(){
+  const m=$("textMenu");m.innerHTML="";
+  TEXTS.forEach(t=>{
+    const div=document.createElement("button");
+    div.className="textcard"+(t.id===currentTextId?" active":"");
+    div.innerHTML='<div class="tc-title">'+t.title+'</div><div class="tc-sub">'+t.subtitle+
+                  '</div><div class="tc-meta">'+t.bank.length+' preguntas</div>';
+    div.onclick=()=>selectText(t.id);
+    m.appendChild(div);
+  });
+}
+function selectText(id){
+  currentTextId=id;
+  renderMenu();
+  const t=TEXTS.find(x=>x.id===id);
+  $("introText").textContent=t.desc;
+  $("qcount").textContent=t.bank.length;
+  $("startBtn").textContent="Comenzar: "+t.subtitle+" ▶";
+}
+renderMenu();
+selectText(currentTextId);
+$("startBtn").onclick=start;
+$("checkBtn").onclick=check;
+$("nextBtn").onclick=next;
+$("quitBtn").onclick=()=>{if(confirm("¿Salir de la práctica? Se perderá el progreso actual."))home();};
+$("reviewBtn").onclick=showReview;
+$("redoWrongBtn").onclick=redoWrong;
+$("restartBtn").onclick=home;
+
+document.addEventListener("keydown",e=>{
+  if($("quiz").style.display==="none")return;
+  if(["1","2","3","4"].includes(e.key)){const i=+e.key-1;if(i<sessionQs[cur]._opts.length)pick(i);}
+  const k=e.key.toLowerCase();
+  if(["a","b","c","d"].includes(k)){const i=k.charCodeAt(0)-97;if(i<sessionQs[cur]._opts.length)pick(i);}
+  if(e.key==="Enter"){e.preventDefault(); if(!answered){if(picked>=0)check();} else next();}
+});
+</script>
+</body>
+</html>
