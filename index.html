@@ -1588,6 +1588,515 @@ const BANK_ROMEO = [
  r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."}
 ];
 
+const BANK_META = [
+{t:"Tecnologías de Meta",d:"Media",
+ q:"¿Cuáles son las tecnologías de Meta donde un anunciante puede conectarse con las personas?",
+ opts:[
+  {t:"Facebook, Messenger, Instagram y Audience Network.",c:true,w:"Correcto: son las cuatro tecnologías de Meta que menciona la guía."},
+  {t:"Facebook, TikTok, Instagram y YouTube.",w:"TikTok y YouTube no son tecnologías de Meta."},
+  {t:"Facebook, Messenger, LinkedIn y Pinterest.",w:"LinkedIn y Pinterest no pertenecen a Meta."},
+  {t:"Instagram, WhatsApp, X y Audience Network.",w:"X no es de Meta; las cuatro citadas no incluyen WhatsApp como tecnología publicitaria principal aquí."}
+ ],
+ e:"Las tecnologías de Meta donde el anunciante puede conectarse con las personas son Facebook, Messenger, Instagram y Audience Network."},
+
+{t:"Audience Network",d:"Media",
+ q:"Audience Network, según la guía, es:",
+ opts:[
+  {t:"Una red de miles de apps más allá de Facebook e Instagram.",c:true,w:"Correcto: extiende el alcance de los anuncios a miles de apps."},
+  {t:"La bandeja de entrada de los mensajes de Messenger.",w:"Esa es una ubicación de Messenger, no Audience Network."},
+  {t:"El administrador de anuncios donde se crean campañas.",w:"El administrador de anuncios es otra herramienta distinta."},
+  {t:"Un formato de anuncio que ocupa la pantalla completa.",w:"Eso describe a un formato/ubicación, no a Audience Network."}
+ ],
+ e:"Audience Network es una red compuesta por miles de apps más allá de Facebook e Instagram; permite ampliar el alcance de los anuncios."},
+
+{t:"Briefing",d:"Media",
+ q:"Según la guía, el primer paso para definir una estrategia de contenido es:",
+ opts:[
+  {t:"Elaborar el briefing de la campaña.",c:true,w:"Correcto: el briefing es la fuente de información que guía la campaña."},
+  {t:"Lanzar la subasta de anuncios.",w:"La subasta ocurre en la entrega, no es el primer paso."},
+  {t:"Configurar el píxel de Meta del sitio.",w:"El píxel es un origen de datos, no el primer paso."},
+  {t:"Elegir la relación de aspecto vertical.",w:"Eso es una práctica de diseño del anuncio, posterior."}
+ ],
+ e:"El primer paso para definir una estrategia de contenido es elaborar su briefing: una fuente de información que inspira y guía el desarrollo de la campaña."},
+
+{t:"Briefing",d:"Difícil",type:"Excepción",
+ q:"El briefing de contenido suele incluir cinco datos clave. ¿Cuál de los siguientes NO es uno de ellos?",
+ opts:[
+  {t:"El propósito del negocio.",w:"Sí es uno de los cinco datos clave."},
+  {t:"El objetivo de la campaña.",w:"Sí es uno de los cinco datos clave."},
+  {t:"La estrategia de medición.",w:"Sí es uno de los cinco datos clave."},
+  {t:"El importe exacto de la puja.",c:true,w:"NO figura: los cinco son propósito, objetivo, público, medición y entregas."}
+ ],
+ e:"Los cinco datos clave del briefing son: propósito del negocio, objetivo de la campaña, público, estrategia de medición y entregas."},
+
+{t:"Propósito del negocio",d:"Difícil",
+ q:"La guía recomienda que el objetivo comercial (propósito del negocio) sea:",
+ opts:[
+  {t:"Singular, medible, alcanzable, relevante y temporal.",c:true,w:"Correcto: coincide con los criterios tipo SMART que pide la guía."},
+  {t:"Amplio, ambiguo y sin ningún plazo claramente definido.",w:"Debe ser medible y temporal, no ambiguo ni sin plazo."},
+  {t:"Genérico para abarcar toda la categoría de producto.",w:"Debe ser singular, no genérico."},
+  {t:"Exactamente idéntico al objetivo de la campaña elegido.",w:"El objetivo de campaña deriva del propósito, pero no son lo mismo."}
+ ],
+ e:"El objetivo comercial debe ser singular, medible, alcanzable, relevante y temporal."},
+
+{t:"Objetivos de campaña",d:"Difícil",type:"Excepción",
+ q:"¿Cuál de los siguientes NO es uno de los seis objetivos de campaña disponibles en Meta?",
+ opts:[
+  {t:"Reconocimiento.",w:"Sí es uno de los seis objetivos de campaña."},
+  {t:"Tráfico.",w:"Sí es uno de los seis objetivos de campaña."},
+  {t:"Fidelización.",c:true,w:"NO es un objetivo de campaña: es un ejemplo de objetivo comercial."},
+  {t:"Ventas.",w:"Sí es uno de los seis objetivos de campaña."}
+ ],
+ e:"Los seis objetivos de campaña son: reconocimiento, tráfico, interacción, clientes potenciales, promoción de la app y ventas. La fidelización es un objetivo comercial, no de campaña."},
+
+{t:"Embudo de marketing",d:"Media",
+ q:"Las tres etapas del embudo de marketing en Meta son:",
+ opts:[
+  {t:"Reconocimiento, consideración y conversión.",c:true,w:"Correcto: son las tres etapas del recorrido del cliente."},
+  {t:"Briefing, subasta de anuncios y la medición final.",w:"No son etapas del embudo, sino partes del proceso."},
+  {t:"Segmentación acotada, amplia y similar.",w:"Esos son tipos de público, no etapas del embudo."},
+  {t:"Campaña, conjunto de anuncios y anuncio.",w:"Esos son los niveles de estructura, no el embudo."}
+ ],
+ e:"El embudo de marketing (recorrido del cliente) tiene tres etapas: reconocimiento, consideración y conversión."},
+
+{t:"Promoción de la app",d:"Difícil",
+ q:"¿En qué etapa(s) del embudo puede ubicarse el objetivo 'promoción de la app'?",
+ opts:[
+  {t:"Únicamente en la primera etapa, de reconocimiento.",w:"No corresponde a reconocimiento."},
+  {t:"En consideración o conversión, según la optimización.",c:true,w:"Correcto: puede ser de una u otra según la optimización elegida."},
+  {t:"Solamente en la etapa de conversión, en todos los casos.",w:"No es solo conversión; depende de la optimización."},
+  {t:"En ninguna de las tres etapas del embudo de marketing.",w:"Sí forma parte del embudo (consideración o conversión)."}
+ ],
+ e:"El objetivo de promoción de la app puede formar parte de las etapas de consideración o conversión, según la optimización que elijas."},
+
+{t:"Objetivos de campaña",d:"Difícil",type:"Relación",
+ q:"El objetivo de campaña 'tráfico', según la guía, es ideal para:",
+ opts:[
+  {t:"Enviar a las personas a un destino, como el sitio web.",c:true,w:"Correcto: clics en el enlace, visitas a la página de destino, etc."},
+  {t:"Generar instalaciones continuas y sostenidas de una app.",w:"Eso es propio de promoción de la app."},
+  {t:"Encontrar personas con alta probabilidad de comprar.",w:"Eso corresponde al objetivo de ventas."},
+  {t:"Recibir más mensajes y más reproducciones de video.",w:"Eso corresponde al objetivo de interacción."}
+ ],
+ e:"El objetivo de tráfico sirve para enviar a las personas a un destino (sitio web, app, evento o perfil) y aumentar conversaciones o visitas."},
+
+{t:"Estructura de campaña",d:"Media",
+ q:"La estructura de una campaña en el administrador de anuncios tiene tres niveles. ¿Cuáles son?",
+ opts:[
+  {t:"Campaña, conjunto de anuncios y anuncio.",c:true,w:"Correcto: son los tres niveles de la estructura."},
+  {t:"Briefing, subasta de anuncios y medición.",w:"No son niveles de la estructura de campaña."},
+  {t:"Reconocimiento, consideración y conversión.",w:"Esas son las etapas del embudo, no los niveles."},
+  {t:"Píxel, API de conversiones y SDK de Meta.",w:"Esos son orígenes de datos, no niveles."}
+ ],
+ e:"La estructura de la campaña tiene tres niveles: campaña, conjunto de anuncios y anuncio."},
+
+{t:"Estructura de campaña",d:"Difícil",
+ q:"¿Cuál de los siguientes elementos se controla en el nivel 'conjunto de anuncios'?",
+ opts:[
+  {t:"El público y el presupuesto.",c:true,w:"Correcto: ubicación, público, optimización/puja, presupuesto y programación."},
+  {t:"El tipo de compra y el objetivo.",w:"Eso se controla en el nivel campaña."},
+  {t:"Los formatos y el contenido del anuncio.",w:"Eso se controla en el nivel anuncio."},
+  {t:"Las fórmulas de medios y el ROAS.",w:"Son métricas de medición, no un nivel de estructura."}
+ ],
+ e:"En el nivel conjunto de anuncios se controlan la ubicación, el público, la optimización y estrategia de puja, el presupuesto y la programación."},
+
+{t:"Subasta de anuncios",d:"Difícil",type:"Combinación",
+ q:"La subasta de anuncios de Meta tiene tres componentes que determinan el valor total. ¿Cuáles son?",
+ opts:[
+  {t:"Puja, proporción de acción estimada y calidad del anuncio.",c:true,w:"Correcto: esos tres componentes definen el valor total."},
+  {t:"Alcance total, frecuencia media y costo por mil impresiones.",w:"Son métricas de medición, no componentes de la subasta."},
+  {t:"Público acotado, público amplio y público similar.",w:"Son tipos de público, no componentes de la subasta."},
+  {t:"Píxel de Meta, API de conversiones y SDK de Facebook.",w:"Son orígenes de datos, no componentes de la subasta."}
+ ],
+ e:"La subasta tiene tres componentes: puja del anunciante, proporción de acción estimada y calidad del anuncio; en conjunto determinan el valor total.",
+ r:"Valor total = Puja + Proporción de acción estimada + Calidad del anuncio."},
+
+{t:"Subasta de anuncios",d:"Media",
+ q:"En la subasta de anuncios, el anuncio que se muestra es:",
+ opts:[
+  {t:"El que tiene el valor total más alto.",c:true,w:"Correcto: gana el anuncio con el mayor valor total."},
+  {t:"El que tiene la puja más alta, siempre.",w:"La puja sola no determina ganar la subasta."},
+  {t:"El más reciente en entrar a la subasta.",w:"El orden de entrada no decide la subasta."},
+  {t:"El de la marca con más seguidores.",w:"Los seguidores no intervienen en la subasta."}
+ ],
+ e:"Los anuncios se clasifican por su valor total y el de valor total más alto gana la subasta y se muestra."},
+
+{t:"Subasta — puja",d:"Difícil",
+ q:"Según la guía, una puja más alta del anunciante:",
+ opts:[
+  {t:"Garantiza por sí sola la victoria asegurada en la subasta.",w:"La puja por sí sola no determina si un anuncio gana."},
+  {t:"Aumenta el valor total, pero por sí sola no asegura ganar.",c:true,w:"Correcto: mejora la clasificación, pero no decide por sí sola."},
+  {t:"No influye en absoluto en la clasificación del anuncio.",w:"Sí influye: aumenta el valor total."},
+  {t:"Reduce automáticamente la calidad del anuncio mostrado.",w:"La puja no afecta la calidad del anuncio."}
+ ],
+ e:"Una puja más alta aumenta el valor total y mejora la clasificación, pero por sí sola no determina si un anuncio ganará la subasta."},
+
+{t:"Subasta — proporción",d:"Difícil",
+ q:"La 'proporción de acción estimada' en la subasta es:",
+ opts:[
+  {t:"El costo promedio que se paga por cada mil impresiones del anuncio.",w:"Eso es el CPM, una métrica de medición."},
+  {t:"La probabilidad de obtener el resultado esperado del anuncio.",c:true,w:"Correcto: probabilidad de que se logre el resultado al mostrarlo."},
+  {t:"El número de personas alcanzadas al menos una vez al día.",w:"Eso es el alcance, no la proporción de acción estimada."},
+  {t:"El puntaje de calidad basado en comentarios negativos.",w:"Eso describe a la calidad del anuncio, otro componente."}
+ ],
+ e:"La proporción de acción estimada es la probabilidad de que, si muestras el anuncio a una persona, obtengas el resultado que esperas."},
+
+{t:"Calidad del anuncio",d:"Difícil",type:"Excepción",
+ q:"Para mejorar la calidad del anuncio, Meta recomienda EVITAR todas estas experiencias, EXCEPTO:",
+ opts:[
+  {t:"Experiencias engañosas hacia la página de destino.",w:"Es una de las experiencias que hay que evitar."},
+  {t:"Cantidad desproporcionada de anuncios y poco contenido.",w:"Es una de las experiencias que hay que evitar."},
+  {t:"Contenido sexualmente sugerente o impactante.",w:"Es una de las experiencias que hay que evitar."},
+  {t:"Imágenes de alta resolución y textos claros.",c:true,w:"Correcto: eso es una buena práctica, no algo a evitar."}
+ ],
+ e:"Para mejorar la calidad hay que evitar experiencias engañosas, exceso de anuncios, contenido sexual/impactante, anuncios malintencionados e intersticiales emergentes. Las imágenes de alta resolución son una buena práctica."},
+
+{t:"Meta Advantage",d:"Media",
+ q:"Meta Advantage es, según la guía:",
+ opts:[
+  {t:"Un conjunto de soluciones de automatización con IA.",c:true,w:"Correcto: usa IA y aprendizaje automático para optimizar campañas."},
+  {t:"Un formato de anuncio interactivo a pantalla completa.",w:"Eso describe a un formato de anuncio, no a Advantage."},
+  {t:"Una métrica del embudo de marketing y conversión.",w:"No es una métrica."},
+  {t:"Una ubicación específica dentro de Audience Network.",w:"No es una ubicación."}
+ ],
+ e:"Meta Advantage es un conjunto de soluciones de automatización de anuncios que usa IA y aprendizaje automático para optimizar los resultados de las campañas.",
+ r:"Beneficios de Advantage: optimización, personalización y eficiencia."},
+
+{t:"Advantage vs. Advantage+",d:"Difícil",type:"Comparación",
+ q:"¿Cuál es la diferencia entre las soluciones Advantage y Advantage+?",
+ opts:[
+  {t:"Advantage automatiza la campaña entera; Advantage+ un solo elemento.",w:"Está invertido respecto de la guía."},
+  {t:"Advantage automatiza elementos sueltos; Advantage+ la campaña entera.",c:true,w:"Correcto: Advantage = elementos individuales; Advantage+ = flujo completo."},
+  {t:"Ambas soluciones automatizan exactamente lo mismo de la campaña.",w:"No automatizan lo mismo: difieren en el alcance."},
+  {t:"Advantage+ desactiva por completo la IA durante la campaña.",w:"Al contrario: Advantage+ aplica IA en toda la campaña."}
+ ],
+ e:"Las soluciones Advantage automatizan elementos de campaña individuales (público, contenido, destino, ubicación, presupuesto); con Advantage+ se automatiza el flujo de toda la campaña de principio a fin.",
+ r:"Advantage = una pieza. Advantage+ = toda la campaña."},
+
+{t:"Públicos",d:"Media",
+ q:"A la hora de segmentar, la guía plantea dos enfoques generales de público:",
+ opts:[
+  {t:"Acotado y amplio.",c:true,w:"Correcto: son los dos enfoques generales de segmentación."},
+  {t:"Orgánico y pago.",w:"No son los enfoques de segmentación que define la guía."},
+  {t:"Vertical y horizontal.",w:"Eso refiere a la relación de aspecto, no al público."},
+  {t:"Manual y automático.",w:"Eso aplica a las ubicaciones, no al enfoque de público."}
+ ],
+ e:"Al seleccionar un público se puede optar por dos enfoques generales: acotado y amplio; ninguno es inherentemente superior."},
+
+{t:"Segmentación acotada",d:"Difícil",type:"Comparación",
+ q:"La segmentación acotada, frente a la amplia, se caracteriza por:",
+ opts:[
+  {t:"Mayor alcance y costos más bajos.",w:"Eso describe a la segmentación amplia."},
+  {t:"Mayor relevancia, pero menor alcance.",c:true,w:"Correcto: define parámetros específicos; gana relevancia, pierde alcance."},
+  {t:"Basarse exclusivamente en la IA de Meta.",w:"Eso es propio de la segmentación amplia."},
+  {t:"No usar datos demográficos ni intereses.",w:"Justamente usa demografía, intereses y comportamientos."}
+ ],
+ e:"La segmentación acotada define parámetros específicos (demografía, intereses, comportamientos): aporta mayor relevancia, pero con menor alcance y costos más altos.",
+ r:"Acotada = relevancia (menos alcance). Amplia = alcance (menos relevancia)."},
+
+{t:"Segmentación amplia",d:"Difícil",
+ q:"Según la guía, la segmentación amplia:",
+ opts:[
+  {t:"Define parámetros muy específicos del público.",w:"Eso describe a la segmentación acotada."},
+  {t:"Se basa en la IA para mejorar el alcance.",c:true,w:"Correcto: usa IA y aprendizaje automático para ampliar el alcance."},
+  {t:"Siempre implica costos más altos por persona.",w:"La amplia tiende a costos más bajos, no más altos."},
+  {t:"Ofrece la mayor relevancia posible del anuncio.",w:"La mayor relevancia es de la acotada."}
+ ],
+ e:"La segmentación amplia especifica lugar, edad o sexo, pero no otros parámetros; se basa en la IA para mejorar el alcance (mayor alcance, menor relevancia, costos más bajos)."},
+
+{t:"Público Advantage+",d:"Difícil",type:"Excepción",
+ q:"El público Advantage+ usa IA para hallar el público ideal. ¿Con qué tipo de campaña NO se puede usar?",
+ opts:[
+  {t:"Campañas de ventas.",w:"Sí se puede usar con campañas de ventas."},
+  {t:"Campañas de tráfico.",w:"Sí se puede usar con campañas de tráfico."},
+  {t:"Campañas de remarketing.",c:true,w:"Correcto: es la excepción donde no se puede usar."},
+  {t:"Campañas de reconocimiento.",w:"Sí se puede usar con campañas de reconocimiento."}
+ ],
+ e:"El público Advantage+ se puede usar con casi todos los tipos de campaña, excepto las campañas de remarketing."},
+
+{t:"Públicos personalizados",d:"Media",type:"Combinación",
+ q:"¿Cuáles son orígenes válidos para generar un público personalizado?\nI. Listas de clientes.\nII. Actividad en el sitio web.\nIII. Actividad en la app.\nIV. Datos de interacción.",
+ opts:[
+  {t:"Las afirmaciones I, II y III.",w:"Falta IV (datos de interacción), que también es válido."},
+  {t:"Las afirmaciones I, III y IV.",w:"Falta II (actividad en el sitio web)."},
+  {t:"Las afirmaciones II, III y IV.",w:"Falta I (listas de clientes)."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: los cuatro son orígenes válidos."}
+ ],
+ e:"Los orígenes para un público personalizado son: listas de clientes, actividad en el sitio web, actividad en la app y datos de interacción."},
+
+{t:"Públicos personalizados",d:"Difícil",
+ q:"Un público personalizado permite:",
+ opts:[
+  {t:"Encontrar a tus públicos existentes entre usuarios de Meta.",c:true,w:"Correcto: localiza a personas que ya conocen tu negocio."},
+  {t:"Llegar a personas nuevas parecidas a tus clientes actuales.",w:"Eso es un público similar (lookalike)."},
+  {t:"Mostrar los anuncios en todas las ubicaciones disponibles.",w:"Eso son las ubicaciones Advantage+, no el público."},
+  {t:"Automatizar el flujo completo de toda la campaña publicitaria.",w:"Eso es Advantage+, no un público personalizado."}
+ ],
+ e:"El público personalizado permite encontrar a tus públicos existentes (personas que ya conocen tu negocio) entre quienes usan las tecnologías de Meta."},
+
+{t:"Públicos similares",d:"Difícil",
+ q:"Para crear un público similar, el público de origen debe tener un mínimo de:",
+ opts:[
+  {t:"10 personas, idealmente 100.",w:"El mínimo es mayor según la guía."},
+  {t:"100 personas, idealmente 1.000.",c:true,w:"Correcto: mínimo 100 (un país), pero usar al menos 1.000 si es posible."},
+  {t:"1.000 personas, idealmente 10.000.",w:"El mínimo es 100, no 1.000."},
+  {t:"50 personas, idealmente 500.",w:"El mínimo indicado es 100 personas."}
+ ],
+ e:"Para crear un público similar, el público de origen debe tener un mínimo de 100 personas de un solo país, aunque conviene usar al menos 1.000."},
+
+{t:"Públicos similares",d:"Difícil",
+ q:"En un público similar, el segmento del 1% está compuesto por:",
+ opts:[
+  {t:"Las personas menos parecidas al público de origen.",w:"Es al revés: el 1% son las más parecidas."},
+  {t:"Las personas más parecidas al público de origen.",c:true,w:"Correcto: el 1% reúne a las más similares al origen."},
+  {t:"El 10% más amplio de la población total elegida.",w:"El 10% es el extremo de menor similitud."},
+  {t:"Un público elegido al azar entre los usuarios.",w:"No es aleatorio: se basa en la similitud."}
+ ],
+ e:"El tamaño del público similar varía entre el 1% y el 10%; el 1% está compuesto por las personas más similares a las del público de origen."},
+
+{t:"Públicos personalizados",d:"Difícil",
+ q:"Sobre la información de los públicos personalizados, la guía indica que:",
+ opts:[
+  {t:"Se puede ver a cada persona específica del público.",w:"No se puede ver a las personas específicas, solo el número aproximado."},
+  {t:"La información personal se cifra antes de compartirla.",c:true,w:"Correcto: se cifra de forma local y se comparan hashes."},
+  {t:"Los datos se comparten sin ningún cifrado previo.",w:"La información se cifra antes de compartirla."},
+  {t:"El anunciante accede a los correos de cada usuario.",w:"No accede a los datos personales individuales."}
+ ],
+ e:"La información de identificación personal se cifra localmente antes de compartirla; solo se comparan hashes y no se ven las personas específicas del público."},
+
+{t:"Ubicaciones",d:"Media",
+ q:"Según la guía, ¿qué determina cuáles ubicaciones de anuncios están disponibles?",
+ opts:[
+  {t:"El objetivo de la campaña seleccionado.",c:true,w:"Correcto: el objetivo elegido determina las ubicaciones disponibles."},
+  {t:"El tamaño del presupuesto diario fijado.",w:"El presupuesto no determina las ubicaciones disponibles."},
+  {t:"La cantidad de seguidores de la página.",w:"Los seguidores no inciden en las ubicaciones."},
+  {t:"El formato de anuncio flexible elegido.",w:"El formato flexible no define las ubicaciones disponibles."}
+ ],
+ e:"El objetivo de la campaña que selecciones determinará qué ubicación está disponible."},
+
+{t:"Ubicaciones Advantage+",d:"Media",
+ q:"Las ubicaciones Advantage+ (antes 'automáticas') permiten:",
+ opts:[
+  {t:"Mostrar el anuncio en todas las ubicaciones disponibles.",c:true,w:"Correcto: en Facebook, Messenger, Instagram y Audience Network."},
+  {t:"Rechazar ubicaciones concretas para reducir los costos.",w:"Rechazar ubicaciones (manuales) en realidad aumenta los costos."},
+  {t:"Controlar de forma manual cada ubicación del anuncio.",w:"Ese control manual corresponde a las ubicaciones manuales."},
+  {t:"Limitar el anuncio a una sola de las redes de Meta.",w:"Advantage+ amplía, no limita, las ubicaciones."}
+ ],
+ e:"Las ubicaciones Advantage+ permiten que el anuncio se muestre en todas las ubicaciones disponibles, sacando el máximo partido al presupuesto y ampliando el alcance."},
+
+{t:"Ubicaciones manuales",d:"Difícil",
+ q:"Según la guía, cuando rechazas ubicaciones de anuncios (ubicaciones manuales):",
+ opts:[
+  {t:"Disminuyen los costos de la campaña publicitaria.",w:"Ocurre lo contrario: los costos aumentan."},
+  {t:"Aumentan los costos de la campaña publicitaria.",c:true,w:"Correcto: rechazar ubicaciones hace que aumenten los costos."},
+  {t:"No se produce ningún efecto sobre los costos.",w:"Sí hay efecto: los costos suben."},
+  {t:"Se desactiva el aprendizaje automático del sistema.",w:"No desactiva el aprendizaje automático."}
+ ],
+ e:"Cuantas más ubicaciones uses, más fácil es conectar con el público; por el contrario, cuando rechazas ubicaciones, aumentan los costos."},
+
+{t:"Diversificación",d:"Difícil",
+ q:"La diversificación de contenido consiste en:",
+ opts:[
+  {t:"Usar distintos elementos visuales, mensajes y formatos.",c:true,w:"Correcto: para atraer a públicos diferentes con motivaciones distintas."},
+  {t:"Cambiar levemente los colores y las fuentes del logo.",w:"Pequeños cambios de color o fuente no son diversificación."},
+  {t:"Repetir el mismo anuncio en todas las ubicaciones.",w:"Repetir no diversifica el contenido."},
+  {t:"Reducir todos los formatos a una sola imagen estática.",w:"Diversificar es ampliar formatos, no reducirlos."}
+ ],
+ e:"La diversificación se produce cuando se usan distintos elementos visuales, mensajes y formatos para atraer a públicos diferentes (motivados por factores racionales, emocionales, conscientes e inconscientes)."},
+
+{t:"Diversificación",d:"Difícil",type:"Excepción",
+ q:"¿Cuál de los siguientes NO se considera una estrategia de diversificación de contenido?",
+ opts:[
+  {t:"Cambiar los conceptos y los mensajes del anuncio.",w:"Sí es una forma válida de diversificación."},
+  {t:"Probar nuevas ofertas, promociones y descuentos.",w:"Sí es una forma válida de diversificación."},
+  {t:"Cambiar el color o la ubicación del logotipo.",c:true,w:"Correcto: pequeños cambios de color/fuente/logo no son diversificación."},
+  {t:"Variar los estilos de imagen, como foto o ilustración.",w:"Sí es una forma válida de diversificación."}
+ ],
+ e:"Pequeños cambios en los colores, las fuentes o la ubicación de los logotipos NO se consideran estrategias de diversificación."},
+
+{t:"Formatos de anuncio",d:"Difícil",type:"Excepción",
+ q:"¿Cuál de los siguientes NO es uno de los seis formatos de anuncio principales?",
+ opts:[
+  {t:"Una sola imagen.",w:"Sí es uno de los seis formatos principales."},
+  {t:"Secuencia.",w:"Sí es uno de los seis formatos principales."},
+  {t:"Colección.",w:"Sí es uno de los seis formatos principales."},
+  {t:"Encuesta interactiva.",c:true,w:"NO es de los seis principales: es un formato interactivo aparte."}
+ ],
+ e:"Los seis formatos principales son: una sola imagen, un solo video, secuencia, presentación, colección y experiencia instantánea. La encuesta es un formato interactivo."},
+
+{t:"Formatos de anuncio",d:"Difícil",
+ q:"El formato de anuncio 'presentación', según la guía, es:",
+ opts:[
+  {t:"Un video o foto combinado con cuatro imágenes de productos.",w:"Eso describe al formato de colección."},
+  {t:"Una alternativa de menor costo a la producción de video.",c:true,w:"Correcto: usa imágenes estáticas que se reproducen como video y gasta menos datos."},
+  {t:"Una página de destino intersticial que carga muy rápido.",w:"Eso describe a la experiencia instantánea."},
+  {t:"Varias imágenes que se desplazan de izquierda a derecha.",w:"Eso describe al formato por secuencia."}
+ ],
+ e:"El formato de presentación es una alternativa de menor costo a la producción de video: crea un anuncio con imágenes estáticas que se reproducen como un video y usa menos datos."},
+
+{t:"Contenido móvil — texto",d:"Difícil",
+ q:"La longitud de texto recomendada para el cuerpo principal del anuncio es de:",
+ opts:[
+  {t:"40 caracteres.",w:"40 caracteres es lo recomendado para el encabezado."},
+  {t:"125 caracteres.",c:true,w:"Correcto: 125 caracteres para el texto principal."},
+  {t:"25 caracteres.",w:"25 caracteres es lo recomendado para la descripción."},
+  {t:"250 caracteres.",w:"Supera lo recomendado para el texto principal."}
+ ],
+ e:"La longitud recomendada es de 125 caracteres para el texto principal, 40 para el encabezado y 25 para la descripción."},
+
+{t:"Contenido móvil — video",d:"Media",
+ q:"Según la guía, hay más probabilidades de que las personas vean un video completo si dura:",
+ opts:[
+  {t:"Menos de 15 segundos.",c:true,w:"Correcto: bajo 15 segundos hay más chances de verlo entero."},
+  {t:"Más de 60 segundos.",w:"Cuanto más largo, menos probable que se vea completo."},
+  {t:"Entre 30 y 45 segundos.",w:"La guía marca el umbral en menos de 15 segundos."},
+  {t:"Exactamente dos minutos.",w:"Es demasiado largo para verse completo."}
+ ],
+ e:"Hay más probabilidades de que las personas vean un anuncio con video en su totalidad si dura menos de 15 segundos."},
+
+{t:"Contenido móvil — sonido",d:"Difícil",
+ q:"Sobre el sonido en los anuncios para celulares, la guía recomienda:",
+ opts:[
+  {t:"Diseñarlos para que funcionen con y sin sonido.",c:true,w:"Correcto: muchos se reproducen sin sonido por defecto."},
+  {t:"Diseñarlos solo para reproducirse con sonido.",w:"Muchos se reproducen sin sonido de forma predeterminada."},
+  {t:"Eliminar todo subtítulo o texto superpuesto.",w:"Justamente recomienda subtítulos y texto superpuesto."},
+  {t:"Suponer que siempre se ven con el sonido activado.",w:"No conviene suponerlo: a veces no se activa el sonido."}
+ ],
+ e:"Los anuncios del feed y de historias se reproducen sin sonido de forma predeterminada, por eso hay que diseñarlos para que sean efectivos con y sin sonido (subtítulos, texto superpuesto)."},
+
+{t:"Contenido móvil",d:"Media",
+ q:"La guía recomienda crear anuncios para celular con una orientación:",
+ opts:[
+  {t:"Vertical.",c:true,w:"Correcto: las personas usan el teléfono en vertical la mayor parte del tiempo."},
+  {t:"Horizontal.",w:"No es la orientación recomendada para celular."},
+  {t:"Cuadrada únicamente.",w:"La guía prioriza la orientación vertical."},
+  {t:"Panorámica 16:9.",w:"Es una orientación horizontal, no la recomendada."}
+ ],
+ e:"Las personas usan sus teléfonos de forma vertical la mayor parte del tiempo, así que conviene crear anuncios con esa orientación."},
+
+{t:"Formato flexible",d:"Difícil",
+ q:"El formato de anuncio flexible permite elegir hasta diez imágenes o videos, pero solo está disponible con los objetivos de:",
+ opts:[
+  {t:"Reconocimiento e interacción.",w:"No son los objetivos donde está disponible."},
+  {t:"Ventas y promoción de la app.",c:true,w:"Correcto: solo con campañas de ventas y promoción de la app."},
+  {t:"Tráfico y clientes potenciales.",w:"No habilitan el formato flexible."},
+  {t:"Consideración y conversión.",w:"Esas son etapas del embudo, no objetivos específicos aquí."}
+ ],
+ e:"El formato de anuncio flexible (hasta diez imágenes o videos optimizados por el sistema) solo está disponible si creas una campaña con los objetivos de ventas y promoción de la app."},
+
+{t:"Fase de aprendizaje",d:"Difícil",
+ q:"Un conjunto de anuncios completa la fase de aprendizaje cuando alcanza, aproximadamente:",
+ opts:[
+  {t:"50 eventos de optimización en siete días.",c:true,w:"Correcto: unos 50 eventos de optimización en un período de 7 días."},
+  {t:"1.000 impresiones en las primeras 24 horas.",w:"No es el criterio que indica la guía."},
+  {t:"100 clics durante el primer día activo.",w:"No es el criterio que indica la guía."},
+  {t:"10 conversiones a lo largo de 30 días.",w:"No es el criterio que indica la guía."}
+ ],
+ e:"Los conjuntos de anuncios completan la fase de aprendizaje al estabilizarse su rendimiento, lo que requiere unos 50 eventos de optimización en un período de siete días."},
+
+{t:"Fase de aprendizaje",d:"Difícil",
+ q:"Durante la fase de aprendizaje, según la guía:",
+ opts:[
+  {t:"El rendimiento es muy estable y el costo por resultado, bajo.",w:"Es al revés: el rendimiento es menos estable."},
+  {t:"El rendimiento es menos estable y el costo por resultado, alto.",c:true,w:"Correcto: mientras explora la mejor entrega, sube el costo por resultado."},
+  {t:"El anuncio deja de mostrarse a las personas por completo.",w:"El anuncio sigue mostrándose mientras aprende."},
+  {t:"Se desactiva por completo la segmentación del público.",w:"La segmentación no se desactiva."}
+ ],
+ e:"Durante la fase de aprendizaje el rendimiento es menos estable y el costo por resultado suele ser más alto, mientras el sistema explora la mejor forma de entregar el conjunto de anuncios."},
+
+{t:"Aprendizaje limitado",d:"Difícil",
+ q:"¿Cuál de las siguientes puede causar el estado 'aprendizaje limitado'?",
+ opts:[
+  {t:"Un presupuesto insuficiente para el conjunto de anuncios.",c:true,w:"Correcto: junto con límites de puja bajos o superposición en la subasta."},
+  {t:"Un presupuesto excesivamente alto para toda la campaña.",w:"El problema es un presupuesto insuficiente, no excesivo."},
+  {t:"Una puja demasiado alta frente a los competidores.",w:"El problema son los límites de puja bajos, no altos."},
+  {t:"Una segmentación demasiado amplia del público objetivo.",w:"No es la causa que menciona la guía."}
+ ],
+ e:"Los límites de puja bajos, la superposición en la subasta o un presupuesto insuficiente pueden hacer que un conjunto de anuncios quede en 'aprendizaje limitado'."},
+
+{t:"Fase de aprendizaje",d:"Difícil",type:"Combinación",
+ q:"¿Cuáles de los siguientes cambios reinician la fase de aprendizaje?\nI. Cambios en la segmentación.\nII. Cambios en el contenido del anuncio.\nIII. Pausar el conjunto de anuncios.\nIV. Cambios en la optimización de la entrega.",
+ opts:[
+  {t:"Las afirmaciones I y II.",w:"También III y IV reinician la fase de aprendizaje."},
+  {t:"Las afirmaciones I, II y III.",w:"Falta IV (cambios en la optimización de la entrega)."},
+  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: las cuatro reinician la fase de aprendizaje."},
+  {t:"Las afirmaciones III y IV.",w:"También I y II reinician la fase de aprendizaje."}
+ ],
+ e:"Reinician la fase de aprendizaje: cambios en la segmentación, en el contenido del anuncio, en la optimización para la entrega y pausar el conjunto o la campaña."},
+
+{t:"Orígenes de datos",d:"Difícil",type:"Combinación",
+ q:"¿Cuáles son los tres orígenes de datos importantes para el marketing de rendimiento?",
+ opts:[
+  {t:"Píxel de Meta, API de conversiones y SDK de Facebook.",c:true,w:"Correcto: son los tres orígenes de datos de campaña."},
+  {t:"Píxel de Meta, Audience Network y bandeja de Messenger.",w:"Audience Network y Messenger no son orígenes de datos."},
+  {t:"API de conversiones, los reels y las historias.",w:"Reels e historias son ubicaciones/formatos, no orígenes de datos."},
+  {t:"Listas de clientes, públicos similares y remarketing.",w:"Son recursos de público, no orígenes de datos de rendimiento."}
+ ],
+ e:"Los tres orígenes de datos de campaña importantes para el marketing de rendimiento son el píxel de Meta, la API de conversiones y el SDK de Facebook."},
+
+{t:"API de conversiones",d:"Difícil",
+ q:"La API de conversiones, según la guía:",
+ opts:[
+  {t:"Aumenta mucho la dependencia de las cookies del navegador web.",w:"Al contrario: reduce la dependencia de las cookies."},
+  {t:"Conecta de forma directa los servidores de Meta y tus datos.",c:true,w:"Correcto: conexión directa y más confiable; respeta la privacidad."},
+  {t:"Es un formato de anuncio interactivo basado en encuestas.",w:"No es un formato de anuncio."},
+  {t:"Mide solo las acciones que se realizan dentro de una app.",w:"Eso describe al SDK de Facebook."}
+ ],
+ e:"La API de conversiones crea una conexión directa y más confiable entre los servidores de Meta y los datos de tu servidor, sitio o CRM; reduce la dependencia de las cookies y respeta la privacidad."},
+
+{t:"Métricas y fórmulas",d:"Difícil",
+ q:"Según las fórmulas de la guía, el porcentaje de clics (CTR) se calcula como:",
+ opts:[
+  {t:"(clics / impresiones) × 100.",c:true,w:"Correcto: esa es la fórmula del CTR."},
+  {t:"(ingresos / gasto publicitario).",w:"Esa es la fórmula del ROAS."},
+  {t:"(ingresos − costo) / costo × 100.",w:"Esa es la fórmula del ROI."},
+  {t:"(gasto total / impresiones) × 1.000.",w:"Esa es la fórmula del CPM."}
+ ],
+ e:"Porcentaje de clics (CTR) = (clics / impresiones) × 100."},
+
+{t:"Métricas y fórmulas",d:"Difícil",type:"Relación",
+ q:"La fórmula 'ingresos / gasto publicitario' corresponde a:",
+ opts:[
+  {t:"El retorno del gasto publicitario (ROAS).",c:true,w:"Correcto: ROAS = ingresos / gasto publicitario."},
+  {t:"El retorno de la inversión (ROI).",w:"El ROI = (ingresos − costo) / costo × 100."},
+  {t:"El costo por mil impresiones (CPM).",w:"El CPM = (gasto total / impresiones) × 1.000."},
+  {t:"El porcentaje de clics (CTR).",w:"El CTR = (clics / impresiones) × 100."}
+ ],
+ e:"El retorno del gasto publicitario (ROAS) se calcula como ingresos / gasto publicitario.",
+ r:"ROAS = ingresos/gasto · ROI = (ingresos−costo)/costo×100 · CPM = (gasto/impresiones)×1.000 · CTR = (clics/impresiones)×100."},
+
+{t:"Evaluación y medición",d:"Difícil",
+ q:"El 'costo por mil impresiones' (CPM), según la guía, es:",
+ opts:[
+  {t:"El costo promedio que se paga por 1.000 impresiones.",c:true,w:"Correcto: costo medio (o ingreso del editor) por cada mil impresiones."},
+  {t:"La cantidad de personas alcanzadas al menos una vez.",w:"Eso es el alcance, no el CPM."},
+  {t:"El porcentaje de clics sobre el total de impresiones.",w:"Eso es el CTR, no el CPM."},
+  {t:"El impacto del anuncio en el recuerdo del cliente.",w:"Eso es el recuerdo del anuncio, no el CPM."}
+ ],
+ e:"El CPM es el costo promedio que pagó un anunciante por 1.000 impresiones de un anuncio (o el ingreso promedio del editor por esas impresiones)."},
+
+{t:"Briefing — medición",d:"Difícil",
+ q:"Al definir la estrategia de medición del briefing, la guía recomienda:",
+ opts:[
+  {t:"Elegir métricas alineadas con resultados comerciales reales.",c:true,w:"Correcto: y evitar métricas que muestren correlación pero no causalidad."},
+  {t:"Priorizar métricas de correlación sin causalidad clara.",w:"Justamente recomienda evitarlas."},
+  {t:"Medir solo la cantidad de seguidores de la página.",w:"Los seguidores no reflejan resultados comerciales reales."},
+  {t:"Usar las mismas métricas para todos los objetivos.",w:"Las métricas deben alinearse con el objetivo de cada campaña."}
+ ],
+ e:"La estrategia de medición debe elegir métricas alineadas con el objetivo comercial y centradas en resultados reales (mejora de marca, conversiones), evitando indicadores que muestren correlación pero no causalidad.",
+ r:"Buena métrica = causalidad con el resultado comercial. Mala = correlación sin causalidad."},
+
+{t:"Integradora",d:"Difícil",type:"Todas/Ninguna",noShuffle:true,
+ q:"Señale la opción correcta sobre la guía de Meta.",
+ opts:[
+  {t:"La puja más alta gana siempre la subasta por sí sola.",w:"Falso: la puja sola no determina ganar; importa el valor total."},
+  {t:"El público Advantage+ sirve para campañas de remarketing.",w:"Falso: justamente es la excepción donde no se usa."},
+  {t:"La diversificación es cambiar el color o la fuente del logo.",w:"Falso: esos pequeños cambios no son diversificación."},
+  {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
+ ],
+ e:"Gana la subasta el de mayor valor total (no la puja sola); Advantage+ no se usa en remarketing; y cambiar color o fuente del logo no es diversificación. Por eso, ninguna de las anteriores.",
+ r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."}
+];
+
 const TEXTS = [
   {id:"capriotti", title:"Capriotti (2024)", subtitle:"Campañas de Comunicación",
    desc:"Capriotti (2024), Campañas de Comunicación (Guía Práctica). Del concepto de campaña a las 15 etapas del proceso, con las trampas conceptuales y los matices del texto original. Corrección detallada por pregunta.",
@@ -1597,7 +2106,10 @@ const TEXTS = [
    bank:BANK_MARTI},
   {id:"romeo", title:"Romeo (2025)", subtitle:"La Nueva Era de las Marcas",
    desc:"Romeo (2025), La Nueva Era de las Marcas — Cap. 3: Redes sociales. Multidireccionalidad, personalidad de marca y storytelling, audiencia y Buyer Persona, Sean Summers (time/cost-to-impact), conversaciones de ascensor, plataformas, objetivos/KPIs y los 13 pasos.",
-   bank:BANK_ROMEO}
+   bank:BANK_ROMEO},
+  {id:"meta", title:"Meta (2024)", subtitle:"Estrategia de Contenido",
+   desc:"Meta (2024), Guía de estudio - Estrategia de contenido. Tecnologías de Meta, briefing, los 6 objetivos y el embudo, estructura de campañas, subasta de anuncios, Meta Advantage e IA, públicos (acotado/amplio, personalizados, similares), ubicaciones, diversificación y formatos, contenido para celulares, fase de aprendizaje, orígenes de datos y métricas/fórmulas.",
+   bank:BANK_META}
 ];
 let currentTextId = "capriotti";
 function currentBank(){return TEXTS.find(t=>t.id===currentTextId).bank;}
