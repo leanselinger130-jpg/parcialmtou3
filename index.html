@@ -1099,13 +1099,505 @@ const BANK_MARTI = [
  e:"Hay que preguntar qué quiere la organización que haga cada receptor como resultado de la comunicación: esta se considera eficaz en la medida en que consigue en el receptor la respuesta deseada."}
 ];
 
+const BANK_ROMEO = [
+{t:"Buyer Persona (Cecilia)",d:"Difícil",type:"Aplicación",
+ q:"El perfil 'Cecilia, una mujer de 30 años que vive en una ciudad de más de 100.000 habitantes, trabaja en un banco y está interesada en productos orgánicos', es un ejemplo de:",
+ opts:[
+  {t:"Un público objetivo genérico de la marca.",w:"El público objetivo es genérico; este perfil tiene características específicas."},
+  {t:"Un Buyer Persona de una marca de belleza.",c:true,w:"Correcto: es el ejemplo de Buyer Persona que da Romeo para una marca de belleza."},
+  {t:"Una comunidad de defensores de la marca.",w:"Eso es una comunidad de marca, no un perfil individual de cliente."},
+  {t:"Un KPI de la estrategia de contenidos.",w:"Un KPI es una métrica, no un perfil de cliente."}
+ ],
+ e:"Romeo usa a 'Cecilia' como ejemplo de Buyer Persona para una marca de productos de belleza: un perfil ficticio con características específicas, a diferencia del público objetivo, que es genérico.",
+ r:"Si el perfil tiene datos específicos (edad, ciudad, trabajo, intereses) → Buyer Persona. Si es amplio y genérico → público objetivo."},
+
+{t:"Ejemplos de objetivos",d:"Difícil",type:"Relación",
+ q:"Romeo ejemplifica 'Aumentar el tráfico web desde Facebook en un 50% en tres meses' como un objetivo de:",
+ opts:[
+  {t:"Impulso del tráfico web.",c:true,w:"Correcto: sus métricas son clics, visitas, tasa de rebote y tiempo en página."},
+  {t:"Generación de leads calificados.",w:"Ese objetivo se mide por CPL, tasa de conversión y calidad de leads."},
+  {t:"Aumento de la visibilidad de la marca.",w:"Esa se mide por alcance, impresiones y menciones de marca."},
+  {t:"Mejora del servicio al cliente.",w:"Esa apunta a reducir el tiempo de respuesta a las consultas."}
+ ],
+ e:"'Aumentar el tráfico web desde Facebook en un 50% en tres meses' es el ejemplo de objetivo de impulso del tráfico web, con métricas como clics en enlaces, visitas, tasa de rebote y tiempo promedio en la página.",
+ r:"Cada objetivo trae su métrica: tráfico→clics/rebote; leads→CPL; visibilidad→alcance/impresiones; servicio→tiempo de respuesta."},
+
+{t:"Audiencia (Dorfman)",d:"Difícil",type:"Excepción",
+ q:"Entre los 10 consejos de Dorfman para organizar el próximo Mundial, ¿cuál de los siguientes figura realmente?",
+ opts:[
+  {t:"Lo más importante es el gran show, no lo que pasa en las tribunas.",w:"Es al revés: lo importante es lo que pasa en las tribunas, no el show."},
+  {t:"Lo más importante es lo que pasa en las tribunas, no el show.",c:true,w:"Correcto: los hinchas buscan vivir el partido, no espectáculos adicionales."},
+  {t:"La mejor música es la que ponen fuerte en los parlantes.",w:"Falso: la mejor música es la de los cantos de las hinchadas."},
+  {t:"Conviene extender el entretiempo para poner un buen recital.",w:"Falso: el texto dice que extender el entretiempo para un recital es un insulto."}
+ ],
+ e:"El primer consejo de Dorfman es que lo más importante es lo que pasa en las tribunas, no el show; los hinchas no buscan espectáculos adicionales, sino vivir intensamente el partido. Los otros distractores invierten consejos reales (la música es la de las hinchadas; el recital en el entretiempo es 'un insulto')."},
+
+{t:"Rol de las redes",d:"Media",
+ q:"Según Romeo, las redes sociales se consolidaron como una herramienta crucial para:",
+ opts:[
+  {t:"Reemplazar por completo a los equipos creativos de la marca.",w:"El texto dice que ningún avance sustituye la magia de los equipos creativos."},
+  {t:"Conectar a las marcas con su audiencia y fomentar la lealtad.",c:true,w:"Correcto: conectar marcas y audiencia, fomentar lealtad y promover productos."},
+  {t:"Eliminar la necesidad de definir objetivos de negocio.",w:"Al contrario: dedica un apartado a 'Objetivos, siempre los objetivos'."},
+  {t:"Sustituir la inversión publicitaria por contenido orgánico.",w:"Romeo advierte que nunca hay que confiar solo en lo orgánico."}
+ ],
+ e:"Las redes se consolidaron como herramienta crucial para conectar marcas con su audiencia, fomentar la lealtad del cliente y promover productos y servicios de manera efectiva."},
+
+{t:"Multidireccionalidad",d:"Difícil",type:"Comparación",
+ q:"¿Qué diferencia a las redes sociales de los medios tradicionales, según Romeo?",
+ opts:[
+  {t:"Permiten una interacción multidireccional en tiempo real.",c:true,w:"Correcto: las marcas escuchan, responden y reciben feedback en tiempo real."},
+  {t:"Garantizan la viralidad de cualquier contenido publicado.",w:"No hay fórmula que garantice la viralidad; eso lo niega el texto."},
+  {t:"Funcionan con una comunicación de una sola vía.",w:"Eso describe a los medios tradicionales, no a las redes."},
+  {t:"Eliminan la pauta publicitaria de los anunciantes.",w:"La monetización de las redes se basa justamente en esa pauta."}
+ ],
+ e:"Antes la comunicación marca-cliente era de una sola vía; las redes permiten una interacción multidireccional que no es posible con los medios tradicionales (responder, escuchar y recibir retroalimentación en tiempo real)."},
+
+{t:"Nuevas reglas",d:"Media",
+ q:"Romeo señala que, con la aparición de las redes sociales, los consumidores pasaron a:",
+ opts:[
+  {t:"Recibir los mensajes de las marcas sin posibilidad de respuesta.",w:"Eso describe la lógica anterior, de una sola vía."},
+  {t:"Participar, comentar y hablar de igual a igual con las marcas.",c:true,w:"Correcto: participan, comentan, generan contenido y dialogan de igual a igual."},
+  {t:"Comunicarse solo mediante los medios masivos tradicionales.",w:"Las redes cambiaron precisamente esa lógica unidireccional."},
+  {t:"Depender por completo de la publicidad paga de las marcas.",w:"El texto resalta la participación de los usuarios, no su dependencia."}
+ ],
+ e:"La aparición de las redes cambió la lógica: los consumidores participan, comentan, generan contenido y hablan de igual a igual con las marcas (nuevas reglas de juego)."},
+
+{t:"Segmentación",d:"Media",
+ q:"Según Romeo, para segmentar la audiencia y personalizar los mensajes, las marcas utilizan:",
+ opts:[
+  {t:"Datos demográficos, intereses y comportamientos.",c:true,w:"Correcto: con esos datos se crean campañas específicas para cada segmento."},
+  {t:"Únicamente la inversión publicitaria disponible.",w:"La inversión no es lo que permite segmentar la audiencia."},
+  {t:"El tamaño del comité de gestión de crisis.",w:"Ese comité es para resolver casos conflictivos, no para segmentar."},
+  {t:"La cantidad de plataformas en las que están.",w:"Estar en más plataformas no equivale a segmentar mejor."}
+ ],
+ e:"Utilizando datos demográficos, intereses y comportamientos, las marcas pueden crear campañas específicas que resuenen mejor con diferentes segmentos de su audiencia."},
+
+{t:"Viralidad (Dove)",d:"Media",type:"Aplicación",
+ q:"El ejemplo de la campaña 'La belleza real' de Dove en YouTube se usa para ilustrar:",
+ opts:[
+  {t:"Una crisis de reputación mal gestionada en redes.",w:"No es un ejemplo de crisis, sino de contenido viral positivo."},
+  {t:"Un contenido emocionalmente relevante que se volvió viral.",c:true,w:"Correcto: alcanzó a millones generando una discusión global."},
+  {t:"El uso de publicidad paga con retargeting avanzado.",w:"El ejemplo destaca la viralidad orgánica del contenido emocional."},
+  {t:"La creación de un Buyer Persona muy detallado.",w:"El Buyer Persona se trata en otro apartado del texto."}
+ ],
+ e:"Dove y su campaña 'La belleza real' es un ejemplo de cómo un contenido emocionalmente relevante puede volverse viral, alcanzando a millones y generando discusión global."},
+
+{t:"Marca y reputación",d:"Media",
+ q:"Romeo menciona a Nike en Instagram como ejemplo de una marca que:",
+ opts:[
+  {t:"Evita por completo los temas sociales y políticos.",w:"Al contrario: se involucró en temas sociales como Black Lives Matter."},
+  {t:"Muestra su compromiso con la diversidad y la inclusión.",c:true,w:"Correcto: publica contenido que destaca atletas de distintos orígenes."},
+  {t:"Confía solo en el alcance orgánico de sus posteos.",w:"No es el punto del ejemplo de Nike."},
+  {t:"Segmenta su audiencia solo por datos demográficos.",w:"El ejemplo es sobre valores e imagen inclusiva, no sobre segmentación."}
+ ],
+ e:"Nike usa Instagram para mostrar su compromiso con la diversidad y la inclusión (atletas de distintos orígenes y capacidades), y se unió al movimiento Black Lives Matter."},
+
+{t:"Marca y reputación",d:"Media",
+ q:"Según Romeo, las redes son vitales en la construcción de marca y la gestión de la reputación porque permiten:",
+ opts:[
+  {t:"Mostrar la personalidad y los valores, y responder a crisis.",c:true,w:"Correcto: muestran personalidad/valores/cultura y monitorean para responder a crisis."},
+  {t:"Garantizar que ningún comentario negativo aparezca.",w:"No se pueden evitar los comentarios negativos; se gestionan."},
+  {t:"Reemplazar la guía de estilo y la identidad visual.",w:"La identidad visual sigue siendo el paso 13 de la estrategia."},
+  {t:"Definir el presupuesto de la campaña automáticamente.",w:"Las redes no definen el presupuesto por sí solas."}
+ ],
+ e:"Las marcas pueden mostrar su personalidad, valores y cultura, y monitorear las conversaciones para gestionar su credibilidad y responder rápidamente a cualquier crisis."},
+
+{t:"Benedetti — hate",d:"Difícil",type:"Comparación",
+ q:"Según Ariel Benedetti, ¿cómo se ubican LinkedIn y X respecto del nivel de 'hate'?",
+ opts:[
+  {t:"LinkedIn está en el extremo del hate y X casi libre de él.",w:"Está invertido respecto de lo que dice Benedetti."},
+  {t:"LinkedIn es casi libre de haters y X en el otro extremo.",c:true,w:"Correcto: LinkedIn casi sin haters; X en el extremo opuesto."},
+  {t:"Ambas redes registran exactamente el mismo nivel de hate.",w:"Benedetti dice que no todas las redes tienen el mismo nivel."},
+  {t:"Ninguna de las dos redes registra comentarios de odio.",w:"Reconoce que el hate existe, en distinto grado, en ambas."}
+ ],
+ e:"Benedetti: no todas las redes tienen el mismo nivel de hate. LinkedIn es casi libre de haters (aunque los hay) y X se ubica en el otro extremo.",
+ r:"Asocia: LinkedIn = poco hate (profesional) · X = mucho hate."},
+
+{t:"Benedetti — protocolos",d:"Difícil",
+ q:"Para Benedetti, ¿cuál es el gran desafío de una marca frente a los comentarios agresivos en redes?",
+ opts:[
+  {t:"Eliminar de inmediato todas las redes conflictivas.",w:"No se trata de abandonar las redes, sino de gestionarlas."},
+  {t:"Tener claras las políticas y los protocolos para actuar.",c:true,w:"Correcto: el desafío es tener políticas y protocolos claros."},
+  {t:"Responder cada agravio con otro comentario más fuerte.",w:"Responder con agresividad no es la recomendación del texto."},
+  {t:"Confiar en que los haters dejen de existir solos.",w:"Benedetti dice que gente agresiva siempre habrá."}
+ ],
+ e:"El gran desafío es tener claras las políticas y los protocolos para actuar en esos casos, porque gente agresiva siempre habrá; conviene incluso un comité para casos nuevos."},
+
+{t:"Benedetti — Brand Lovers",d:"Media",
+ q:"Según Benedetti, ante un ataque a la marca en redes, muchas veces quienes salen en su defensa son:",
+ opts:[
+  {t:"Los propios competidores del sector.",w:"Los competidores no defienden a la marca atacada."},
+  {t:"Los Brand Lovers de la marca.",c:true,w:"Correcto: los propios Brand Lovers suelen salir en defensa."},
+  {t:"Los anunciantes que pautan en la red.",w:"No es lo que señala Benedetti."},
+  {t:"Los community managers de la competencia.",w:"No tiene sentido que defiendan a una marca rival."}
+ ],
+ e:"Benedetti señala que los propios Brand Lovers muchas veces salen en defensa de la marca ante los ataques."},
+
+{t:"Personalidad de marca",d:"Media",
+ q:"Romeo define la personalidad de la marca como:",
+ opts:[
+  {t:"El presupuesto que la marca asigna a todas sus campañas anuales.",w:"El presupuesto no es la personalidad de la marca."},
+  {t:"La forma en que se comporta y se percibe en términos humanos.",c:true,w:"Correcto: conjunto de características que hacen única a la marca."},
+  {t:"El conjunto de plataformas donde la marca está hoy presente.",w:"Las plataformas son canales, no la personalidad."},
+  {t:"La cantidad total de seguidores que tiene en redes sociales.",w:"Los seguidores no definen la personalidad de la marca."}
+ ],
+ e:"La personalidad de la marca es la forma en que se comporta y cómo se percibe en términos humanos: el conjunto de características y atributos que la hacen única."},
+
+{t:"Personalidad de marca",d:"Media",type:"Excepción",
+ q:"Entre los atributos de personalidad de marca que menciona Romeo, ¿cuál NO figura?",
+ opts:[
+  {t:"Innovador.",w:"Sí figura entre los atributos mencionados."},
+  {t:"Confiable.",w:"Sí figura entre los atributos mencionados."},
+  {t:"Aventurero.",w:"Sí figura entre los atributos mencionados."},
+  {t:"Económico.",c:true,w:"NO figura: los atributos citados son innovador, confiable, aventurero o sofisticado."}
+ ],
+ e:"Algunos atributos de personalidad comunes incluyen ser innovador, confiable, aventurero o sofisticado, entre otros."},
+
+{t:"Storytelling",d:"Media",
+ q:"Para Romeo, el storytelling es una herramienta poderosa porque permite:",
+ opts:[
+  {t:"Eliminar por completo la necesidad de tener identidad visual.",w:"La identidad visual sigue siendo necesaria (paso 13)."},
+  {t:"Transmitir la voz y crear conexión emocional con la audiencia.",c:true,w:"Correcto: contar historias auténticas humaniza y conecta emocionalmente."},
+  {t:"Reducir a cero toda la inversión publicitaria de la marca.",w:"El storytelling no elimina la inversión publicitaria."},
+  {t:"Reemplazar por completo a los Buyer Personas de la marca.",w:"No reemplaza al Buyer Persona; son cosas distintas."}
+ ],
+ e:"El storytelling es una herramienta poderosa para transmitir la voz y la personalidad de la marca: contar historias auténticas y relevantes ayuda a humanizar y crear una conexión emocional con la audiencia."},
+
+{t:"Voz de marca",d:"Difícil",
+ q:"Según Romeo, la voz y la personalidad de una marca:",
+ opts:[
+  {t:"Deben permanecer fijas e inmutables para siempre.",w:"El texto dice expresamente que no deben ser estáticas."},
+  {t:"No deben ser estáticas: se ajustan sin perder la esencia.",c:true,w:"Correcto: se ajustan al evolucionar la marca y la audiencia, sin perder esencia."},
+  {t:"Solo importan en la comunicación interna de la empresa.",w:"Importan en toda la comunicación con la audiencia."},
+  {t:"Dependen exclusivamente del presupuesto publicitario.",w:"No dependen del presupuesto."}
+ ],
+ e:"La voz y la personalidad no deben ser estáticas: a medida que la marca y su audiencia evolucionan, hay que ajustarlas y refinarlas para mantener la relevancia sin perder la esencia."},
+
+{t:"Audiencia (Dorfman)",d:"Difícil",
+ q:"La reflexión de Mariano Dorfman sobre la Copa América 2024 sirve para destacar que:",
+ opts:[
+  {t:"La mejor música siempre es la que suena en los parlantes.",w:"Dorfman dice lo contrario: la mejor música es la de las hinchadas."},
+  {t:"Si no conocés a tu audiencia, todo lo que hagas estará mal.",c:true,w:"Correcto: es la lección central de su reflexión."},
+  {t:"El show adicional importa más que lo que pasa en las tribunas.",w:"Sostiene que lo importante es lo que pasa en las tribunas, no el show."},
+  {t:"La organización de un evento no se relaciona con el marketing.",w:"Justamente la relaciona con el marketing."}
+ ],
+ e:"Dorfman usa la mala organización de la final para mostrar la importancia de conocer a la audiencia: 'cuando no conocés a tu audiencia, todo lo que hagas va a estar mal'."},
+
+{t:"Diseño de audiencia",d:"Media",
+ q:"Según Romeo, el primer paso para adaptar una estrategia de redes sociales es:",
+ opts:[
+  {t:"Contratar de inmediato a varios influencers reconocidos.",w:"Eso es parte del paso 11, no el primero."},
+  {t:"Comprender a fondo el público al que nos dirigimos.",c:true,w:"Correcto: el primer paso es comprender a fondo a la audiencia."},
+  {t:"Definir el presupuesto total disponible para la pauta.",w:"No es el primer paso que indica el texto."},
+  {t:"Elegir la identidad visual y la paleta de colores.",w:"La identidad visual es el paso 13, no el primero."}
+ ],
+ e:"El primer paso para adaptar una estrategia de redes es comprender a fondo el público al que nos dirigimos, segmentándolo en grupos con características similares."},
+
+{t:"Buyer Persona",d:"Difícil",
+ q:"¿Qué es un Buyer Persona según Romeo?",
+ opts:[
+  {t:"Un perfil ficticio basado en datos reales de clientes.",c:true,w:"Correcto: es un perfil ficticio construido con datos reales."},
+  {t:"El público objetivo genérico de toda una categoría amplia.",w:"Ese es el público objetivo, no el Buyer Persona."},
+  {t:"El responsable de comprar la pauta publicitaria de la marca.",w:"No es un rol de compra, sino un perfil de cliente."},
+  {t:"Una comunidad de fanáticos que defienden a la marca.",w:"Eso describe a una comunidad de marca, no al Buyer Persona."}
+ ],
+ e:"El Buyer Persona es un perfil ficticio basado en datos reales de clientes, consumidores o usuarios; es la base de la estrategia de marketing digital y la producción de contenidos."},
+
+{t:"Buyer Persona vs público",d:"Difícil",type:"Comparación",
+ q:"¿Cuál es la diferencia entre el Buyer Persona y el público objetivo, según Romeo?",
+ opts:[
+  {t:"El público objetivo es específico y el Buyer Persona es genérico.",w:"Está invertido: lo específico es el Buyer Persona."},
+  {t:"El Buyer Persona es específico y el público objetivo es genérico.",c:true,w:"Correcto: el Buyer Persona tiene características específicas; el público es genérico."},
+  {t:"Ambos son exactamente lo mismo y se usan como sinónimos.",w:"No son lo mismo: difieren en el nivel de detalle."},
+  {t:"El Buyer Persona se basa en datos inventados sin sustento.",w:"Se basa en datos reales de clientes, no inventados."}
+ ],
+ e:"A diferencia del público objetivo, que es genérico, el Buyer Persona tiene características específicas (un perfil detallado como 'Cecilia, 30 años, trabaja en un banco...').",
+ r:"Público objetivo = genérico. Buyer Persona = específico y detallado (con datos reales)."},
+
+{t:"Comunidad (LEGO)",d:"Media",
+ q:"Romeo cita a LEGO como ejemplo de una marca que:",
+ opts:[
+  {t:"Evita las redes sociales para proteger su reputación.",w:"Al contrario: desarrolló una comunidad muy activa en redes."},
+  {t:"Desarrolló una comunidad activa de fanáticos en redes.",c:true,w:"Correcto: fanáticos que comparten creaciones y participan en concursos."},
+  {t:"Basa toda su estrategia solo en publicidad paga.",w:"El ejemplo es sobre comunidad, no sobre pauta."},
+  {t:"Eliminó a los usuarios que critican sus productos.",w:"No es el punto del ejemplo de LEGO."}
+ ],
+ e:"LEGO desarrolló una comunidad activa en la mayoría de las redes donde los fanáticos comparten sus creaciones, participan en concursos y se conectan, fortaleciendo la lealtad."},
+
+{t:"Comunidades de marca",d:"Media",
+ q:"Según Romeo, las comunidades que se forman alrededor de una marca son:",
+ opts:[
+  {t:"Solo clientes ocasionales sin mayor compromiso.",w:"El texto dice que no son solo clientes."},
+  {t:"Defensores que participan activamente en discusiones.",c:true,w:"Correcto: son defensores de la marca que participan en discusiones y actividades."},
+  {t:"Competidores que vigilan a la marca de cerca.",w:"No son competidores, sino seguidores comprometidos."},
+  {t:"Anunciantes que financian la pauta de la marca.",w:"No tienen que ver con la pauta publicitaria."}
+ ],
+ e:"Estas comunidades no solo son clientes, sino defensores de la marca que participan activamente en discusiones y actividades."},
+
+{t:"Summers — desafíos",d:"Difícil",type:"Combinación",
+ q:"Sean Summers (CMO de Mercado Libre) plantea desafíos en la relación marcas-agencias. Considere:\nI. Time-to-impact.\nII. Cómo medir el impacto.\nIII. Cost-to-impact.\nIV. Eliminar a los equipos creativos.\n¿Cuáles menciona?",
+ opts:[
+  {t:"Las afirmaciones I, II y III.",c:true,w:"Correcto: los tres desafíos son time-to-impact, medir el impacto y cost-to-impact."},
+  {t:"Las afirmaciones I, II y IV.",w:"IV es falsa: dice que ningún avance sustituye a los equipos creativos."},
+  {t:"Las afirmaciones II, III y IV.",w:"IV es falsa y omite la I, que sí corresponde."},
+  {t:"Las cuatro afirmaciones.",w:"IV es falsa: valora a los equipos creativos, no busca eliminarlos."}
+ ],
+ e:"Los tres grandes desafíos son: time-to-impact (responder en tiempo real), cómo medir el impacto y cost-to-impact (eficiencia frente al recurso creativo escaso)."},
+
+{t:"Summers — medir impacto",d:"Difícil",
+ q:"Para Sean Summers, el impacto de las iniciativas de marketing debe explicarse:",
+ opts:[
+  {t:"En términos de negocio, no de marketing.",c:true,w:"Correcto: debe ser tangible y explicado en lenguaje del negocio."},
+  {t:"Solo con métricas de vanidad como los seguidores.",w:"No alcanza con métricas de vanidad."},
+  {t:"Exclusivamente en el muy corto plazo.",w:"Puede ser a corto, mediano o largo plazo."},
+  {t:"En lenguaje técnico de los equipos creativos.",w:"Debe hablarse el lenguaje del negocio, no el técnico."}
+ ],
+ e:"Para Summers el impacto puede ser a corto, mediano o largo plazo, pero debe ser tangible y explicado en términos de negocio, no de marketing."},
+
+{t:"Summers — cambio",d:"Difícil",
+ q:"Según Summers, quienes se resistan al cambio y opten por optimizar fórmulas ya probadas:",
+ opts:[
+  {t:"Liderarán el mercado gracias a su prudencia.",w:"El texto dice lo contrario."},
+  {t:"Quedarán rezagados o incluso obsoletos.",c:true,w:"Correcto: en un proceso casi darwiniano quedarán rezagados."},
+  {t:"Serán los únicos en hallar estrategias ganadoras.",w:"Las estrategias ganadoras son para quienes experimentan e iteran."},
+  {t:"Reducirán sus costos de manera sostenible.",w:"No es lo que plantea el texto."}
+ ],
+ e:"Quienes se resistan al cambio quedarán rezagados o incluso obsoletos en un proceso casi darwiniano; quienes se atrevan a experimentar, fallar e iterar hallarán estrategias ganadoras."},
+
+{t:"Summers — mundo de grises",d:"Difícil",type:"Comparación",
+ q:"Cuando Summers dice que 'el marketing es un mundo de grises', se refiere a que:",
+ opts:[
+  {t:"Lo estratégico y lo táctico resultan incompatibles entre sí.",w:"No son incompatibles; se complementan."},
+  {t:"Lo estratégico marca el camino y lo táctico da los pasos.",c:true,w:"Correcto: estrategia marca el rumbo; táctica da pasos concretos hacia él."},
+  {t:"Solo el análisis cuantitativo ofrece soluciones válidas.",w:"El cualitativo también aporta soluciones más robustas."},
+  {t:"Hay que ser dogmático para tener éxito en marketing.",w:"Justamente recomienda no ser dogmático."}
+ ],
+ e:"El marketing es un mundo de grises: lo estratégico marca el camino y lo táctico permite dar pasos concretos hacia ese objetivo; la clave es no ser dogmático y combinar lo cuantitativo y lo cualitativo."},
+
+{t:"Conversaciones de ascensor",d:"Difícil",
+ q:"Con la metáfora de las 'conversaciones de ascensor', Romeo critica a las marcas que:",
+ opts:[
+  {t:"Crean piezas intrascendentes para sus audiencias.",c:true,w:"Correcto: piezas que pasan desapercibidas, como charlas sobre el clima."},
+  {t:"Invierten demasiado dinero en la publicidad paga.",w:"No es lo que critica con esa metáfora."},
+  {t:"Usan storytelling en absolutamente todas sus campañas.",w:"El storytelling es algo que valora, no que critica."},
+  {t:"Segmentan en exceso y sin criterio a su audiencia.",w:"No se refiere a la segmentación."}
+ ],
+ e:"Romeo compara la comunicación de muchas marcas con las charlas de ascensor sobre el clima: piezas intrascendentes que pasan desapercibidas para sus audiencias."},
+
+{t:"Contenidos snacks",d:"Media",
+ q:"Los contenidos 'snacks' que menciona el texto son:",
+ opts:[
+  {t:"Piezas de muy corta duración para captar la atención.",c:true,w:"Correcto: contenidos breves para la corta ventana de atención."},
+  {t:"Campañas de televisión abierta de larga duración.",w:"Los snacks son cortos, no largos."},
+  {t:"Informes técnicos muy extensos dirigidos a inversores.",w:"No son informes extensos, sino piezas breves."},
+  {t:"Catálogos impresos de los productos de la marca.",w:"No tienen relación con catálogos impresos."}
+ ],
+ e:"Las redes llevaron a las marcas a generar contenidos 'snacks' de muy corta duración para capturar la ventana de atención de la audiencia."},
+
+{t:"El qué sobre el dónde",d:"Difícil",
+ q:"En cuanto a la creatividad, el autor sostiene que es más importante:",
+ opts:[
+  {t:"'El dónde' (la plataforma) por sobre 'el qué'.",w:"Es al revés: prioriza el qué sobre el dónde."},
+  {t:"'El qué' (la idea) por sobre 'el dónde'.",c:true,w:"Correcto: defiende la creatividad y el valor de las ideas."},
+  {t:"La inversión por sobre la relevancia del contenido.",w:"La relevancia puede ser inversa a la inversión."},
+  {t:"El formato por sobre el mensaje que se transmite.",w:"No prioriza el formato sobre el mensaje."}
+ ],
+ e:"El autor, defensor de la creatividad y del valor de las ideas, sostiene que también aquí es importante 'el qué' por sobre 'el dónde'."},
+
+{t:"Relevancia e inversión",d:"Difícil",
+ q:"Según el texto, la relevancia de un contenido puede ser:",
+ opts:[
+  {t:"Directamente proporcional a la inversión requerida.",w:"Es al revés según el texto."},
+  {t:"Inversamente proporcional a la inversión requerida.",c:true,w:"Correcto: como con la creatividad, puede ser inversa a la inversión."},
+  {t:"Totalmente independiente de la creatividad aplicada.",w:"Está ligada a la creatividad, no es independiente."},
+  {t:"Garantizada por los algoritmos en todos los casos.",w:"Los algoritmos premian la relevancia, pero no la garantizan."}
+ ],
+ e:"Tal como sucede con la creatividad, la relevancia puede ser inversamente proporcional a la inversión requerida (los algoritmos premian a quienes generan contenidos relevantes)."},
+
+{t:"Monetización",d:"Difícil",
+ q:"Romeo advierte que la monetización de las redes se basa en la pauta de los anunciantes y que, por eso:",
+ opts:[
+  {t:"Nunca debemos confiar solo en lo orgánico.",c:true,w:"Correcto: hay que considerar en paralelo la inversión necesaria para difundir."},
+  {t:"El contenido orgánico siempre garantiza viralidad.",w:"No hay fórmula que garantice la viralidad."},
+  {t:"No hace falta considerar la inversión necesaria.",w:"Al contrario: hay que considerarla en paralelo."},
+  {t:"Conviene abandonar la publicidad paga por completo.",w:"La pauta es clave; no se abandona."}
+ ],
+ e:"La monetización de las redes está basada en la pauta de sus anunciantes; nunca confiemos solo en lo orgánico y consideremos en paralelo cuánta inversión es necesaria para difundir."},
+
+{t:"Plataformas (TikTok)",d:"Media",
+ q:"Según Romeo, TikTok (lanzado en 2016) tuvo un crecimiento explosivo gracias a:",
+ opts:[
+  {t:"Sus videos cortos y su algoritmo de recomendación.",c:true,w:"Correcto: formato de videos cortos + algoritmo, sobre todo entre jóvenes."},
+  {t:"Su enfoque exclusivo en los públicos adultos mayores.",w:"Creció especialmente entre los usuarios más jóvenes."},
+  {t:"Su catálogo mundial de productos de diseño.",w:"Ese es el caso de Pinterest, no de TikTok."},
+  {t:"Su priorización del contenido de páginas de empresas.",w:"Eso remite al cambio de algoritmo de Facebook."}
+ ],
+ e:"TikTok experimentó un crecimiento explosivo, especialmente entre los usuarios más jóvenes, por su formato de videos cortos y su algoritmo de recomendación."},
+
+{t:"Plataformas (Pinterest)",d:"Media",
+ q:"Romeo describe el renacer de Pinterest como:",
+ opts:[
+  {t:"Una red prácticamente libre de haters para empresas.",w:"Eso es lo que Benedetti dice de LinkedIn."},
+  {t:"Un catálogo mundial de productos y diseño.",c:true,w:"Correcto: reformulado como catálogo mundial, enfocado en jóvenes de 15 a 25."},
+  {t:"Una plataforma de video en vivo para eventos.",w:"El video en vivo es otra tendencia (Facebook/YouTube Live)."},
+  {t:"Una red centrada en adultos mayores de 50 años.",w:"Está enfocado en jóvenes de 15 a 25 años."}
+ ],
+ e:"Pinterest fue reformulado como un catálogo mundial de productos y objetos de arte y diseño, enfocado en los jóvenes de 15 a 25 años."},
+
+{t:"Plataformas (Facebook)",d:"Difícil",
+ q:"¿Por qué Facebook modificó su algoritmo, obligando a las marcas a generar contenido más interactivo?",
+ opts:[
+  {t:"Para priorizar ante todo la publicidad paga de las empresas.",w:"No fue para priorizar la pauta, sino las interacciones personales."},
+  {t:"Para priorizar las interacciones entre amigos y familiares.",c:true,w:"Correcto: priorizó interacciones significativas entre amigos y familiares."},
+  {t:"Para eliminar por completo el contenido audiovisual.",w:"El giro audiovisual es otra tendencia distinta."},
+  {t:"Para favorecer el contenido de las páginas de empresas.",w:"Es lo contrario: lo relegó frente al contenido personal."}
+ ],
+ e:"Facebook modificó su algoritmo para priorizar las interacciones significativas entre amigos y familiares por sobre el contenido de las páginas de empresas, lo que obligó a las marcas a crear contenido más interactivo para mantener su alcance orgánico."},
+
+{t:"Plataformas (Instagram)",d:"Media",
+ q:"La transición de Instagram hacia Stories y Reels, según Romeo, obligó a producir contenido:",
+ opts:[
+  {t:"Visual, dinámico y efímero.",c:true,w:"Correcto: refleja la preferencia por contenidos más cortos y atractivos."},
+  {t:"Extenso y de larga duración.",w:"La tendencia fue hacia lo corto, no lo extenso."},
+  {t:"Exclusivamente escrito y técnico.",w:"El giro fue hacia lo visual y audiovisual."},
+  {t:"Impreso para catálogos físicos.",w:"No tiene relación con lo impreso."}
+ ],
+ e:"La transición hacia Stories y Reels obligó a producir más contenido visual, dinámico y efímero, reflejando la preferencia de los usuarios por contenidos más cortos y atractivos."},
+
+{t:"Streaming en Argentina",d:"Media",type:"Combinación",
+ q:"Romeo menciona que disputan la audiencia de la Generación Z en Argentina plataformas como:\nI. Luzu TV.\nII. Olga.\nIII. Blender.\nIV. Gelatina.",
+ opts:[
+  {t:"Las afirmaciones I, II y III.",w:"Falta Gelatina, que también es mencionada."},
+  {t:"Las afirmaciones I, III y IV.",w:"Falta Olga, que también es mencionada."},
+  {t:"Las afirmaciones II, III y IV.",w:"Falta Luzu TV, que también es mencionada."},
+  {t:"Las cuatro plataformas.",c:true,w:"Correcto: Luzu TV, Olga, Blender y Gelatina, entre otras."}
+ ],
+ e:"Luzu TV, Olga, Blender y Gelatina, entre otros, se disputan la audiencia de la Generación Z (hasta 25 años) con programación diaria."},
+
+{t:"Objetivos",d:"Media",
+ q:"Según Romeo, establecer objetivos específicos y medibles sirve sobre todo para:",
+ opts:[
+  {t:"Dar claridad y enfoque al equipo y a los accionistas.",c:true,w:"Correcto: proporcionan claridad y enfoque a equipos de marketing y accionistas."},
+  {t:"Reemplazar por completo la necesidad de definir KPIs.",w:"Los objetivos no reemplazan los KPIs; se complementan."},
+  {t:"Garantizar la viralidad asegurada de cada publicación.",w:"Ninguna fórmula garantiza la viralidad."},
+  {t:"Eliminar la inversión en publicidad paga de la marca.",w:"No se relaciona con eliminar la pauta."}
+ ],
+ e:"Establecer objetivos específicos y medibles proporciona claridad y enfoque tanto a los equipos de marketing como a los accionistas, y permite delinear qué se espera lograr y en qué plazo."},
+
+{t:"KPIs",d:"Media",type:"Excepción",
+ q:"Entre los KPIs que Romeo relaciona con los objetivos de redes sociales, ¿cuál NO figura?",
+ opts:[
+  {t:"El engagement rate de las cuentas.",w:"Sí figura entre los KPIs mencionados."},
+  {t:"El número total de seguidores.",w:"Sí figura entre los KPIs mencionados."},
+  {t:"Las conversiones generadas.",w:"Sí figura entre los KPIs mencionados."},
+  {t:"El color de la identidad visual.",c:true,w:"NO es un KPI: la identidad visual es el paso 13, no una métrica."}
+ ],
+ e:"Los KPIs mencionados incluyen el número de seguidores, el engagement rate, las conversiones y el tráfico web generado desde redes, entre otros."},
+
+{t:"Objetivos y métricas",d:"Difícil",type:"Relación",
+ q:"Romeo asocia el objetivo 'incremento del engagement' con métricas como:",
+ opts:[
+  {t:"Alcance, impresiones y menciones de marca.",w:"Esas son métricas de visibilidad/reconocimiento de marca."},
+  {t:"Me gusta, comentarios y cantidad de compartidos.",c:true,w:"Correcto: más la tasa de engagement general (interacciones/seguidores)."},
+  {t:"Tasa de rebote y tiempo promedio en la página.",w:"Esas son métricas de tráfico web."},
+  {t:"Costo por lead y calidad de los leads generados.",w:"Esas son métricas de generación de leads."}
+ ],
+ e:"Para el incremento del engagement, las métricas son me gusta, comentarios, cantidad de compartidos y la tasa de engagement general (interacciones totales divididas por seguidores).",
+ r:"Asocia objetivo↔métrica: visibilidad→alcance/impresiones; engagement→me gusta/comentarios; tráfico→rebote/tiempo; leads→CPL/calidad."},
+
+{t:"KPIs (leads)",d:"Difícil",
+ q:"En el ejemplo de aumentar conversiones con anuncios en LinkedIn, Romeo cita KPIs como:",
+ opts:[
+  {t:"El alcance y las impresiones de las publicaciones.",w:"Esas son métricas de visibilidad, no de conversión."},
+  {t:"La tasa de clics (CTR) y el costo por lead (CPL).",c:true,w:"Correcto: CTR, tasa de conversión y costo por lead (CPL)."},
+  {t:"Los me gusta y la cantidad de compartidos.",w:"Esas son métricas de engagement."},
+  {t:"La tasa de rebote y el tiempo en la página.",w:"Esas son métricas de tráfico web."}
+ ],
+ e:"Para aumentar las conversiones vía anuncios en LinkedIn, los KPIs son la tasa de clics (CTR), la tasa de conversión y el costo por lead (CPL)."},
+
+{t:"13 pasos",d:"Media",
+ q:"Según los '13 pasos hacia el éxito' de Romeo, el primer paso de una estrategia en redes es:",
+ opts:[
+  {t:"Realizar un análisis competitivo.",c:true,w:"Correcto: el paso 1 es el análisis competitivo."},
+  {t:"Establecer la identidad visual de la marca.",w:"Eso es el paso 13, no el primero."},
+  {t:"Utilizar publicidad paga desde el inicio.",w:"La publicidad paga es el paso 6."},
+  {t:"Fomentar el contenido generado por usuarios.",w:"El UGC es el paso 9."}
+ ],
+ e:"El paso 1 de los 13 es realizar un análisis competitivo: evaluar lo que hacen los competidores para identificar oportunidades y amenazas."},
+
+{t:"13 pasos",d:"Difícil",
+ q:"Entre los 13 pasos, Romeo sostiene sobre la publicidad paga que:",
+ opts:[
+  {t:"La vida digital puede ser puramente orgánica.",w:"Dice expresamente que no existe la vida digital puramente orgánica."},
+  {t:"Toda marca en algún momento debe invertir en redes.",c:true,w:"Correcto: es una obviedad necesaria; no existe lo puramente orgánico."},
+  {t:"Conviene evitarla para no perder la autenticidad.",w:"No recomienda evitarla, sino usarla."},
+  {t:"Solo sirve para audiencias B2B en LinkedIn.",w:"No se limita a B2B."}
+ ],
+ e:"Paso 6: utilizar publicidad paga. Es una obviedad, pero necesaria: toda marca en algún momento debe invertir en redes, porque no existe la vida digital puramente orgánica."},
+
+{t:"Marketing de influencers",d:"Difícil",
+ q:"Sobre el marketing de influencers, Romeo destaca que muchas marcas hoy colaboran con micro-influencers porque:",
+ opts:[
+  {t:"Tienen la mayor cantidad de seguidores posible.",w:"Los micro-influencers tienen menos seguidores, no más."},
+  {t:"Tienen menos seguidores pero altamente comprometidos.",c:true,w:"Correcto: permiten una conexión más auténtica con el público."},
+  {t:"Garantizan la viralidad inmediata del contenido.",w:"No garantizan viralidad."},
+  {t:"Reemplazan por completo a la publicidad paga.",w:"No reemplazan a la pauta."}
+ ],
+ e:"En lugar de asociarse con grandes celebridades, muchas marcas colaboran con micro-influencers, que tienen menos seguidores pero altamente comprometidos, permitiendo una conexión más auténtica con el público objetivo."},
+
+{t:"13 pasos (identidad)",d:"Media",
+ q:"El paso 13 ('identidad visual y de marca coherente') implica crear:",
+ opts:[
+  {t:"Una guía de estilo con logos, colores y tono.",c:true,w:"Correcto: una guía de estilo para que las comunicaciones sean consistentes."},
+  {t:"Un calendario de contenidos para todas las plataformas.",w:"Eso corresponde a la estrategia de contenido (paso 3)."},
+  {t:"Un comité para resolver los casos de crisis.",w:"El comité lo plantea Benedetti, no el paso 13."},
+  {t:"Un Buyer Persona por cada segmento de audiencia.",w:"El Buyer Persona pertenece al diseño de audiencia."}
+ ],
+ e:"El paso 13 implica crear una guía de estilo que detalle el uso de logotipos, colores, tipografía y tono para que todas las comunicaciones en redes sean consistentes."},
+
+{t:"Benedetti — multidireccionalidad",d:"Difícil",type:"Comparación",
+ q:"Según Benedetti (cierre del capítulo), hoy ya no hablamos de bidireccionalidad sino de multidireccionalidad porque:",
+ opts:[
+  {t:"Solo conversan las empresas directamente con sus usuarios.",w:"Eso es bidireccionalidad; el texto va más allá."},
+  {t:"También conversan los usuarios entre sí y con la marca.",c:true,w:"Correcto: usuarios entre usuarios, haters y Brand lovers, marcas y marcas."},
+  {t:"Las marcas dejaron de tener protocolos de moderación.",w:"Al contrario: hoy tienen protocolos y guías de moderación."},
+  {t:"La comunicación volvió a ser de una sola vía.",w:"Es lo opuesto: la comunicación se multiplicó."}
+ ],
+ e:"Estamos en la era de la multidireccionalidad: ya no solo conversan empresas y usuarios, sino usuarios entre sí, haters y Brand lovers, marcas y marcas. Es un proceso irreversible.",
+ r:"Unidireccional (una vía) → Bidireccional (marca-usuario) → Multidireccional (todos con todos)."},
+
+{t:"Benedetti — Social Listening",d:"Difícil",
+ q:"Para Benedetti, ante situaciones inesperadas (como un hater que sea TikToker viral), el principal desafío de las marcas es:",
+ opts:[
+  {t:"Tener una buena estrategia de Social Listening.",c:true,w:"Correcto: el Social Listening permite advertir y abordar esas situaciones."},
+  {t:"Eliminar de inmediato todas sus redes sociales.",w:"No se trata de abandonar las redes."},
+  {t:"Responder con agresividad a cada crítica.",w:"No es la recomendación del texto."},
+  {t:"Confiar solo en el contenido orgánico.",w:"Romeo advierte no confiar solo en lo orgánico."}
+ ],
+ e:"El principal desafío es tener una buena estrategia de Social Listening para advertir estas situaciones y saber cómo abordarlas; inclusive permite detectar Brand lovers e insights."},
+
+{t:"Integradora",d:"Difícil",type:"Todas/Ninguna",noShuffle:true,
+ q:"Señale la opción correcta sobre el capítulo de Romeo.",
+ opts:[
+  {t:"Las redes sociales permiten solo una comunicación unidireccional.",w:"Falso: permiten interacción multidireccional."},
+  {t:"El Buyer Persona es un perfil genérico y sin datos reales.",w:"Falso: es específico y se basa en datos reales."},
+  {t:"Conviene casarse con una sola plataforma de redes.",w:"Falso: el texto recomienda no casarse con una sola plataforma."},
+  {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
+ ],
+ e:"Las redes son multidireccionales; el Buyer Persona es específico y basado en datos reales; y conviene no casarse con una sola plataforma. Por eso, ninguna de las anteriores.",
+ r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."}
+];
+
 const TEXTS = [
   {id:"capriotti", title:"Capriotti (2024)", subtitle:"Campañas de Comunicación",
    desc:"Capriotti (2024), Campañas de Comunicación (Guía Práctica). Del concepto de campaña a las 15 etapas del proceso, con las trampas conceptuales y los matices del texto original. Corrección detallada por pregunta.",
    bank:BANK_CAPRIOTTI},
   {id:"marti", title:"Martí (2017)", subtitle:"Estrategias de Comunicación",
    desc:"Martí (2017), Estrategias de Comunicación (en 'Plan de comunicación on y off en la práctica'). Objetivos/estrategias/tácticas, los 3 ingredientes, comunicación 360°, herramientas internas y externas, branded content, storydoing e influencers.",
-   bank:BANK_MARTI}
+   bank:BANK_MARTI},
+  {id:"romeo", title:"Romeo (2025)", subtitle:"La Nueva Era de las Marcas",
+   desc:"Romeo (2025), La Nueva Era de las Marcas — Cap. 3: Redes sociales. Multidireccionalidad, personalidad de marca y storytelling, audiencia y Buyer Persona, Sean Summers (time/cost-to-impact), conversaciones de ascensor, plataformas, objetivos/KPIs y los 13 pasos.",
+   bank:BANK_ROMEO}
 ];
 let currentTextId = "capriotti";
 function currentBank(){return TEXTS.find(t=>t.id===currentTextId).bank;}
