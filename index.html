@@ -81,6 +81,7 @@
   .tc-title{font-weight:700;font-size:1.02rem}
   .tc-sub{color:var(--accent2);font-size:.92rem;margin-top:2px}
   .tc-meta{color:var(--muted);font-size:.82rem;margin-top:4px}
+  .badge.pract{color:#7fe3b0;border-color:#1f5a3d;background:#10341f}
 </style>
 </head>
 <body>
@@ -114,15 +115,18 @@
         <label class="check"><input type="checkbox" id="optShuffleQ" checked> Orden aleatorio de preguntas</label>
         <label class="check"><input type="checkbox" id="optShuffleO" checked> Mezclar posición de las opciones</label>
       </div>
-      <div class="row" style="margin-bottom:18px">
-        <span class="muted" style="font-size:.92rem">Dificultad:</span>
+      <div class="row" style="margin-bottom:8px">
+        <span class="muted" style="font-size:.92rem">Filtrar:</span>
         <select id="optDif">
-          <option value="all">Todas</option>
+          <option value="all">Todas las preguntas</option>
+          <option value="practica">🎯 Solo ejercicios prácticos</option>
+          <option value="teoria">Solo teoría</option>
           <option value="Difícil">Solo difíciles</option>
           <option value="Media">Solo medias</option>
           <option value="Fácil">Solo fáciles</option>
         </select>
       </div>
+      <div id="filterHint" class="muted" style="font-size:.85rem;margin-bottom:16px"></div>
 
       <button class="btn" id="startBtn" style="width:100%">Comenzar práctica ▶</button>
       <p class="kbd center" style="margin:14px 0 0">Atajos: teclas <b>1–4</b> o <b>A–D</b> para elegir · <b>Enter</b> para comprobar / siguiente</p>
@@ -136,6 +140,7 @@
       <div class="row" style="gap:8px">
         <span class="badge" id="qIndex">1 / 47</span>
         <span class="badge type" id="qTopic">Tema</span>
+        <span class="badge pract" id="qPract" style="display:none">🎯 Práctico</span>
         <span class="badge" id="qType" style="display:none"></span>
       </div>
       <span class="badge" id="qDif">Media</span>
@@ -686,7 +691,83 @@ const BANK_CAPRIOTTI = [
   {t:"Las cuatro afirmaciones son correctas.",c:true,w:"Correcto: las cuatro lo son (junto con 'situacional', la quinta)."}
  ],
  e:"Las cinco características del proceso son: Linealidad, Especificidad, Situacional, Agilidad y Temporalidad. Las cuatro listadas son válidas.",
- r:"Son 5 características: Linealidad, Especificidad, Situacional, Agilidad, Temporalidad."}
+ r:"Son 5 características: Linealidad, Especificidad, Situacional, Agilidad, Temporalidad."},
+{t:"Campaña vs. acción",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una bodega publica un único posteo puntual en Instagram para avisar que cambió su horario de atención. Según Capriotti, esto es:",
+ opts:[
+  {t:"Una campaña de comunicación, por el solo hecho de usar una red social.",w:"Usar una red no convierte una pieza puntual en campaña."},
+  {t:"Una acción de comunicación, individual y de muy corto plazo.",c:true,w:"Correcto: es una iniciativa concreta y aislada, no un conjunto integrado."},
+  {t:"Un plan anual de comunicación de la marca para todo el período.",w:"El plan anual organiza un año entero, no un posteo puntual."},
+  {t:"Una estrategia de identidad dentro del núcleo comunicativo.",w:"No es una estrategia, sino una acción operativa puntual."}
+ ],
+ e:"Una acción de comunicación es una iniciativa concreta, individualizada y operativa, de muy corto plazo, que puede realizarse de forma aislada (no integrada en una campaña)."},
+{t:"Objetivos — enfoque",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Un equipo redacta como 'objetivo': 'Lanzar tres videos en YouTube y dos sorteos durante el trimestre'. Según Capriotti, ese enunciado:",
+ opts:[
+  {t:"Es un objetivo correcto, porque está acotado en el tiempo (trimestre).",w:"El plazo no alcanza: describe acciones, no un resultado en el público."},
+  {t:"No es un objetivo, sino acciones tácticas (enfoque de realización).",c:true,w:"Correcto: enumera medios/acciones, no el impacto buscado en el público."},
+  {t:"Es una meta general de tipo comportamiento de la campaña.",w:"No es una meta; son acciones a ejecutar."},
+  {t:"Es un objetivo de impacto bien redactado, con todos sus componentes.",w:"Le faltan dirección, intención, foco y medida de impacto."}
+ ],
+ e:"El enfoque de realización redacta acciones o medios y NO constituye un objetivo válido; el objetivo debe expresar el resultado o impacto en el público (enfoque de impacto).",
+ r:"Si dice lo que vas a HACER → realización (mal). Si dice el RESULTADO en el público (cuánto + cuándo) → impacto (bien)."},
+{t:"Objetivos — estructura",d:"Difícil",type:"Aplicación",practica:true,
+ q:"¿Cuál de los siguientes está redactado como un objetivo SMART de impacto, con sus cinco componentes?",
+ opts:[
+  {t:"Mejorar la imagen de la marca entre los jóvenes lo antes posible.",w:"Sin medida ni plazo definidos: queda como 'buena intención'."},
+  {t:"Incrementar la predisposición de compra en los clientes un 10% en seis meses.",c:true,w:"Correcto: tiene dirección, intención, foco, medida y plazo."},
+  {t:"Realizar una campaña con influencers en redes durante todo el verano.",w:"Es una acción/medio (enfoque de realización), no un objetivo."},
+  {t:"Aumentar mucho la notoriedad de la marca en el público en general.",w:"Falta medida concreta, plazo y un foco preciso."}
+ ],
+ e:"Un objetivo SMART de impacto incluye Dirección + Intención + Foco + Medida + Plazo (p. ej., 'incrementar la predisposición... un 10% en seis meses')."},
+{t:"Públicos",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca de alimentos para bebés define como público clave a los pediatras: no compran el producto, pero recomiendan marcas a los padres. Según Capriotti, los pediatras son un público:",
+ opts:[
+  {t:"Objetivo, porque condicionan de forma directa el logro de la meta.",w:"No inciden de forma directa: actúan sobre el público objetivo."},
+  {t:"Influenciador, porque inciden de modo indirecto sobre el público objetivo.",c:true,w:"Correcto: afectan la meta de forma indirecta, a través de los padres."},
+  {t:"Secundario, porque tienen poca relevancia para alcanzar la meta general.",w:"Mezcla clasificaciones: prioritario/secundario es por esfuerzo, no por rol."},
+  {t:"Prioritario por definición, por el solo hecho de ser profesionales.",w:"Ser profesional no define la prioridad; eso depende del esfuerzo asignado."}
+ ],
+ e:"Los públicos influenciadores inciden sobre el conocimiento, la predisposición y el comportamiento de los públicos objetivos, afectando de forma indirecta la meta.",
+ r:"Rol (objetivo/influenciador = directo/indirecto) ≠ Prioridad (prioritario/secundario = mayor/menor esfuerzo)."},
+{t:"Estrategias",d:"Difícil",type:"Aplicación",practica:true,
+ q:"En la planificación, un equipo discute primero en qué redes pautar y recién después qué mensaje e identidad transmitir. Según el orden que propone Capriotti, el error es:",
+ opts:[
+  {t:"No hay error: conviene empezar por los medios (Sistema Mediático).",w:"El orden correcto va de lo central a lo visible, no al revés."},
+  {t:"Empezar por el Sistema Mediático antes que por el Núcleo Comunicativo.",c:true,w:"Correcto: primero el mensaje (Núcleo), después la difusión (Sistema Mediático)."},
+  {t:"Empezar por el Núcleo Comunicativo, que en realidad debería ir al final.",w:"Invertido: el Núcleo Comunicativo va primero, no al final."},
+  {t:"Definir la identidad, que no forma parte de las estrategias de campaña.",w:"La identidad sí es una estrategia (del Núcleo Comunicativo)."}
+ ],
+ e:"El orden de las decisiones estratégicas va de lo más central (Núcleo Comunicativo: identidad, concepto, estilo) a lo más visible (Sistema Mediático: medios, interacción)."},
+{t:"Contenidos",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca presenta su producto contando la historia real de una clienta y su vínculo emocional con la marca, en lugar de enumerar características técnicas. Ese formato de contenidos es:",
+ opts:[
+  {t:"Explicativo (fact-telling), porque describe el producto de forma directa.",w:"El fact-telling describe particularidades; aquí se construye un relato."},
+  {t:"Narrativo (story-telling), porque construye los contenidos como un relato.",c:true,w:"Correcto: presenta los contenidos como una historia vinculada a la marca."},
+  {t:"Un criterio de valoración de los medios de la campaña.",w:"No es un criterio de medios; es un formato de contenidos."},
+  {t:"Una estrategia de medios, y no una decisión de contenidos.",w:"El formato es una decisión de la etapa de Contenidos."}
+ ],
+ e:"Formato explicativo (fact-telling): descripción directa de la marca. Narrativo (story-telling): los contenidos se construyen como un relato o historia."},
+{t:"Control",d:"Difícil",type:"Aplicación",practica:true,
+ q:"El responsable quiere saber, por un lado, si cada pieza concreta se ejecutó bien y tuvo efecto y, por otro, cómo evolucionó la campaña en su conjunto frente al contexto. Según Capriotti, necesita:",
+ opts:[
+  {t:"Solo control operativo, que por sí solo ya cubre ambos planos.",w:"El operativo evalúa cada acción, no el conjunto de la campaña."},
+  {t:"Control operativo para cada acción y control táctico para el conjunto.",c:true,w:"Correcto: combina los dos niveles de control que define el texto."},
+  {t:"Solo control táctico, que por sí solo ya cubre cada acción individual.",w:"El táctico evalúa el conjunto, no cada acción individual."},
+  {t:"Un calendario específico y un calendario general de la campaña.",w:"Eso es Temporización, no el sistema de control."}
+ ],
+ e:"Control operativo = realización y eficacia de cada acción individual. Control táctico = la campaña en su conjunto (contexto, desempeño e impacto).",
+ r:"Operativo = la PIEZA. Táctico = el CONJUNTO."},
+{t:"Táctica vs. estratégica",d:"Difícil",type:"Aplicación",noShuffle:true,practica:true,
+ q:"Una empresa elabora un plan a 4 años con sus lineamientos de comunicación y, dentro de él, define campañas puntuales para cada lanzamiento. Indique la opción correcta:",
+ opts:[
+  {t:"El plan a cuatro años corresponde a la gestión estratégica (plan plurianual).",w:"Es correcto, pero no es la única afirmación verdadera."},
+  {t:"Las campañas por lanzamiento corresponden a la gestión táctica.",w:"Es correcto, pero no es la única afirmación verdadera."},
+  {t:"El plan a cuatro años es táctico y las campañas por lanzamiento, estratégicas.",w:"Está invertido: el plan plurianual es estratégico y las campañas, tácticas."},
+  {t:"A y B son correctas.",c:true,w:"Correcto: el plan plurianual es estratégico y las campañas son tácticas."}
+ ],
+ e:"La gestión estratégica se instrumenta con planes plurianuales (3-5 años) y anuales; la táctica, con campañas y acciones. Por eso A y B son correctas.",
+ r:"Plurianual/anual = estratégico. Campañas/acciones = táctico."}
 ];
 
 const BANK_MARTI = [
@@ -1096,7 +1177,82 @@ const BANK_MARTI = [
   {t:"Cuando utiliza de forma simultánea todos los canales que tiene disponibles.",w:"Usar más canales no garantiza por sí mismo la eficacia."},
   {t:"Cuando logra reducir al mínimo el presupuesto invertido en la campaña.",w:"El ahorro no es el criterio de eficacia que plantea el texto."}
  ],
- e:"Hay que preguntar qué quiere la organización que haga cada receptor como resultado de la comunicación: esta se considera eficaz en la medida en que consigue en el receptor la respuesta deseada."}
+ e:"Hay que preguntar qué quiere la organización que haga cada receptor como resultado de la comunicación: esta se considera eficaz en la medida en que consigue en el receptor la respuesta deseada."},
+{t:"Objetivo / estrategia / táctica",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Un plan incluye: 'Fidelizar a los clientes' (línea general), 'Difundir un newsletter mensual' (acción acotada) y 'Aumentar la recompra' (resultado buscado). Según Martí, ¿cuál de las tres es la TÁCTICA?",
+ opts:[
+  {t:"'Fidelizar a los clientes', que orienta toda la línea de comunicación.",w:"Eso es la estrategia (el cómo general), no la táctica."},
+  {t:"'Difundir un newsletter mensual', acotada en el tiempo y medible.",c:true,w:"Correcto: es la acción concreta y medible que materializa la estrategia."},
+  {t:"'Aumentar la recompra', que expresa el resultado que se quiere lograr.",w:"Eso es el objetivo (el resultado buscado), no la táctica."},
+  {t:"Las tres son tácticas, porque forman parte del mismo plan.",w:"Cada una es un nivel distinto: estrategia, táctica y objetivo."}
+ ],
+ e:"Objetivo = el resultado que se quiere lograr; Estrategia = la forma de conseguirlo; Táctica = la acción concreta, acotada y medible que la materializa."},
+{t:"Estructura del mensaje",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca elige un anuncio que apela a los sentimientos y busca aumentar la notoriedad, en lugar de enumerar las cualidades del producto. Según Rodríguez Ardura (citado por Martí), está usando un mensaje:",
+ opts:[
+  {t:"Racional, basado en la solidez de los argumentos sobre el producto.",w:"El racional argumenta cualidades; aquí se apela a lo afectivo."},
+  {t:"Emocional, que despierta sentimientos y aumenta la notoriedad de la marca.",c:true,w:"Correcto: el mensaje emocional apela al afecto y eleva la notoriedad."},
+  {t:"Cognitivo, que facilita evaluar los méritos concretos del producto.",w:"Lo cognitivo es propio del mensaje racional, no del emocional."},
+  {t:"Informativo, centrado en transmitir datos técnicos y especificaciones.",w:"Eso describe un enfoque racional/informativo, no emocional."}
+ ],
+ e:"Mensajes racionales: solidez de argumentos (aspectos cognitivos). Emocionales: despiertan sentimientos, llaman la atención y aumentan la notoriedad.",
+ r:"Racional = argumentos/cualidades/cognitivo. Emocional = sentimientos/notoriedad/afectivo."},
+{t:"Comunicación interna",d:"Difícil",type:"Aplicación",practica:true,
+ q:"El área de comunicación quiere fortalecer el sentido de pertenencia del personal de la empresa. Según Martí, ¿qué herramienta es la adecuada?",
+ opts:[
+  {t:"Una rueda de prensa convocada con los periodistas del sector.",w:"Es una herramienta externa (RR.PP.), no interna."},
+  {t:"Una intranet y un newsletter internos dirigidos a los empleados.",c:true,w:"Correcto: son herramientas de comunicación interna."},
+  {t:"Una campaña de publicidad en los grandes medios masivos.",w:"La publicidad masiva es comunicación externa, no interna."},
+  {t:"Un programa de marketing directo orientado a los clientes finales.",w:"El marketing directo apunta a clientes, no al público interno."}
+ ],
+ e:"La comunicación interna (intranet, newsletter, revista corporativa, reuniones, etc.) busca que el personal conozca y comparta los valores y genere sentido de pertenencia."},
+{t:"Publicidad",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca invierte en mailing personalizado y en tarjetas de fidelización offline. Según la clasificación de Martí, está usando medios:",
+ opts:[
+  {t:"Convencionales, como la televisión, los diarios y el cine.",w:"Esos son ejemplos de medios convencionales, no los del enunciado."},
+  {t:"No convencionales, como el mailing y las tarjetas de fidelización.",c:true,w:"Correcto: el mailing personalizado y las tarjetas offline son no convencionales."},
+  {t:"Exclusivamente digitales, propios del entorno online de la marca.",w:"El mailing y las tarjetas offline no son 'exclusivamente digitales'."},
+  {t:"De relaciones públicas, orientados a la credibilidad de la marca.",w:"No son RR.PP.; son medios no convencionales de la publicidad."}
+ ],
+ e:"Medios convencionales: TV, Internet, diarios, exterior, revistas, suplementos, dominicales y cine. No convencionales: ferias, mailing personalizado, marketing telefónico y tarjetas de fidelización offline."},
+{t:"Marketing de guerrilla",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca con poco presupuesto organiza un flashmob y produce un video viral para lograr la máxima difusión mediática. Según Martí, está aplicando:",
+ opts:[
+  {t:"Relaciones públicas, orientadas a la credibilidad y la confianza.",w:"Las RR.PP. buscan credibilidad, no difusión con técnicas poco usuales."},
+  {t:"Marketing de guerrilla, con técnicas poco usuales y baja inversión.",c:true,w:"Correcto: flashmobs y videos virales son marketing de guerrilla."},
+  {t:"Marketing directo, basado en segmentar y medir de forma directa.",w:"El marketing directo segmenta y mide; no es lo del enunciado."},
+  {t:"Publicidad en medios convencionales como la televisión.",w:"No usa medios convencionales; usa técnicas de guerrilla."}
+ ],
+ e:"El marketing de guerrilla usa técnicas poco convencionales con inversión mínima para máxima difusión: ambient marketing, publicidad encubierta, videos virales y flashmobs."},
+{t:"Reputación corporativa",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Antes de una campaña, una empresa quiere saber cómo la perciben sus públicos y medir la efectividad de su comunicación. Según Martí, la herramienta recomendada es:",
+ opts:[
+  {t:"El plan de medios con enfoque 360°, que integra todos los soportes.",w:"El 360° es de difusión, no la herramienta de diagnóstico citada."},
+  {t:"La auditoría de comunicación, que mide efectividad y percepción.",c:true,w:"Correcto: es la herramienta de diagnóstico de la reputación."},
+  {t:"El branded content, que construye los valores mediante historias.",w:"Es una técnica de contenidos, no de diagnóstico."},
+  {t:"El calendario de contenidos, que organiza las publicaciones.",w:"Ordena publicaciones; no diagnostica la reputación."}
+ ],
+ e:"La auditoría de comunicación permite un diagnóstico preciso: mide la efectividad de la comunicación y cómo es percibida la marca por sus públicos."},
+{t:"Storytelling vs. storydoing",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Una marca deja de solo contar historias y empieza a hacer que su audiencia sea protagonista activa de las narraciones. Según Martí, ese giro es de:",
+ opts:[
+  {t:"Storytelling a storydoing, de contar a hacer participar.",c:true,w:"Correcto: el storydoing promueve la participación activa de la audiencia."},
+  {t:"Storydoing a storytelling, de hacer participar a solo contar.",w:"Está invertido: el giro va de contar hacia hacer participar."},
+  {t:"Branded content a publicidad tradicional en medios masivos.",w:"No es ese el giro que describe el texto."},
+  {t:"Comunicación interna a comunicación externa de la marca.",w:"No es una distinción entre interna y externa."}
+ ],
+ e:"El storytelling son historias contadas; el storydoing promueve la participación activa de las audiencias para que sean protagonistas de las narraciones.",
+ r:"Storytelling = contar. Storydoing = hacer/participar (audiencia protagonista)."},
+{t:"Comunicación 360°",d:"Difícil",type:"Aplicación",noShuffle:true,practica:true,
+ q:"Una empresa quiere implementar una estrategia 360°. Indique la opción correcta según Martí:",
+ opts:[
+  {t:"Las acciones internas y externas deben partir de objetivos comunes.",w:"Es correcto, pero no es la única afirmación verdadera."},
+  {t:"El mensaje debe reforzarse de forma armónica con todos los públicos.",w:"Es correcto, pero no es la única afirmación verdadera."},
+  {t:"Conviene descartar los medios tradicionales y usar solo redes sociales.",w:"Falso: la 360° integra medios tradicionales y sociales."},
+  {t:"A y B son correctas.",c:true,w:"Correcto: objetivos comunes y refuerzo armónico del mensaje con todos los públicos."}
+ ],
+ e:"La comunicación 360° es un modelo integral: las acciones internas y externas parten de objetivos comunes y refuerzan la imagen de forma armónica y congruente con todos los públicos.",
+ r:"360° = integral (objetivos comunes + mensaje coherente), integrando tradicionales y digitales."}
 ];
 
 const BANK_ROMEO = [
@@ -1429,7 +1585,7 @@ const BANK_ROMEO = [
  ],
  e:"Las redes son multidireccionales; el Buyer Persona es específico y basado en datos reales; y conviene no casarse con una sola plataforma. Por eso, ninguna de las anteriores.",
  r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."},
-{t:"Multidireccionalidad",d:"Difícil",type:"Análisis",noShuffle:true,
+{practica:true,t:"Multidireccionalidad",d:"Difícil",type:"Análisis",noShuffle:true,
  q:"'DeporClub' usa sus redes solo para publicar promociones; nunca responde comentarios ni interactúa. Un consultor le dice que desaprovecha el paradigma de la multidireccionalidad. ¿Qué describe MEJOR lo que la marca está ignorando?",
  opts:[
   {t:"Que las redes garantizan por sí solas la viralidad de cualquier contenido publicado.",w:"Falso: no hay fórmula que garantice la viralidad."},
@@ -1440,7 +1596,7 @@ const BANK_ROMEO = [
  ],
  e:"La multidireccionalidad implica que ya no solo conversan empresa y usuario (eso es bidireccionalidad), sino los usuarios entre sí, sobre la empresa, haters y Brand lovers, etc. Es un proceso irreversible.",
  r:"Unidireccional → Bidireccional (marca-usuario) → Multidireccional (todos con todos)."},
-{t:"Contenidos snacks",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Contenidos snacks",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"'La Huerta' (conservas artesanales) sube a Reels un video institucional de 3 minutos sobre su historia y casi nadie lo termina. Según el enfoque de la 'conversación de ascensor' y los contenidos snacks, la decisión táctica más adecuada es:",
  opts:[
   {t:"Aumentar la pauta publicitaria para forzar más reproducciones del mismo video largo.",w:"Pagar más no resuelve que el formato no se adapta a la atención disponible."},
@@ -1450,7 +1606,7 @@ const BANK_ROMEO = [
   {t:"Ninguna de las anteriores.",w:"La opción C sí es correcta."}
  ],
  e:"Las redes llevan a generar contenidos snacks de muy corta duración para capturar la ventana de atención; un institucional de 3 minutos va a contramano de esa lógica."},
-{t:"Relevancia vs. inversión",d:"Difícil",type:"Análisis",noShuffle:true,
+{practica:true,t:"Relevancia vs. inversión",d:"Difícil",type:"Análisis",noShuffle:true,
  q:"Un clip casero (lo-fi) de un cliente usando el producto genera más interacción que una producción publicitaria costosa de la misma marca. La mejor explicación según el texto es:",
  opts:[
   {t:"Los algoritmos premian la relevancia, que puede ser inversa a la inversión requerida.",c:true,w:"Correcto: la relevancia (no el presupuesto) es lo que los algoritmos priorizan."},
@@ -1460,7 +1616,7 @@ const BANK_ROMEO = [
   {t:"A y D son correctas.",w:"D es falsa (el costo bajo no es la causa), así que no corresponde."}
  ],
  e:"Tal como con la creatividad, la relevancia puede ser inversamente proporcional a la inversión requerida: los algoritmos premian a quienes generan contenidos relevantes, no a quienes más gastan."},
-{t:"Algoritmos y formatos",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Algoritmos y formatos",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"La página de Facebook de una pyme pierde alcance orgánico tras el cambio de algoritmo que prioriza las interacciones entre amigos y familiares por sobre el contenido de páginas de empresas. La respuesta táctica coherente con Romeo es:",
  opts:[
   {t:"Publicar con mucha más frecuencia el mismo contenido estático para 'ganarle' al algoritmo.",w:"Repetir contenido estático no recupera alcance; el algoritmo busca interacción."},
@@ -1470,7 +1626,7 @@ const BANK_ROMEO = [
   {t:"Ninguna de las anteriores.",w:"La opción D sí es correcta."}
  ],
  e:"El cambio de algoritmo de Facebook obligó a las marcas a crear contenido más interactivo y relevante, y empujó el giro hacia formatos dinámicos y efímeros como Stories y Reels."},
-{t:"Gestión del hate (Benedetti)",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Gestión del hate (Benedetti)",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"Tras una campaña polémica, una marca recibe una ola de comentarios de odio. Según Ariel Benedetti, el abordaje correcto incluye:",
  opts:[
   {t:"Tener políticas y protocolos claros, definidos de antemano, para actuar en esos casos.",w:"Es correcto, pero no es la única medida que propone Benedetti."},
@@ -1481,7 +1637,7 @@ const BANK_ROMEO = [
  ],
  e:"Benedetti plantea que el gran desafío es tener políticas y protocolos claros, y que siempre se pueden ocultar o borrar comentarios con insultos o agravios e incluso eliminar usuarios (además, los Brand Lovers suelen defender a la marca).",
  r:"Cuando dos opciones son individualmente correctas, sospechá de la opción combinada ('A y B')."},
-{t:"Streaming y Gen Z",d:"Difícil",type:"Análisis",noShuffle:true,
+{practica:true,t:"Streaming y Gen Z",d:"Difícil",type:"Análisis",noShuffle:true,
  q:"¿Cuál es la lectura que hace el autor sobre Luzu TV, Olga, Blender y Gelatina respecto de la Generación Z?",
  opts:[
   {t:"Son un fenómeno marginal y pasajero, sin ninguna relevancia para las marcas actuales.",w:"Falso: supera los 3 millones de viewers; es un espacio a seguir de cerca."},
@@ -1491,7 +1647,7 @@ const BANK_ROMEO = [
   {t:"B y C son correctas.",w:"C es falsa (no hay reemplazo total), así que no corresponde."}
  ],
  e:"El autor lee el video en directo como reflejo de cierto agotamiento de la audiencia frente a los informativos de la TV tradicional; con más de 3 millones de viewers, es un espacio que las marcas deben seguir de cerca sin perder reputación."},
-{t:"Marcas y agencias (Summers)",d:"Difícil",type:"Análisis",noShuffle:true,
+{practica:true,t:"Marcas y agencias (Summers)",d:"Difícil",type:"Análisis",noShuffle:true,
  q:"Según Sean Summers (CMO de Mercado Libre), los tres grandes desafíos en la relación marcas-agencias creativas son:",
  opts:[
   {t:"Time-to-impact, cómo medir el impacto y cost-to-impact.",c:true,w:"Correcto: son los tres desafíos que plantea Summers."},
@@ -1501,7 +1657,7 @@ const BANK_ROMEO = [
   {t:"Ninguna de las anteriores.",w:"La opción A sí es correcta."}
  ],
  e:"Los tres desafíos son: time-to-impact (responder en tiempo real), cómo medir el impacto (en términos de negocio) y cost-to-impact (eficiencia frente al recurso creativo, que es escaso y valorado)."},
-{t:"Objetivos y KPIs",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Objetivos y KPIs",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"Una empresa B2B de software quiere generar leads calificados a través de LinkedIn. ¿Qué conjunto de KPIs es el adecuado según el texto?",
  opts:[
   {t:"El alcance, las impresiones y las menciones de marca conseguidas.",w:"Esas son métricas de visibilidad/reconocimiento, no de leads."},
@@ -1512,7 +1668,7 @@ const BANK_ROMEO = [
  ],
  e:"Para la generación de leads las métricas son la tasa de conversión de leads, el costo por lead y la calidad de los leads (evaluada por el equipo de ventas).",
  r:"Cada objetivo trae su métrica: visibilidad→alcance/impresiones; engagement→me gusta/comentarios; tráfico→rebote/tiempo; leads→CPL/calidad."},
-{t:"13 pasos",d:"Difícil",type:"Análisis",noShuffle:true,
+{practica:true,t:"13 pasos",d:"Difícil",type:"Análisis",noShuffle:true,
  q:"Una agencia propone empezar la estrategia de redes por crear contenido de alta calidad antes que nada. Según los '13 pasos' de Romeo, ¿qué error metodológico comete?",
  opts:[
   {t:"Ninguno: crear contenido de alta calidad es, de hecho, el primer paso de todos.",w:"Falso: el primer paso es el análisis competitivo (crear contenido es el paso 4)."},
@@ -1522,7 +1678,7 @@ const BANK_ROMEO = [
   {t:"B y C son correctas.",w:"Ambas proponen inicios equivocados; la respuesta es la D."}
  ],
  e:"El orden es: 1) análisis competitivo, 2) seleccionar plataformas, 3) estrategia de contenido, 4) crear contenido de alta calidad. Arrancar por el paso 4 saltea el análisis y la selección de plataformas."},
-{t:"13 pasos",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"13 pasos",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"El dueño de una marca insiste en una estrategia '100% orgánica, sin gastar un peso en pauta'. Según los 13 pasos y las advertencias de Romeo, la objeción correcta es:",
  opts:[
   {t:"Es viable: la vida digital puede ser completamente orgánica si el contenido es bueno.",w:"Falso: el texto dice expresamente que no existe la vida digital puramente orgánica."},
@@ -1532,7 +1688,7 @@ const BANK_ROMEO = [
   {t:"Ninguna de las anteriores.",w:"La opción B sí es correcta."}
  ],
  e:"La publicidad paga es una obviedad necesaria: toda marca en algún momento debe invertir en redes porque no existe la vida digital puramente orgánica; además, la monetización de las redes se basa en la pauta."},
-{t:"Decisión integradora",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Decisión integradora",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"Una marca de conservas artesanales lanza un box para el Día de la Madre apuntando a un segmento de 30 a 65 años y quiere gestionar sus redes según el enfoque de Romeo. La decisión táctica MÁS alineada con el texto es:",
  opts:[
   {t:"Diversificar plataformas y formatos, priorizar contenido breve y sumar algo de pauta.",c:true,w:"Correcto: integra no casarse con una plataforma, snacks/relevancia y no confiar solo en lo orgánico."},
@@ -1542,7 +1698,7 @@ const BANK_ROMEO = [
   {t:"B y C son correctas.",w:"Ambas contradicen el texto; la respuesta es la A."}
  ],
  e:"El enfoque de Romeo combina: no casarse con una sola plataforma, diversificar formatos, priorizar relevancia y brevedad, y no confiar solo en lo orgánico (sumar pauta)."},
-{t:"Buyer Persona vs. público",d:"Difícil",type:"Aplicación",noShuffle:true,
+{practica:true,t:"Buyer Persona vs. público",d:"Difícil",type:"Aplicación",noShuffle:true,
  q:"Una marca define su audiencia como 'hombres y mujeres de 18 a 65 años de todo el país' y un consultor le sugiere trabajar con Buyer Personas. La diferencia clave que está señalando es:",
  opts:[
   {t:"Que el Buyer Persona es bastante más amplio y genérico que el público objetivo.",w:"Invertido: el Buyer Persona es el específico, no el genérico."},
@@ -2060,7 +2216,81 @@ const BANK_META = [
   {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
  ],
  e:"Gana la subasta el de mayor valor total (no la puja sola); Advantage+ no se usa en remarketing; y cambiar color o fuente del logo no es diversificación. Por eso, ninguna de las anteriores.",
- r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."}
+ r:"En preguntas con 'ninguna de las anteriores', verificá cada afirmación por separado."},
+{t:"Elegir el objetivo",d:"Difícil",type:"Decisión",practica:true,
+ q:"Una marca quiere que más personas instalen su app y la usen de forma continua. ¿Qué objetivo de campaña de Meta debería elegir?",
+ opts:[
+  {t:"Reconocimiento, para mostrar la marca a quienes más la recordarían.",w:"El reconocimiento busca recuerdo, no instalaciones de la app."},
+  {t:"Promoción de la app, para conseguir instalaciones y uso continuo.",c:true,w:"Correcto: es el objetivo orientado a instalar y usar la app."},
+  {t:"Tráfico, para enviar a las personas a un destino como el sitio web.",w:"El tráfico lleva a un destino, no busca instalaciones sostenidas."},
+  {t:"Ventas del catálogo, para llegar a quienes tienen chance de comprar.",w:"Ventas apunta a la compra, no a instalar y usar la app."}
+ ],
+ e:"El objetivo de promoción de la app busca encontrar personas nuevas que instalen la app y la usen continuamente (puede ser de consideración o conversión)."},
+{t:"Elegir el objetivo",d:"Difícil",type:"Decisión",practica:true,
+ q:"Un negocio local quiere que las personas lleguen a su sitio web desde Instagram. El objetivo de campaña más adecuado es:",
+ opts:[
+  {t:"Reconocimiento, para que más personas conozcan y recuerden la marca.",w:"El reconocimiento no se centra en llevar tráfico a un destino."},
+  {t:"Tráfico, para enviar a las personas a un destino como el sitio web.",c:true,w:"Correcto: el objetivo de tráfico dirige a un destino externo."},
+  {t:"Interacción, para conseguir más mensajes y reproducciones de video.",w:"La interacción busca acciones sobre el contenido, no visitas al sitio."},
+  {t:"Clientes potenciales, para captar datos de contacto del público.",w:"Los leads captan datos; aquí el fin es llevar tráfico al sitio."}
+ ],
+ e:"El objetivo de tráfico sirve para enviar a las personas a un destino (sitio web, app, evento o perfil)."},
+{t:"Públicos",d:"Difícil",type:"Decisión",practica:true,
+ q:"Una marca nueva, con poco conocimiento de su audiencia, quiere maximizar el alcance y dejar que la IA encuentre clientes potenciales. ¿Qué enfoque de público conviene?",
+ opts:[
+  {t:"Segmentación acotada, con parámetros muy específicos del público.",w:"La acotada gana relevancia pero reduce el alcance; no es lo buscado."},
+  {t:"Segmentación amplia, apoyada en la IA para ampliar el alcance.",c:true,w:"Correcto: la amplia se basa en la IA y maximiza el alcance."},
+  {t:"Remarketing dirigido a quienes ya interactuaron con la marca.",w:"Una marca nueva casi no tiene público previo para remarketing."},
+  {t:"Un público personalizado a partir de una lista de clientes propia.",w:"No tiene clientes suficientes; busca clientes nuevos por IA."}
+ ],
+ e:"La segmentación amplia especifica lugar, edad o sexo y se apoya en la IA para mejorar el alcance, ayudando a encontrar clientes que se habrían pasado por alto."},
+{t:"Públicos",d:"Difícil",type:"Decisión",practica:true,
+ q:"Una empresa quiere llegar a personas NUEVAS que se parezcan a sus mejores clientes actuales. ¿Qué opción debería usar?",
+ opts:[
+  {t:"Un público personalizado creado a partir de su lista de clientes.",w:"El personalizado reencuentra a quienes ya conocen la marca, no a nuevos."},
+  {t:"Un público similar (lookalike) basado en esa lista de clientes.",c:true,w:"Correcto: el similar busca personas nuevas parecidas a las del origen."},
+  {t:"Las ubicaciones Advantage+ para mostrarse en todos los lugares.",w:"Eso son ubicaciones, no una opción de público para hallar nuevos."},
+  {t:"Un público de remarketing dirigido a quienes ya la conocen.",w:"El remarketing apunta a quienes ya interactuaron, no a nuevos."}
+ ],
+ e:"El público similar (lookalike) permite llegar a personas nuevas que comparten intereses y características con los clientes actuales (origen mínimo de 100 personas)."},
+{t:"Ubicaciones",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Para tener más control, un anunciante rechaza varias ubicaciones y deja solo el feed de Instagram. Según la guía, una consecuencia esperable es:",
+ opts:[
+  {t:"Que disminuyan los costos al concentrar la inversión en un solo lugar.",w:"Ocurre lo contrario: rechazar ubicaciones tiende a encarecer la entrega."},
+  {t:"Que aumenten los costos al limitar los lugares de entrega del anuncio.",c:true,w:"Correcto: a menos ubicaciones, más caro conectar con el público."},
+  {t:"Que no se produzca ningún cambio en los costos de la campaña.",w:"Sí hay cambio: los costos suben al rechazar ubicaciones."},
+  {t:"Que se desactive automáticamente la subasta de anuncios.",w:"La subasta sigue funcionando con normalidad."}
+ ],
+ e:"Cuantas más ubicaciones uses, más fácil es conectar con el público; cuando rechazas ubicaciones, aumentan los costos."},
+{t:"Subasta de anuncios",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Dos anunciantes compiten por la misma impresión: A puja más alto, pero el anuncio de B tiene mayor proporción de acción estimada y mejor calidad. Según la subasta de Meta, lo más probable es que:",
+ opts:[
+  {t:"Gane A, porque la puja más alta decide por sí sola la subasta.",w:"La puja sola no decide; lo que gana es el mayor valor total."},
+  {t:"Gane quien tenga el mayor valor total, que bien puede ser B.",c:true,w:"Correcto: valor total = puja + proporción de acción + calidad."},
+  {t:"Gane el anuncio más reciente en haber entrado a la subasta.",w:"El orden de entrada no decide la subasta."},
+  {t:"Empaten y se muestren ambos anuncios a la misma persona.",w:"Gana un único anuncio: el de mayor valor total."}
+ ],
+ e:"El anuncio que gana es el de mayor valor total (puja del anunciante + proporción de acción estimada + calidad del anuncio); la puja por sí sola no decide.",
+ r:"Valor total = Puja + Proporción de acción estimada + Calidad."},
+{t:"Fase de aprendizaje",d:"Difícil",type:"Aplicación",practica:true,
+ q:"Un anunciante edita la segmentación de un conjunto de anuncios cada dos días. Según la guía, lo más probable es que:",
+ opts:[
+  {t:"El rendimiento se estabilice cada vez más rápido con cada edición.",w:"Al revés: cada cambio significativo reinicia el aprendizaje."},
+  {t:"Reinicie la fase de aprendizaje y el rendimiento sea inestable.",c:true,w:"Correcto: los cambios de segmentación reinician el aprendizaje."},
+  {t:"No se produzca ningún efecto sobre la entrega del anuncio.",w:"Sí hay efecto: se reinicia la fase de aprendizaje."},
+  {t:"Baje de forma automática el costo por resultado de la campaña.",w:"Durante el aprendizaje el costo por resultado suele ser más alto."}
+ ],
+ e:"Los cambios en la segmentación (y en el contenido, la optimización o pausar el conjunto) reinician la fase de aprendizaje, durante la cual el rendimiento es menos estable y más caro."},
+{t:"Objetivos y KPIs",d:"Difícil",type:"Decisión",noShuffle:true,practica:true,
+ q:"Una campaña tiene como objetivo el reconocimiento de marca. Indique la opción correcta sobre sus métricas, según la guía:",
+ opts:[
+  {t:"El alcance es una métrica adecuada para medir ese objetivo.",w:"Es correcto, pero no es la única métrica adecuada."},
+  {t:"Las impresiones y las menciones de marca también son adecuadas.",w:"Es correcto, pero no es la única afirmación verdadera."},
+  {t:"El costo por lead (CPL) es la métrica principal de ese objetivo.",w:"El CPL es de generación de leads, no de reconocimiento."},
+  {t:"A y B son correctas.",c:true,w:"Correcto: reconocimiento se mide con alcance, impresiones y menciones."}
+ ],
+ e:"Para el reconocimiento, las métricas adecuadas son el alcance, las impresiones y las menciones de marca (el CPL corresponde a la generación de leads).",
+ r:"Reconocimiento → alcance/impresiones/menciones. Leads → CPL/conversión/calidad."}
 ];
 
 const TEXTS = [
@@ -2086,9 +2316,15 @@ let order=[], cur=0, score=0, answered=false, picked=-1, wrongIds=[], sessionQs=
 
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
+function matchFilter(q,dif){
+  if(dif==="all") return true;
+  if(dif==="practica") return q.practica===true;
+  if(dif==="teoria") return q.practica!==true;
+  return q.d===dif;
+}
 function buildSession(){
   const dif=$("optDif").value;
-  let pool=currentBank().map((q,i)=>({q,i})).filter(x=>dif==="all"||x.q.d===dif);
+  let pool=currentBank().map((q,i)=>({q,i})).filter(x=>matchFilter(x.q,dif));
   if($("optShuffleQ").checked) shuffle(pool);
   sessionQs = pool.map(x=>{
     const q=x.q;
@@ -2116,6 +2352,7 @@ function render(){
   const dEl=$("qDif");dEl.textContent=q.d;dEl.className="badge dif-"+q.d;
   const tEl=$("qType");
   if(q.type){tEl.style.display="";tEl.textContent=q.type;tEl.className="badge type";}else{tEl.style.display="none";}
+  $("qPract").style.display=q.practica?"":"none";
   $("bar").style.width=(cur/sessionQs.length*100)+"%";
   $("stem").textContent=q.q;
   $("score").textContent=score;
@@ -2235,6 +2472,12 @@ function renderMenu(){
     m.appendChild(div);
   });
 }
+function updateFilterHint(){
+  const dif=$("optDif").value;
+  const n=currentBank().filter(q=>matchFilter(q,dif)).length;
+  const labels={all:"en total",practica:"ejercicios prácticos 🎯",teoria:"de teoría",["Difícil"]:"difíciles",Media:"medias",["Fácil"]:"fáciles"};
+  $("filterHint").textContent=n+" "+(labels[dif]||"")+" en este texto"+(n===0?" — probá otro filtro":"");
+}
 function selectText(id){
   currentTextId=id;
   renderMenu();
@@ -2242,9 +2485,11 @@ function selectText(id){
   $("introText").textContent=t.desc;
   $("qcount").textContent=t.bank.length;
   $("startBtn").textContent="Comenzar: "+t.subtitle+" ▶";
+  updateFilterHint();
 }
 renderMenu();
 selectText(currentTextId);
+$("optDif").onchange=updateFilterHint;
 $("startBtn").onclick=start;
 $("checkBtn").onclick=check;
 $("nextBtn").onclick=next;
