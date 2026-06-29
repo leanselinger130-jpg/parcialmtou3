@@ -195,10 +195,10 @@ const BANK_CAPRIOTTI = [
 {t:"Definición",d:"Media",
  q:"¿Cuál de las siguientes opciones define mejor una campaña de comunicación según Capriotti?",
  opts:[
-  {t:"Iniciativa individual y puntual que responde a una necesidad inmediata en el muy corto plazo.",w:"Eso describe una ACCIÓN de comunicación (unidad operativa), no una campaña."},
-  {t:"Conjunto coordinado de actuaciones para alcanzar una meta en un tiempo limitado.",c:true,w:"Es la definición de campaña: actividades coordinadas + meta + tiempo limitado."},
-  {t:"Acción estable y flexible que fija lineamientos estructurales a medio y largo plazo.",w:"Eso es la gestión ESTRATÉGICA, no una campaña (que es táctica y de corto plazo)."},
-  {t:"Documento que asigna recursos y responsables a cada una de las acciones previstas.",w:"Eso remite al presupuesto/estructura, no a la definición de campaña."}
+  {t:"Una iniciativa individual y puntual que responde a una necesidad inmediata en el muy corto plazo.",w:"Eso describe a una ACCIÓN de comunicación, no a una campaña."},
+  {t:"Un conjunto coordinado de actuaciones para alcanzar una meta en un período de tiempo limitado.",c:true,w:"Es la definición de campaña: actividades coordinadas, meta y tiempo limitado."},
+  {t:"Una acción estable y flexible que fija lineamientos estructurales a medio y largo plazo.",w:"Eso es la gestión ESTRATÉGICA, no una campaña (que es táctica y de corto plazo)."},
+  {t:"Un documento formal que asigna los recursos y los responsables a cada acción prevista.",w:"Eso remite al presupuesto/estructura, no a la definición de campaña."}
  ],
  e:"La campaña es una iniciativa de intervención comunicativa específica sobre un objeto/sujeto, compuesta de un conjunto coordinado de actividades para alcanzar una meta en un período de tiempo limitado (corto o muy corto plazo).",
  r:"Campaña = conjunto INTEGRADO y coordinado con una meta. Acción = unidad individual. Gestión estratégica = lineamientos de largo plazo."},
@@ -206,10 +206,10 @@ const BANK_CAPRIOTTI = [
 {t:"Campaña vs. acción",d:"Media",type:"Excepción",
  q:"Todas las siguientes afirmaciones distinguen correctamente una campaña de una acción de comunicación, EXCEPTO:",
  opts:[
-  {t:"La campaña es un conjunto integrado de actuaciones; la acción es una unidad individual.",w:"Correcto: la campaña integra varias actuaciones; la acción es individualizada."},
-  {t:"La campaña opera en el corto plazo; la acción responde en el muy corto plazo.",w:"Correcto: campaña = corto plazo; acción = muy corto plazo / día a día."},
+  {t:"La campaña es un conjunto integrado de actuaciones y la acción es una unidad individual.",w:"Correcto: la campaña integra varias actuaciones; la acción es individualizada."},
+  {t:"La campaña opera en el corto plazo y la acción responde en el muy corto plazo.",w:"Correcto: campaña = corto plazo; acción = muy corto plazo, del día a día."},
   {t:"La acción siempre forma parte de una campaña y nunca se ejecuta de forma aislada.",c:true,w:"FALSO (es la excepción): la acción puede integrarse en una campaña O realizarse aislada."},
-  {t:"La campaña es la unidad de acción táctica; la acción es la unidad de acción operativa.",w:"Correcto: campaña = unidad táctica; acción = unidad operativa."}
+  {t:"La campaña es la unidad de acción táctica y la acción es la unidad de acción operativa.",w:"Correcto: campaña = unidad táctica; acción = unidad operativa."}
  ],
  e:"El texto aclara que las acciones 'pueden estar integradas en las campañas o bien realizarse de forma aislada y puntual'. Por eso la afirmación con 'siempre/nunca' es falsa.",
  r:"Desconfía de los absolutos ('siempre', 'nunca') en multiple choice: suelen marcar el distractor falso."},
@@ -217,10 +217,10 @@ const BANK_CAPRIOTTI = [
 {t:"Táctica vs. estratégica",d:"Media",
  q:"¿Cuál es la diferencia esencial entre la gestión táctica y la gestión estratégica de comunicación?",
  opts:[
-  {t:"La táctica es estructural y estable; la estratégica, situacional y coyuntural.",w:"Está invertido: lo estructural/estable es la estratégica."},
-  {t:"La táctica es situacional y de corto plazo; la estratégica, de largo plazo.",c:true,w:"Correcto: táctica = situacional/corto plazo; estratégica = estructural/largo plazo."},
-  {t:"La táctica se ocupa de los planes plurianuales; la estratégica, de campañas.",w:"Invertido: los planes plurianuales son de la estratégica; campañas, de la táctica."},
-  {t:"La táctica fija los lineamientos generales y la estratégica los ejecuta.",w:"Invertido: la estratégica fija lineamientos; la táctica los hace operativos."}
+  {t:"La táctica es estructural y estable, mientras que la estratégica es situacional y coyuntural.",w:"Está invertido: lo estructural y estable es la gestión estratégica."},
+  {t:"La táctica es situacional y de corto plazo y la estratégica es estructural y de largo plazo.",c:true,w:"Correcto: táctica = situacional/corto plazo; estratégica = estructural/largo plazo."},
+  {t:"La táctica se ocupa de los planes plurianuales y la estratégica, de las campañas y acciones.",w:"Invertido: los planes plurianuales son de la estratégica; campañas y acciones, de la táctica."},
+  {t:"La táctica fija los lineamientos generales y la estratégica solo los ejecuta de forma operativa.",w:"Invertido: la estratégica fija lineamientos; la táctica los hace operativos."}
  ],
  e:"La gestión táctica es situacional (corto/muy corto plazo) y se implementa con campañas y acciones; la estratégica es estructural (medio-largo plazo) y se implementa con planes plurianuales y anuales.",
  r:"Asocia: TÁCTICA → situacional, corto plazo, campañas/acciones. ESTRATÉGICA → estructural, largo plazo, planes."},
@@ -228,51 +228,51 @@ const BANK_CAPRIOTTI = [
 {t:"Plan anual / plurianual",d:"Difícil",
  q:"En la gestión estratégica, ¿qué instrumento actúa como nexo de vinculación entre los planes plurianuales y las campañas tácticas?",
  opts:[
-  {t:"El plan de campaña.",w:"El plan de campaña documenta una campaña concreta; no es el nexo."},
-  {t:"El plan plurianual de comunicación.",w:"Es uno de los extremos que el nexo conecta, no el nexo en sí."},
-  {t:"El plan anual de comunicación.",c:true,w:"Correcto: el plan anual une los planes plurianuales (estrategia) y las campañas (táctica)."},
-  {t:"El calendario general de la campaña.",w:"Es una herramienta interna de la etapa de Temporización."}
+  {t:"El plan de campaña, que documenta en detalle cada una de las campañas concretas.",w:"El plan de campaña documenta una campaña puntual; no es el nexo."},
+  {t:"El plan plurianual de comunicación, que organiza la línea directriz a tres o cinco años.",w:"Es uno de los extremos que el nexo conecta, no el nexo en sí."},
+  {t:"El plan anual de comunicación, que articula la estrategia plurianual con las campañas.",c:true,w:"Correcto: el plan anual une los planes plurianuales (estrategia) y las campañas (táctica)."},
+  {t:"El calendario general de la campaña, que ordena en el tiempo todas sus actividades.",w:"Es una herramienta interna de la etapa de Temporización."}
  ],
  e:"El plan anual organiza la actividad de un año y 'actúa como nexo de vinculación entre la gestión estratégica (planes plurianuales) y la gestión táctico-operativa (campañas)'.",
  r:"Pirámide: Plurianual (3-5 años) → Plan anual (nexo) → Campañas → Acciones."},
 
 {t:"Plan plurianual",d:"Fácil",
- q:"El plan plurianual de comunicación organiza la línea directriz en un período de:",
+ q:"¿En qué período de tiempo organiza la línea directriz el plan plurianual de comunicación?",
  opts:[
-  {t:"Un año fiscal o natural.",w:"Ese es el plan anual, no el plurianual."},
-  {t:"3 a 5 años.",c:true,w:"Correcto: el plurianual abarca un período amplio de 3 a 5 años."},
-  {t:"Días, semanas o meses.",w:"Ese horizonte corresponde a las campañas/acciones (gestión táctica)."},
-  {t:"Más de 10 años.",w:"Excede el horizonte que define Capriotti para el plurianual."}
+  {t:"En un año fiscal o natural, articulando la actividad concreta de ese período.",w:"Ese es el plan anual, no el plurianual."},
+  {t:"En un período amplio de entre tres y cinco años de duración.",c:true,w:"Correcto: el plurianual abarca un horizonte amplio de 3 a 5 años."},
+  {t:"En unos pocos días, semanas o meses, según la coyuntura del momento.",w:"Ese horizonte corresponde a las campañas y acciones (gestión táctica)."},
+  {t:"En un horizonte de más de diez años, con revisiones esporádicas.",w:"Excede el horizonte que define Capriotti para el plurianual."}
  ],
  e:"El plan plurianual es el instrumento clave de la gestión estratégica y organiza la línea directriz en un período amplio de 3 a 5 años."},
 
 {t:"Características del proceso",d:"Media",
- q:"La característica del proceso que implica rapidez de respuesta, simplicidad y fluidez para adaptarse a un entorno cambiante es:",
+ q:"¿Qué característica del proceso implica rapidez de respuesta, simplicidad y fluidez para adaptarse a un entorno cambiante?",
  opts:[
-  {t:"Especificidad.",w:"La especificidad refiere a que cada campaña es única."},
-  {t:"Situacional.",w:"Lo situacional refiere a actuar según situaciones concretas."},
-  {t:"Agilidad.",c:true,w:"Correcto: agilidad es flexibilidad, rapidez de respuesta, simplicidad y fluidez."},
-  {t:"Linealidad.",w:"La linealidad refiere a fases sucesivas y ordenadas."}
+  {t:"La especificidad, que hace que cada campaña sea única, propia y diferencial.",w:"La especificidad refiere a la singularidad de cada campaña, no a la rapidez."},
+  {t:"El carácter situacional, que orienta la actuación según problemáticas concretas.",w:"Lo situacional refiere a actuar según situaciones puntuales, no a la rapidez."},
+  {t:"La agilidad, que se traduce en flexibilidad, rapidez de respuesta y fluidez.",c:true,w:"Correcto: la agilidad es flexibilidad, rapidez de respuesta, simplicidad y fluidez."},
+  {t:"La linealidad, que ordena las fases de forma sucesiva y concatenada.",w:"La linealidad refiere a fases sucesivas y ordenadas, no a la rapidez."}
  ],
  e:"La agilidad exige flexibilidad y capacidad de adaptación: rapidez de respuesta, simplicidad y fluidez ante un entorno cambiante."},
 
 {t:"Características del proceso",d:"Media",
- q:"Que cada campaña sea una actuación única, propia y diferencial, con sus particularidades, corresponde a la característica de:",
+ q:"Que cada campaña sea una actuación única, propia y diferencial corresponde a la característica de:",
  opts:[
-  {t:"Especificidad.",c:true,w:"Correcto: la especificidad implica que cada campaña es singular y diferencial."},
-  {t:"Temporalidad.",w:"La temporalidad refiere a la corta duración con inicio y final delimitados."},
-  {t:"Situacional.",w:"Lo situacional refiere a responder a situaciones concretas."},
-  {t:"Agilidad.",w:"La agilidad refiere a rapidez y flexibilidad, no a la unicidad."}
+  {t:"La especificidad, porque cada campaña responde a necesidades concretas o distintivas.",c:true,w:"Correcto: la especificidad implica que cada campaña es singular y diferencial."},
+  {t:"La temporalidad, porque la campaña tiene una corta duración con inicio y final.",w:"La temporalidad refiere a la corta duración, no a la singularidad."},
+  {t:"El carácter situacional, porque la campaña responde a una situación puntual.",w:"Lo situacional refiere a responder a situaciones concretas, no a la unicidad."},
+  {t:"La agilidad, porque la campaña exige rapidez y capacidad de adaptación.",w:"La agilidad refiere a rapidez y flexibilidad, no a la unicidad de la campaña."}
  ],
  e:"La especificidad: 'toda campaña es una actuación que responde a necesidades concretas o distintivas… cada actuación es única, propia y diferencial'."},
 
 {t:"RACE vs. 5 fases",d:"Difícil",type:"Comparación",
  q:"Respecto a la relación entre el modelo RACE y el modelo de Capriotti, ¿cuál afirmación es correcta?",
  opts:[
-  {t:"Ambos modelos constan de cinco fases totalmente equivalentes.",w:"No: RACE tiene cuatro fases; el de Capriotti, cinco."},
-  {t:"Capriotti reduce RACE a tres fases para ganar en agilidad.",w:"No reduce: amplía RACE de cuatro a cinco fases."},
-  {t:"Capriotti amplía RACE a cinco fases separando Dirección de Planificación.",c:true,w:"Correcto: la quinta fase surge de separar Dirección y Planificación."},
-  {t:"RACE es posterior y más completo que el modelo de cinco fases de Capriotti.",w:"Al revés: RACE es el modelo clásico/anterior."}
+  {t:"Ambos modelos constan de cinco fases totalmente equivalentes entre sí.",w:"No: RACE tiene cuatro fases y el de Capriotti, cinco."},
+  {t:"Capriotti reduce el modelo RACE a tres fases para ganar en agilidad operativa.",w:"No lo reduce: lo amplía de cuatro a cinco fases."},
+  {t:"Capriotti amplía RACE a cinco fases, separando la Dirección de la Planificación.",c:true,w:"Correcto: la quinta fase surge de separar Dirección y Planificación."},
+  {t:"RACE es una evolución posterior y más completa que el modelo de cinco fases.",w:"Al revés: RACE es el modelo clásico y anterior; el de cinco fases lo desarrolla."}
  ],
  e:"El modelo de Capriotti (5 fases) es una evolución del clásico RACE (4 fases), añadiendo la distinción entre Dirección y Planificación.",
  r:"RACE = 4 fases. Capriotti = 5 fases. La 'fase extra' nace de separar Dirección (línea) de Planificación (selección táctica)."},
@@ -280,20 +280,20 @@ const BANK_CAPRIOTTI = [
 {t:"RACE",d:"Media",
  q:"El acrónimo RACE corresponde, en orden, a:",
  opts:[
-  {t:"Research, Action, Communication, Evaluation.",c:true,w:"Correcto: Investigación, Acción/Planificación, Comunicación/Ejecución, Evaluación."},
-  {t:"Research, Analysis, Communication, Execution.",w:"La A es Action y la E es Evaluation, no Analysis/Execution."},
-  {t:"Reach, Action, Content, Evaluation.",w:"La R es Research (no Reach) y la C es Communication (no Content)."},
-  {t:"Research, Action, Control, Engagement.",w:"La C es Communication y la E es Evaluation, no Control/Engagement."}
+  {t:"Research, Action, Communication, Evaluation (investigación, acción, comunicación y evaluación).",c:true,w:"Correcto: investigación, acción/planificación, comunicación/ejecución y evaluación."},
+  {t:"Research, Analysis, Communication, Execution (investigación, análisis, comunicación y ejecución).",w:"La A es Action y la E es Evaluation, no Analysis ni Execution."},
+  {t:"Reach, Action, Content, Evaluation (alcance, acción, contenido y evaluación).",w:"La R es Research (no Reach) y la C es Communication (no Content)."},
+  {t:"Research, Action, Control, Engagement (investigación, acción, control e interacción).",w:"La C es Communication y la E es Evaluation, no Control ni Engagement."}
  ],
  e:"RACE: Research (Investigación), Action (Planificación), Communication (Ejecución) y Evaluation (Evaluación)."},
 
 {t:"Las 5 fases",d:"Media",
  q:"¿Cuál es el orden correcto de las cinco fases del proceso de campaña?",
  opts:[
-  {t:"Análisis – Planificación – Dirección – Implementación – Evaluación.",w:"Dirección va ANTES que Planificación; aquí están invertidas."},
-  {t:"Dirección – Análisis – Planificación – Evaluación – Implementación.",w:"El proceso inicia con Análisis y la Implementación va antes de la Evaluación."},
-  {t:"Análisis – Dirección – Planificación – Implementación – Evaluación.",c:true,w:"Correcto: A-B-C-D-E en su orden lineal."},
-  {t:"Análisis – Dirección – Implementación – Planificación – Evaluación.",w:"La Planificación (C) precede a la Implementación (D)."}
+  {t:"Análisis, Planificación, Dirección, Implementación y Evaluación.",w:"La Dirección va ANTES que la Planificación; aquí están invertidas."},
+  {t:"Dirección, Análisis, Planificación, Evaluación e Implementación.",w:"El proceso inicia con el Análisis y la Implementación va antes de la Evaluación."},
+  {t:"Análisis, Dirección, Planificación, Implementación y Evaluación.",c:true,w:"Correcto: es el orden lineal A-B-C-D-E."},
+  {t:"Análisis, Dirección, Implementación, Planificación y Evaluación.",w:"La Planificación (C) precede a la Implementación (D)."}
  ],
  e:"Las cinco fases son lineales y ordenadas: A Análisis, B Dirección, C Planificación, D Implementación, E Evaluación."},
 
@@ -302,39 +302,39 @@ const BANK_CAPRIOTTI = [
  opts:[
   {t:"Las afirmaciones I, II y IV.",c:true,w:"Correcto: Objetivos (B), Temporización (C) y Seguimiento (D) están bien asignadas."},
   {t:"Las afirmaciones I, III y IV.",w:"III es falsa: Investigación es la etapa 2 de la Fase A (Análisis)."},
-  {t:"Las afirmaciones II, III y IV.",w:"III es falsa y omite la I, que sí es correcta."},
-  {t:"Las cuatro afirmaciones.",w:"No todas: III es falsa porque Investigación pertenece a la Fase A."}
+  {t:"Las afirmaciones II, III y IV.",w:"III es falsa y, además, omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones son correctas.",w:"No todas: III es falsa porque Investigación pertenece a la Fase A."}
  ],
  e:"Fase A: Situación e Investigación. Fase B: Meta, Públicos, Objetivos, Estrategias. Fase C: Contenidos, Medios, Temporización, Control, Estructura, Presupuesto. Fase D: Operativa, Seguimiento. Fase E: Resultados.",
  r:"Memoriza el bloque A (1-2): Situación e Investigación. Casi todas las confusiones nacen de colocar mal esas dos."},
 
 {t:"Fase C",d:"Media",
- q:"Dentro de la Fase C (Planificación), las dos etapas consideradas centrales o principales son:",
+ q:"Dentro de la Fase C (Planificación), ¿cuáles son las dos etapas consideradas centrales o principales?",
  opts:[
-  {t:"Temporización y Presupuesto.",w:"Son complementarias, no centrales."},
-  {t:"Contenidos y Medios.",c:true,w:"Correcto: son las centrales; las otras cuatro son complementarias."},
-  {t:"Control y Estructura.",w:"Ambas son etapas complementarias de la Fase C."},
-  {t:"Medios y Temporización.",w:"Medios sí es central, pero Temporización es complementaria."}
+  {t:"La Temporización y el Presupuesto, que ordenan el tiempo y los recursos de la campaña.",w:"Ambas son etapas complementarias, no centrales."},
+  {t:"Los Contenidos y los Medios, que concretan el núcleo y el sistema mediático.",c:true,w:"Correcto: son las dos centrales; las otras cuatro son complementarias."},
+  {t:"El Control y la Estructura, que definen el seguimiento y el equipo de la campaña.",w:"Ambas son etapas complementarias de la Fase C."},
+  {t:"Los Medios y la Temporización, que combinan herramientas y calendario de acciones.",w:"Medios sí es central, pero la Temporización es complementaria."}
  ],
  e:"La Fase C tiene seis etapas: dos centrales (Contenidos y Medios) y cuatro complementarias (Temporización, Control, Estructura y Presupuesto)."},
 
 {t:"Fase A",d:"Media",
  q:"¿Cuál es la función principal de la Fase A (Análisis)?",
  opts:[
-  {t:"Definir la línea estratégica y las decisiones clave de la campaña.",w:"Eso es la Fase B (Dirección)."},
-  {t:"Establecer la situación y buscar y valorar información relevante.",c:true,w:"Correcto: el Análisis define la situación y obtiene información para las demás fases."},
-  {t:"Medir los resultados finales y el grado de cumplimiento de objetivos.",w:"Eso es la Fase E (Evaluación)."},
-  {t:"Seleccionar las tácticas de contenidos y de medios de la campaña.",w:"Eso es la Fase C (Planificación)."}
+  {t:"Definir la línea estratégica y las decisiones clave que orientarán la campaña.",w:"Eso corresponde a la Fase B (Dirección)."},
+  {t:"Establecer la situación y buscar, valorar e interpretar la información relevante.",c:true,w:"Correcto: el Análisis define la situación y obtiene información para las demás fases."},
+  {t:"Medir los resultados finales y valorar el grado de cumplimiento de los objetivos.",w:"Eso corresponde a la Fase E (Evaluación)."},
+  {t:"Seleccionar y diseñar las tácticas de contenidos y de medios de la campaña.",w:"Eso corresponde a la Fase C (Planificación)."}
  ],
  e:"El Análisis define la situación que origina la campaña y realiza la búsqueda, selección, interpretación y valoración de información relevante; es la base para las fases siguientes."},
 
 {t:"Meta",d:"Media",
- q:"La meta general de la campaña se caracteriza porque:",
+ q:"¿Cómo se caracteriza la meta general de la campaña según Capriotti?",
  opts:[
-  {t:"Expresa el impacto concreto y medible que se busca en cada público.",w:"Eso describe al objetivo, no a la meta."},
-  {t:"Define el propósito global e inicial que responde a la situación.",c:true,w:"Correcto: la meta es el propósito global que da respuesta a la situación (etapa 1)."},
-  {t:"Detalla las acciones tácticas que se implementarán en la campaña.",w:"Las acciones tácticas se definen en la Planificación, no son la meta."},
-  {t:"Establece los recursos financieros disponibles para la campaña.",w:"Eso corresponde al presupuesto."}
+  {t:"Expresa el impacto concreto y medible que se busca lograr en cada uno de los públicos.",w:"Eso describe al objetivo, no a la meta."},
+  {t:"Define el propósito global e inicial que da respuesta a la situación de la marca.",c:true,w:"Correcto: la meta es el propósito global que responde a la situación (etapa 1)."},
+  {t:"Detalla las acciones tácticas que se van a implementar a lo largo de la campaña.",w:"Las acciones tácticas se definen en la Planificación; no son la meta."},
+  {t:"Establece los recursos financieros que estarán disponibles para la campaña.",w:"Eso corresponde al presupuesto, no a la meta."}
  ],
  e:"La meta es un propósito o planteamiento inicial que define la intención esencial de la campaña; indica de forma global lo que la marca quiere lograr y responde a la situación de la etapa 1.",
  r:"META = global e inicial (qué quiere lograr la marca). OBJETIVO = impacto concreto y medible en cada público."},
@@ -342,10 +342,10 @@ const BANK_CAPRIOTTI = [
 {t:"Meta (GOMDE)",d:"Media",type:"Excepción",
  q:"¿Cuál de las siguientes NO es una característica de la meta según el acrónimo GOMDE?",
  opts:[
-  {t:"General.",w:"Sí lo es: la 'G' de GOMDE (plantea de forma amplia lo que se quiere lograr)."},
-  {t:"Motivadora.",w:"Sí lo es: la 'M' de GOMDE (inspiradora y movilizadora)."},
-  {t:"Medible.",c:true,w:"NO es de la meta: 'Medible' es una característica SMART de los OBJETIVOS."},
-  {t:"Estable.",w:"Sí lo es: la 'E' de GOMDE (no cambia durante la campaña)."}
+  {t:"General, porque plantea de forma amplia e integral lo que se quiere lograr.",w:"Sí lo es: es la 'G' de GOMDE."},
+  {t:"Motivadora, porque resulta inspiradora y movilizadora para el equipo.",w:"Sí lo es: es la 'M' de GOMDE."},
+  {t:"Medible, porque está cuantificada con indicadores claros para evaluarla.",c:true,w:"NO es de la meta: 'Medible' es una característica SMART de los OBJETIVOS."},
+  {t:"Estable, porque no cambia a lo largo del proceso de la campaña.",w:"Sí lo es: es la 'E' de GOMDE."}
  ],
  e:"GOMDE = Generales, Orientadas, Motivadoras, Directas, Estables. 'Medible' pertenece a SMART (objetivos).",
  r:"Si lees 'Medible / Específico / Realista' pensá en OBJETIVOS (SMART), nunca en META (GOMDE)."},
@@ -353,10 +353,10 @@ const BANK_CAPRIOTTI = [
 {t:"Meta — tipología",d:"Media",
  q:"Una meta que busca establecer actitudes, opiniones o valoraciones en relación con la marca es de tipo:",
  opts:[
-  {t:"Conocimiento.",w:"El conocimiento busca DAR A CONOCER aspectos de la marca."},
-  {t:"Predisposición.",c:true,w:"Correcto: la predisposición trabaja actitudes, opiniones y valoraciones."},
-  {t:"Comportamiento.",w:"El comportamiento busca promover conductas o actuaciones."},
-  {t:"Notoriedad.",w:"No es uno de los tres tipos de metas que define el texto."}
+  {t:"De conocimiento, porque busca dar a conocer ciertos aspectos o temas sobre la marca y sus productos.",w:"El conocimiento busca DAR A CONOCER, no fijar actitudes."},
+  {t:"De predisposición, porque trabaja actitudes, opiniones y valoraciones sobre la marca.",c:true,w:"Correcto: la predisposición apunta a actitudes, opiniones y valoraciones."},
+  {t:"De comportamiento, porque busca promover conductas o actuaciones concretas.",w:"El comportamiento busca promover conductas, no actitudes."},
+  {t:"De notoriedad, porque busca aumentar el recuerdo espontáneo de la marca.",w:"No es uno de los tres tipos de metas que define el texto."}
  ],
  e:"Tipología de metas: Conocimiento (dar a conocer), Predisposición (actitudes/opiniones/valoraciones) y Comportamiento (conductas).",
  r:"Conocimiento = saber · Predisposición = sentir/opinar · Comportamiento = hacer."},
@@ -364,62 +364,62 @@ const BANK_CAPRIOTTI = [
 {t:"Meta vs. objetivo",d:"Difícil",type:"Comparación",
  q:"¿Cuál de las siguientes afirmaciones distingue correctamente la meta del objetivo?",
  opts:[
-  {t:"La meta es medible y específica por público; el objetivo es global y estable.",w:"Está invertido: lo medible/específico por público es el objetivo."},
-  {t:"La meta es global y el objetivo es medible por cada público.",c:true,w:"Correcto: meta global (responde a la situación) vs. objetivo medible por público."},
-  {t:"Meta y objetivo son sinónimos y se redactan con la estructura SMART.",w:"No son sinónimos; SMART aplica a objetivos, no a la meta."},
-  {t:"La meta se redacta por público y el objetivo una vez para la campaña.",w:"Invertido: los objetivos se elaboran por público; la meta es general."}
+  {t:"La meta es medible y específica por público, mientras que el objetivo es global y estable.",w:"Está invertido: lo medible y específico por público es el objetivo."},
+  {t:"La meta es global y responde a la situación, mientras que el objetivo es medible por público.",c:true,w:"Correcto: meta global (responde a la situación) vs. objetivo medible por público."},
+  {t:"La meta y el objetivo son sinónimos y ambos se redactan con la estructura SMART.",w:"No son sinónimos; SMART aplica a los objetivos, no a la meta."},
+  {t:"La meta se redacta por público y el objetivo, una sola vez para toda la campaña.",w:"Invertido: los objetivos se elaboran por público; la meta es general."}
  ],
  e:"La meta es el propósito global que responde a la situación; los objetivos se derivan de ella y concretan el impacto medible para cada público.",
  r:"Meta: una, global, GOMDE. Objetivos: varios, por público, SMART."},
 
 {t:"Públicos",d:"Difícil",type:"Comparación",
- q:"La diferencia entre públicos objetivos e influenciadores radica en que:",
+ q:"¿En qué radica la diferencia entre los públicos objetivos y los públicos influenciadores?",
  opts:[
-  {t:"Los objetivos inciden indirectamente y los influenciadores de forma directa.",w:"Está invertido: los objetivos condicionan directamente."},
-  {t:"Los objetivos inciden directamente y los influenciadores de forma indirecta.",c:true,w:"Correcto: distinción por el tipo de incidencia (directa vs. indirecta)."},
-  {t:"Los objetivos son siempre prioritarios y los influenciadores secundarios.",w:"Mezcla dos clasificaciones: rol (objetivo/influenciador) ≠ prioridad."},
-  {t:"Los objetivos salen del mapa de públicos y los influenciadores del calendario.",w:"Ambos se seleccionan del mapa de públicos; el calendario no interviene."}
+  {t:"Los objetivos inciden de forma indirecta sobre la meta y los influenciadores, de forma totalmente directa.",w:"Está invertido: los objetivos condicionan directamente la meta."},
+  {t:"Los objetivos condicionan de forma directa la meta y los influenciadores inciden de modo indirecto.",c:true,w:"Correcto: la distinción es por el tipo de incidencia (directa vs. indirecta)."},
+  {t:"Los objetivos son siempre prioritarios y los influenciadores son siempre secundarios.",w:"Mezcla dos clasificaciones: rol (objetivo/influenciador) ≠ prioridad."},
+  {t:"Los objetivos se eligen del mapa de públicos y los influenciadores, del calendario general.",w:"Ambos se seleccionan del mapa de públicos; el calendario no interviene."}
  ],
  e:"Públicos objetivos: condicionan directamente la meta. Públicos influenciadores: inciden sobre los objetivos y, por tanto, afectan la meta de forma indirecta.",
  r:"Dos clasificaciones independientes: por ROL (objetivo/influenciador = directo/indirecto) y por PRIORIDAD (prioritario/secundario = mayor/menor esfuerzo). No las cruces."},
 
 {t:"Públicos",d:"Media",
- q:"Los públicos prioritarios se definen como aquellos que:",
+ q:"¿Cómo se definen los públicos prioritarios de una campaña?",
  opts:[
-  {t:"Inciden indirectamente sobre los públicos objetivos.",w:"Eso describe a los influenciadores (otra clasificación)."},
-  {t:"Son muy relevantes para la meta y concentran el mayor esfuerzo.",c:true,w:"Correcto: prioritarios = muy relevantes, mayor esfuerzo."},
-  {t:"Se usan solo para reforzar el impacto general con menor esfuerzo.",w:"Eso define a los públicos secundarios."},
-  {t:"Provienen exclusivamente de la investigación de la etapa 2.",w:"Los públicos se toman del mapa de públicos."}
+  {t:"Como aquellos que inciden de forma indirecta sobre los públicos objetivos.",w:"Eso describe a los públicos influenciadores (otra clasificación)."},
+  {t:"Como aquellos muy relevantes para la meta, en los que se centra el mayor esfuerzo.",c:true,w:"Correcto: prioritarios = muy relevantes y con mayor esfuerzo asignado."},
+  {t:"Como aquellos que solo refuerzan el impacto general, con un esfuerzo menor.",w:"Eso describe a los públicos secundarios."},
+  {t:"Como aquellos que provienen exclusivamente de la investigación de la etapa 2.",w:"Los públicos se toman del mapa de públicos, no solo de la etapa 2."}
  ],
  e:"Públicos prioritarios: muy relevantes para alcanzar la meta, en ellos se centra el mayor esfuerzo. Secundarios: menor importancia, acción de refuerzo."},
 
 {t:"Públicos",d:"Media",
  q:"¿De dónde se seleccionan y priorizan los públicos de una campaña?",
  opts:[
-  {t:"Del calendario general.",w:"El calendario organiza tiempos, no públicos."},
-  {t:"Del mapa de públicos de la marca.",c:true,w:"Correcto: la determinación implica selección y priorización del mapa de públicos."},
-  {t:"Del presupuesto de investigación.",w:"El presupuesto asigna recursos, no define públicos."},
-  {t:"Del sistema de indicadores tácticos.",w:"Los indicadores miden resultados; no son la fuente de los públicos."}
+  {t:"Del calendario general, que ordena las acciones de la campaña en el tiempo.",w:"El calendario organiza tiempos, no públicos."},
+  {t:"Del mapa de públicos de la marca, mediante un proceso de selección y priorización.",c:true,w:"Correcto: se determinan a partir del mapa de públicos (vinculado a la etapa 2)."},
+  {t:"Del presupuesto de investigación, que asigna los recursos del análisis previo.",w:"El presupuesto asigna recursos, no define los públicos."},
+  {t:"Del sistema de indicadores tácticos, que mide los resultados de la campaña.",w:"Los indicadores miden resultados; no son la fuente de los públicos."}
  ],
  e:"La determinación de los públicos implica un proceso de selección y priorización de los grupos identificados en el mapa de públicos de la marca (vinculado a la etapa 2)."},
 
 {t:"Objetivos (SMART)",d:"Fácil",
  q:"El acrónimo SMART, aplicado a los objetivos, significa:",
  opts:[
-  {t:"Específicos, Medibles, Asumibles, Realistas, Tiempo.",c:true,w:"Correcto: es la definición de SMART que usa Capriotti."},
-  {t:"Simples, Medibles, Alcanzables, Rápidos, Tácticos.",w:"Varios términos no corresponden (Simples, Rápidos, Tácticos)."},
-  {t:"Estratégicos, Motivadores, Aplicables, Realistas, Temporales.",w:"Mezcla rasgos de la meta (Motivadores) con otros inexactos."},
-  {t:"Específicos, Mensurables, Ambiciosos, Rentables, Tangibles.",w:"No es la definición del texto (Asumibles, Realistas, Tiempo)."}
+  {t:"Específicos, Medibles, Asumibles, Realistas y Tiempo (limitado).",c:true,w:"Correcto: es la definición de SMART que usa Capriotti."},
+  {t:"Simples, Medibles, Alcanzables, Rápidos y Tácticos.",w:"Varios términos no corresponden (Simples, Rápidos, Tácticos)."},
+  {t:"Estratégicos, Motivadores, Aplicables, Realistas y Temporales.",w:"Mezcla rasgos de la meta (Motivadores) con otros inexactos."},
+  {t:"Específicos, Mensurables, Ambiciosos, Rentables y Tangibles.",w:"No es la definición del texto (deben ser Asumibles, Realistas, Tiempo)."}
  ],
  e:"SMART = Específicos, Medibles, Asumibles, Realistas y Tiempo (limitado)."},
 
 {t:"Objetivos — enfoque",d:"Difícil",type:"Aplicación",
  q:"¿Cuál de los siguientes está correctamente redactado como objetivo (enfoque de impacto)?",
  opts:[
-  {t:"Realizar una gran campaña de publicidad en redes sociales este verano.",w:"Es una acción/medio (enfoque de realización), no un objetivo."},
-  {t:"Difundir cinco piezas audiovisuales en todas las plataformas digitales.",w:"Describe lo que se hará (realización), no el resultado en el público."},
-  {t:"Incrementar la notoriedad entre los jóvenes un 15% en 4 meses.",c:true,w:"Correcto: expresa el resultado en el público + medida + plazo (impacto)."},
-  {t:"Implementar un completo plan de medios con influencers del sector.",w:"Es la implementación de un medio, no el impacto buscado."}
+  {t:"Realizar una gran campaña de publicidad en redes sociales durante el verano.",w:"Es una acción/medio (enfoque de realización), no un objetivo."},
+  {t:"Difundir cinco piezas audiovisuales en todas las plataformas digitales de la marca.",w:"Describe lo que se hará (realización), no el resultado en el público."},
+  {t:"Incrementar la notoriedad de la marca entre los jóvenes un 15% en cuatro meses.",c:true,w:"Correcto: expresa el resultado en el público con medida y plazo (impacto)."},
+  {t:"Implementar un completo plan de medios con influencers del sector de la marca.",w:"Es la implementación de un medio, no el impacto buscado."}
  ],
  e:"El enfoque de impacto redacta el resultado/efecto en los públicos; el de realización redacta acciones o medios y NO constituye un objetivo válido.",
  r:"Si la frase dice lo que vas a HACER → realización (mal). Si dice el RESULTADO en el público (cuánto + cuándo) → impacto (bien)."},
@@ -427,20 +427,20 @@ const BANK_CAPRIOTTI = [
 {t:"Objetivos — estructura",d:"Difícil",
  q:"En el objetivo 'Incrementar la notoriedad de la marca en los clientes un 20% en 3 meses', el componente 'un 20%' corresponde a:",
  opts:[
-  {t:"La dirección.",w:"La dirección es 'incrementar' (la orientación del impacto)."},
-  {t:"La intención.",w:"La intención es 'notoriedad' (impacto de conocimiento)."},
-  {t:"La medida.",c:true,w:"Correcto: 'un 20%' es la cuantificación o grado de impacto = la medida."},
-  {t:"El foco.",w:"El foco es 'los clientes' (el público al que se dirige)."}
+  {t:"A la dirección, que indica la orientación del impacto que se busca obtener.",w:"La dirección es 'incrementar' (la orientación del impacto)."},
+  {t:"A la intención, que señala el tipo de impacto buscado en el público.",w:"La intención es 'notoriedad' (un impacto de conocimiento)."},
+  {t:"A la medida, que cuantifica el grado de impacto que se quiere alcanzar.",c:true,w:"Correcto: 'un 20%' es la cuantificación o grado de impacto = la medida."},
+  {t:"Al foco, que señala el público o segmento al que se dirige el objetivo.",w:"El foco es 'los clientes' (el público al que se dirige)."}
  ],
  e:"Estructura del objetivo (5 partes): Dirección ('incrementar'), Intención ('notoriedad'), Foco ('clientes'), Medida ('20%') y Plazo ('3 meses')."},
 
 {t:"Objetivos",d:"Media",
  q:"Según Capriotti, si a un objetivo le falta alguno de sus cinco componentes estructurales, entonces:",
  opts:[
-  {t:"Sigue siendo válido si conserva al menos la medida y el plazo.",w:"No: deben estar los cinco componentes para que sea evaluable."},
-  {t:"Se considera solo una 'buena intención' no evaluable.",c:true,w:"Correcto: sin los cinco componentes es una 'buena intención', no un objetivo."},
-  {t:"Se transforma de forma automática en una meta general.",w:"No 'se convierte' en meta; deja de ser un objetivo válido."},
-  {t:"Debe reescribirse usando el enfoque de realización.",w:"El enfoque de realización es justamente el incorrecto."}
+  {t:"Sigue siendo plenamente válido siempre que conserve al menos la medida y el plazo bien definidos.",w:"No: deben estar los cinco componentes para que sea evaluable."},
+  {t:"Solo puede considerarse una 'buena intención', porque no podrá monitorizarse ni evaluarse.",c:true,w:"Correcto: sin los cinco componentes es una 'buena intención', no un objetivo."},
+  {t:"Se transforma de forma automática en una meta general de la campaña.",w:"No 'se convierte' en meta; simplemente deja de ser un objetivo válido."},
+  {t:"Debe reescribirse utilizando el enfoque de realización en lugar del de impacto.",w:"El enfoque de realización es justamente el incorrecto."}
  ],
  e:"Para ser SMART, el objetivo debe tener las 5 partes; si falta alguna, solo puede considerarse 'buena intención' porque no podrá monitorizarse ni evaluarse."},
 
@@ -450,79 +450,79 @@ const BANK_CAPRIOTTI = [
   {t:"Las estrategias I, III y V.",c:true,w:"Correcto: el Núcleo Comunicativo lo forman Identidad, Concepto y Estilo."},
   {t:"Las estrategias II, IV y V.",w:"Medios e Interacción son del Sistema Mediático; solo Estilo es del Núcleo."},
   {t:"Las estrategias I, II y III.",w:"Medios (II) pertenece al Sistema Mediático, no al Núcleo."},
-  {t:"Las estrategias II, IV y I.",w:"Medios e Interacción son del Sistema Mediático; solo Identidad es del Núcleo."}
+  {t:"Las estrategias I, II y IV.",w:"Medios e Interacción son del Sistema Mediático; solo Identidad es del Núcleo."}
  ],
  e:"Núcleo Comunicativo = Identidad, Concepto, Estilo. Sistema Mediático = Medios, Interacción.",
  r:"Núcleo Comunicativo = el MENSAJE (qué/cómo): Identidad-Concepto-Estilo. Sistema Mediático = la DIFUSIÓN (dónde): Medios-Interacción."},
 
 {t:"Estrategias",d:"Media",
- q:"El orden correcto para tomar las decisiones estratégicas de la campaña va:",
+ q:"¿En qué orden deben tomarse las decisiones estratégicas de la campaña?",
  opts:[
-  {t:"Del Sistema Mediático al Núcleo Comunicativo (de lo visible a lo central).",w:"Está invertido: primero lo central (Núcleo), luego lo visible."},
-  {t:"Del Núcleo Comunicativo al Sistema Mediático (de lo central a lo visible).",c:true,w:"Correcto: de lo más esencial (Núcleo) a lo más superficial (Sistema Mediático)."},
-  {t:"De los medios a los contenidos, y de ahí a la identidad.",w:"Invierte la lógica: primero el mensaje, luego los medios."},
-  {t:"Indistinto, ya que todas las estrategias tienen igual jerarquía.",w:"El texto fija un orden explícito: de lo central a lo visible."}
+  {t:"Del Sistema Mediático al Núcleo Comunicativo, es decir, de lo visible a lo central.",w:"Está invertido: primero lo central (Núcleo), luego lo visible (Sistema Mediático)."},
+  {t:"Del Núcleo Comunicativo al Sistema Mediático, es decir, de lo central a lo visible.",c:true,w:"Correcto: de lo más esencial (Núcleo) a lo más superficial (Sistema Mediático)."},
+  {t:"De los medios a los contenidos y, recién al final, a la identidad de la campaña.",w:"Invierte la lógica: primero el mensaje, luego los medios."},
+  {t:"De forma indistinta, ya que todas las estrategias tienen igual jerarquía entre sí.",w:"El texto fija un orden explícito: de lo central a lo visible."}
  ],
  e:"El orden debe ir de lo más central o esencial (Núcleo Comunicativo) a lo más superficial o visible (Sistema Mediático)."},
 
 {t:"Fase C",d:"Media",
- q:"La Fase C (Planificación) se describe como el 'centro neurálgico' de la campaña porque:",
+ q:"¿Por qué la Fase C (Planificación) se describe como el 'centro neurálgico' de la campaña?",
  opts:[
-  {t:"Es donde se mide el cumplimiento final de los objetivos.",w:"Eso es la Evaluación (Fase E)."},
-  {t:"Es donde se seleccionan y diseñan las tácticas con los públicos.",c:true,w:"Correcto: la Planificación define y programa todo el plan de acción."},
-  {t:"Es donde se define la meta general y los públicos de la campaña.",w:"Eso es la Dirección (Fase B)."},
-  {t:"Es donde se ejecutan operativamente las acciones del día a día.",w:"Eso es la Implementación (Fase D)."}
+  {t:"Porque allí se mide el cumplimiento final de los objetivos de la campaña.",w:"Eso es la Evaluación (Fase E)."},
+  {t:"Porque allí se seleccionan y diseñan todas las tácticas comunicativas con los públicos.",c:true,w:"Correcto: la Planificación define y programa todo el plan de acción."},
+  {t:"Porque allí se define la meta general y se determinan los públicos de la campaña.",w:"Eso es la Dirección (Fase B)."},
+  {t:"Porque allí se ejecutan operativamente, en el día a día, las acciones planificadas.",w:"Eso es la Implementación (Fase D)."}
  ],
  e:"La Planificación materializa las directrices estratégicas en un plan de acción: es el centro neurálgico donde se seleccionan y diseñan las tácticas con los públicos."},
 
 {t:"Contenidos",d:"Media",
- q:"Las tres decisiones que implica la etapa de Contenidos son:",
+ q:"¿Cuáles son las tres decisiones que implica la etapa de Contenidos?",
  opts:[
-  {t:"Identificación, valoración y selección.",w:"Eso corresponde al mix de Medios, no a Contenidos."},
-  {t:"Composición, expresión y formato.",c:true,w:"Correcto: son las tres decisiones de la etapa de Contenidos."},
-  {t:"Alcance, rentabilidad y eficacia.",w:"Son criterios de valoración de los medios (AREA)."},
-  {t:"Contexto, desempeño e impacto.",w:"Son las dimensiones del control táctico."}
+  {t:"La identificación, la valoración y la selección de las herramientas a utilizar.",w:"Eso corresponde al mix de Medios, no a Contenidos."},
+  {t:"La composición, la expresión y el formato de los contenidos de la campaña.",c:true,w:"Correcto: son las tres decisiones de la etapa de Contenidos."},
+  {t:"El alcance, la rentabilidad y la eficacia de las acciones de comunicación.",w:"Son criterios de valoración de los medios (AREA), no de Contenidos."},
+  {t:"El contexto, el desempeño y el impacto de la campaña en su conjunto.",w:"Son las dimensiones del control táctico."}
  ],
  e:"Contenidos = Composición (qué temas/mensajes) + Expresión (tono de voz) + Formato (explicativo/narrativo)."},
 
 {t:"Contenidos",d:"Media",
- q:"El formato de contenidos 'narrativo' (story-telling) se caracteriza porque:",
+ q:"¿Cómo se caracteriza el formato de contenidos 'narrativo' (story-telling)?",
  opts:[
-  {t:"Describe de forma directa las particularidades de la marca.",w:"Eso es el formato explicativo (fact-telling)."},
-  {t:"Construye los contenidos como un relato o historia de marca.",c:true,w:"Correcto: el narrativo presenta los contenidos como relato/historia."},
-  {t:"Consiste solo en datos técnicos y especificaciones del producto.",w:"Eso se acerca al fact-telling, no al story-telling."},
-  {t:"Es incompatible con cualquier formato de tipo explicativo.",w:"Falso: ambos no son contrapuestos; suelen usarse híbridos."}
+  {t:"Describe de forma directa las particularidades de la marca y de sus productos.",w:"Eso describe al formato explicativo (fact-telling)."},
+  {t:"Construye los contenidos como un relato o historia vinculado a la marca.",c:true,w:"Correcto: el narrativo presenta los contenidos como relato o historia."},
+  {t:"Consiste solo en datos técnicos y especificaciones detalladas del producto.",w:"Eso se acerca al fact-telling, no al story-telling."},
+  {t:"Es totalmente incompatible con cualquier formato de tipo explicativo.",w:"Falso: no son contrapuestos; suelen aplicarse formatos híbridos."}
  ],
  e:"Formato explicativo (fact-telling): descripción directa de la marca. Narrativo (story-telling): relato/historia. Habitualmente se aplican formatos híbridos."},
 
 {t:"Contenidos ↔ estrategias",d:"Difícil",type:"Relación",
  q:"La etapa de Contenidos representa la concreción de las estrategias del:",
  opts:[
-  {t:"El Sistema Mediático (medios e interacción de la marca).",w:"Ese lo concreta la etapa de Medios, no la de Contenidos."},
-  {t:"El Núcleo Comunicativo (identidad, concepto y estilo).",c:true,w:"Correcto: Contenidos concreta las estrategias de identidad, concepto y estilo."},
-  {t:"El plan plurianual de comunicación de toda la marca.",w:"El plan plurianual es de la gestión estratégica."},
-  {t:"El control táctico (contexto, desempeño e impacto).",w:"El control táctico evalúa la campaña; no lo concretan los contenidos."}
+  {t:"Sistema Mediático, es decir, las estrategias de medios y de interacción.",w:"Ese lo concreta la etapa de Medios, no la de Contenidos."},
+  {t:"Núcleo Comunicativo, es decir, las estrategias de identidad, concepto y estilo.",c:true,w:"Correcto: Contenidos concreta las estrategias del Núcleo Comunicativo."},
+  {t:"Plan plurianual de comunicación, que fija la línea directriz a largo plazo.",w:"El plan plurianual es de la gestión estratégica, no de Contenidos."},
+  {t:"Control táctico, es decir, el contexto, el desempeño y el impacto de la campaña.",w:"El control táctico evalúa la campaña; no es lo que concretan los contenidos."}
  ],
  e:"Contenidos concreta el Núcleo Comunicativo (identidad, concepto, estilo); Medios concreta el Sistema Mediático (medios, interacción).",
  r:"Cruce clave: Contenidos ↔ Núcleo Comunicativo · Medios ↔ Sistema Mediático."},
 
 {t:"Medios",d:"Media",
- q:"El proceso para determinar el mix de medios sigue el orden:",
+ q:"¿Cuál es el orden del proceso para determinar el mix de medios?",
  opts:[
-  {t:"Selección, luego valoración y, por último, identificación.",w:"Está invertido: primero se identifica, al final se selecciona."},
-  {t:"Identificación, luego valoración y, por último, selección.",c:true,w:"Correcto: identificar el mapa de medios, valorarlos y seleccionar el mix."},
-  {t:"Valoración, luego identificación y, por último, selección.",w:"No se puede valorar sin antes identificar los medios disponibles."},
-  {t:"Identificación, luego selección y, por último, valoración.",w:"La selección es el paso final, posterior a la valoración."}
+  {t:"Primero la selección, luego la valoración y, por último, la identificación.",w:"Está invertido: primero se identifica y al final se selecciona."},
+  {t:"Primero la identificación, luego la valoración y, por último, la selección.",c:true,w:"Correcto: identificar el mapa de medios, valorarlos y seleccionar el mix."},
+  {t:"Primero la valoración, luego la identificación y, por último, la selección.",w:"No se puede valorar sin antes identificar los medios disponibles."},
+  {t:"Primero la identificación, luego la selección y, por último, la valoración.",w:"La selección es el paso final, posterior a la valoración."}
  ],
  e:"Mix de medios: Identificación (mapa de medios) → Valoración (comparar con criterios) → Selección (elegir el mix)."},
 
 {t:"Medios",d:"Media",type:"Excepción",
  q:"Todos los siguientes son criterios habituales de valoración de los medios, EXCEPTO:",
  opts:[
-  {t:"Alcance.",w:"Sí es criterio: volumen de personas del público al que se llega."},
-  {t:"Rentabilidad.",w:"Sí es criterio: análisis coste/alcance o coste/beneficio."},
-  {t:"Innovación.",c:true,w:"NO es criterio: la innovación es un signo distintivo del mix de medios."},
-  {t:"Adecuación.",w:"Sí es criterio: conveniencia según contenidos y públicos."}
+  {t:"El alcance, es decir, el volumen de personas del público al que se puede llegar.",w:"Sí es un criterio de valoración (la 'A' de AREA)."},
+  {t:"La rentabilidad, es decir, el análisis del coste/alcance o coste/beneficio.",w:"Sí es un criterio de valoración (la 'R' de AREA)."},
+  {t:"La innovación, es decir, la combinación diferencial de acciones y técnicas.",c:true,w:"NO es criterio de valoración: la innovación es un signo distintivo del mix de medios."},
+  {t:"La adecuación, es decir, la conveniencia según contenidos y públicos.",w:"Sí es un criterio de valoración (la 'A' de AREA)."}
  ],
  e:"Los cuatro criterios de valoración son Alcance, Rentabilidad, Eficacia y Adecuación. La innovación es un rasgo diferenciador del mix, no un criterio.",
  r:"Criterios de valoración = A-R-E-A (Alcance, Rentabilidad, Eficacia, Adecuación). 'Innovación' y 'creatividad' son rasgos distintivos, no criterios."},
@@ -531,30 +531,30 @@ const BANK_CAPRIOTTI = [
  q:"Sobre la clasificación de medios, considere:\nI. Los medios propios son controlados.\nII. Los medios pagados son controlados.\nIII. Los medios ganados son no controlados.\nIV. Los medios digitales son siempre no controlados.\n¿Cuáles son correctas?",
  opts:[
   {t:"Las afirmaciones I, II y III.",c:true,w:"Correcto: controlados = propios + pagados; no controlados = ganados."},
-  {t:"Las afirmaciones I, III y IV.",w:"IV es falsa: una web propia es digital y controlada."},
-  {t:"Las afirmaciones II, III y IV.",w:"IV es falsa y omite la I, que sí es correcta."},
-  {t:"Las cuatro afirmaciones.",w:"IV es falsa: digital no equivale a 'no controlado'."}
+  {t:"Las afirmaciones I, III y IV.",w:"IV es falsa: una web propia es digital y, a la vez, controlada."},
+  {t:"Las afirmaciones II, III y IV.",w:"IV es falsa y, además, omite la I, que sí es correcta."},
+  {t:"Las cuatro afirmaciones son correctas.",w:"IV es falsa: digital no equivale a 'no controlado'."}
  ],
  e:"Medios controlados = propios y pagados; no controlados = ganados. Analógico/digital es una dimensión independiente del control.",
  r:"Dos ejes distintos: control (controlados/no controlados) y soporte (analógico/digital). Un medio digital puede ser controlado o no."},
 
 {t:"Medios",d:"Media",
- q:"Los 'recursos interactivos' en la etapa de Medios se caracterizan por:",
+ q:"¿Cómo se caracterizan los 'recursos interactivos' en la etapa de Medios?",
  opts:[
-  {t:"Transmitir información de forma unidireccional a públicos pasivos.",w:"Eso describe a los recursos expositivos."},
-  {t:"Funcionar como llamados a la acción que fomentan la participación.",c:true,w:"Correcto: los interactivos son 'call to action' que buscan participación."},
-  {t:"Medir la eficacia individual de cada pieza de la campaña.",w:"Eso es función del control, no de los recursos de interacción."},
-  {t:"Asignar los responsables a cada actividad de comunicación.",w:"Eso corresponde a la etapa de Estructura."}
+  {t:"Transmiten la información de forma unidireccional a públicos más bien pasivos.",w:"Eso describe a los recursos expositivos, no a los interactivos."},
+  {t:"Funcionan como llamados a la acción que fomentan la participación de los públicos.",c:true,w:"Correcto: los interactivos son 'call to action' que buscan participación."},
+  {t:"Sirven para medir la eficacia individual de cada pieza de la campaña.",w:"Eso es función del control, no de los recursos de interacción."},
+  {t:"Permiten asignar los responsables a cada actividad de comunicación.",w:"Eso corresponde a la etapa de Estructura."}
  ],
  e:"Recursos expositivos: unidireccionales, para explicar/transmitir. Recursos interactivos: 'call to action' para fomentar opinión, recomendación o acción."},
 
 {t:"Temporización",d:"Difícil",type:"Comparación",
  q:"¿Cuál afirmación sobre los calendarios de la temporización es correcta?",
  opts:[
-  {t:"El general es operativo y detalla tareas; el específico es táctico.",w:"Invertido: el general es táctico; el específico, operativo."},
-  {t:"El general es táctico con visión global; el específico, operativo.",c:true,w:"Correcto: general = táctico/visión global; específico = operativo/detalle."},
-  {t:"Ambos son operativos y difieren solamente en su duración total.",w:"No: difieren en su naturaleza (táctico vs. operativo)."},
-  {t:"El calendario específico ofrece la visión panorámica de toda la campaña.",w:"La visión panorámica la da el calendario general."}
+  {t:"El general es operativo y detalla todas las tareas y responsables, mientras que el específico es táctico.",w:"Invertido: el general es táctico y el específico, operativo."},
+  {t:"El general es táctico y da la visión global, mientras que el específico es operativo y detallado.",c:true,w:"Correcto: general = táctico/visión global; específico = operativo/detalle."},
+  {t:"Ambos calendarios son operativos y se diferencian solo por su duración total.",w:"No: difieren en su naturaleza (táctico vs. operativo), no solo en duración."},
+  {t:"El calendario específico es el que ofrece la visión panorámica de toda la campaña.",w:"La visión panorámica la da el calendario general."}
  ],
  e:"Calendario general: táctico, visión global (qué y cuándo). Calendario específico: operativo, detalle paso a paso de cada acción (cómo y quién).",
  r:"General = panorámica (táctico). Específico = detalle de cada acción (operativo). Si dudás, 'general = global'."},
@@ -562,10 +562,10 @@ const BANK_CAPRIOTTI = [
 {t:"Control",d:"Difícil",type:"Combinación",
  q:"Respecto a los niveles de control, considere:\nI. El control operativo evalúa cada acción individual.\nII. El control táctico evalúa la campaña en su conjunto.\nIII. El control táctico analiza contexto, desempeño e impacto.\nIV. El control operativo se subdivide en control de realización y de eficacia.\n¿Cuáles son correctas?",
  opts:[
-  {t:"Las afirmaciones I y II.",w:"Incompletas: III y IV también son correctas según el texto."},
-  {t:"Las afirmaciones I, II y III.",w:"Falta la IV, que también es correcta (realización y eficacia)."},
-  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: las cuatro afirmaciones son verdaderas."},
-  {t:"Las afirmaciones II y III.",w:"La I y la IV también son correctas."}
+  {t:"Las afirmaciones I y II únicamente.",w:"Incompletas: también III y IV son correctas según el texto."},
+  {t:"Las afirmaciones I, II y III únicamente.",w:"Falta la IV, que también es correcta (realización y eficacia)."},
+  {t:"Las cuatro afirmaciones son correctas.",c:true,w:"Correcto: las cuatro afirmaciones son verdaderas."},
+  {t:"Las afirmaciones II y III únicamente.",w:"La I y la IV también son correctas."}
  ],
  e:"Control operativo: evalúa cada acción individual y se subdivide en control de realización y de eficacia. Control táctico: evalúa la campaña en conjunto vía contexto, desempeño e impacto.",
  r:"Operativo = la PIEZA (realización + eficacia). Táctico = el CONJUNTO (contexto + desempeño + impacto)."},
@@ -573,19 +573,19 @@ const BANK_CAPRIOTTI = [
 {t:"Control",d:"Media",type:"Excepción",
  q:"El control táctico analiza la campaña en su conjunto a través de las siguientes dimensiones, EXCEPTO:",
  opts:[
-  {t:"El contexto.",w:"Sí es dimensión: monitorea cambios del entorno durante la campaña."},
-  {t:"El desempeño.",w:"Sí es dimensión: alineación entre lo planificado y lo ejecutado."},
-  {t:"El impacto.",w:"Sí es dimensión: progreso/logro de resultados en los públicos."},
-  {t:"La rentabilidad.",c:true,w:"NO es dimensión: la rentabilidad es un criterio de valoración de medios."}
+  {t:"El contexto, que monitorea los cambios del entorno durante la campaña.",w:"Sí es una dimensión del control táctico."},
+  {t:"El desempeño, que analiza la alineación entre lo planificado y lo ejecutado.",w:"Sí es una dimensión del control táctico."},
+  {t:"El impacto, que mide el progreso y el logro de los resultados en los públicos.",w:"Sí es una dimensión del control táctico."},
+  {t:"La rentabilidad, que compara el coste con el alcance o el beneficio obtenido.",c:true,w:"NO es dimensión del control táctico: es un criterio de valoración de medios."}
  ],
  e:"El control táctico analiza contexto, desempeño e impacto. La rentabilidad pertenece a los criterios de valoración de los medios (AREA)."},
 
 {t:"Control — indicadores",d:"Media",
  q:"¿Por qué es importante vincular cada objetivo con indicadores desde la etapa de Objetivos?",
  opts:[
-  {t:"Para incrementar el presupuesto de la partida de investigación.",w:"Los indicadores no buscan inflar el presupuesto."},
-  {t:"Para permitir el seguimiento, el control y la evaluación.",c:true,w:"Correcto: sin indicadores no se puede medir el cumplimiento de cada objetivo."},
-  {t:"Para reemplazar por completo la fase de evaluación final.",w:"Los indicadores alimentan la evaluación, no la reemplazan."},
+  {t:"Para incrementar el presupuesto que se destina a la partida de investigación inicial.",w:"Los indicadores no buscan inflar el presupuesto."},
+  {t:"Para hacer posible el seguimiento, el control y la evaluación del cumplimiento.",c:true,w:"Correcto: sin indicadores no se puede medir el cumplimiento de cada objetivo."},
+  {t:"Para reemplazar por completo la fase de evaluación final de la campaña.",w:"Los indicadores alimentan la evaluación; no la reemplazan."},
   {t:"Para definir el tono de voz de los contenidos de la campaña.",w:"El tono de voz es parte de la 'expresión' en Contenidos."}
  ],
  e:"Cada objetivo debe vincularse con indicadores para facilitar el seguimiento, el control (etapa 10) y la evaluación del cumplimiento (etapa 15)."},
@@ -593,10 +593,10 @@ const BANK_CAPRIOTTI = [
 {t:"Estructura",d:"Difícil",type:"Combinación",
  q:"La etapa de Estructura considera la definición de:\nI. Responsable de la campaña.\nII. Equipo de trabajo.\nIII. Funciones y responsabilidades.\nIV. Agencias y colaboradores externos.\n¿Cuáles corresponden a esta etapa?",
  opts:[
-  {t:"Las afirmaciones I y II.",w:"Incompletas: III y IV también forman parte de la Estructura."},
-  {t:"Las afirmaciones I, II y III.",w:"Falta IV (agencias y colaboradores externos)."},
-  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: los cuatro aspectos clave de la etapa de Estructura."},
-  {t:"Las afirmaciones III y IV.",w:"También I y II son parte de la Estructura."}
+  {t:"Las afirmaciones I y II únicamente.",w:"Incompletas: también III y IV forman parte de la Estructura."},
+  {t:"Las afirmaciones I, II y III únicamente.",w:"Falta IV (agencias y colaboradores externos)."},
+  {t:"Las cuatro afirmaciones son correctas.",c:true,w:"Correcto: son los cuatro aspectos clave de la etapa de Estructura."},
+  {t:"Las afirmaciones III y IV únicamente.",w:"También I y II son parte de la Estructura."}
  ],
  e:"La Estructura define cuatro cuestiones clave: responsable de campaña, equipo de trabajo, funciones y responsabilidades, y agencias/colaboradores externos.",
  r:"Este punto suele faltar en los resúmenes: la Estructura no es solo 'quién manda', son 4 cuestiones (responsable, equipo, funciones, externos)."},
@@ -604,21 +604,21 @@ const BANK_CAPRIOTTI = [
 {t:"Presupuesto",d:"Media",type:"Excepción",
  q:"¿Cuál de las siguientes NO es una de las cuatro partidas del presupuesto de campaña?",
  opts:[
-  {t:"Ejecución.",w:"Sí es partida: cubre la producción y realización de las acciones."},
-  {t:"Administración.",w:"Sí es partida: gastos de gestión y coordinación de la campaña."},
-  {t:"Contingencias.",w:"Sí es partida: reserva para imprevistos ('colchón' de seguridad)."},
-  {t:"Temporización.",c:true,w:"NO es una partida: es una etapa (calendarios), no un componente del presupuesto."}
+  {t:"La de ejecución, que cubre la producción y realización de las acciones.",w:"Sí es una de las cuatro partidas (suele ser la mayor)."},
+  {t:"La de administración, que cubre los gastos de gestión y coordinación.",w:"Sí es una de las cuatro partidas."},
+  {t:"La de contingencias, que funciona como reserva ante imprevistos.",w:"Sí es una de las cuatro partidas (el 'colchón' de seguridad)."},
+  {t:"La de temporización, que ordena en el tiempo todas las acciones.",c:true,w:"NO es una partida: la temporización es una etapa (calendarios), no un componente del presupuesto."}
  ],
  e:"Las cuatro partidas son: Ejecución, Administración, Investigación y Contingencias.",
  r:"4 partidas fijas: Ejecución + Administración + Investigación + Contingencias."},
 
 {t:"Presupuesto — métodos",d:"Difícil",
- q:"Entre los métodos de asignación presupuestaria, el método 'por objetivos' consiste en:",
+ q:"Entre los métodos de asignación presupuestaria, ¿en qué consiste el método 'por objetivos'?",
  opts:[
-  {t:"Asignar una cantidad fija prefijada sin un criterio claro.",w:"Eso mezcla los métodos 'por cantidad fija' y 'aleatorio'."},
-  {t:"Definir el presupuesto a partir de la meta y los objetivos.",c:true,w:"Correcto: el método 'por objetivos' parte de la meta y los objetivos."},
-  {t:"Establecer el presupuesto como un porcentaje de las ventas.",w:"Ese es el método 'por porcentaje de ventas'."},
-  {t:"Asignar recursos según el número de actividades a realizar.",w:"Ese es el método 'por cantidad de actividades'."}
+  {t:"En asignar una cantidad fija prefijada, sin establecer un criterio claro.",w:"Eso mezcla los métodos 'por cantidad fija' y 'aleatorio/arbitrario'."},
+  {t:"En definir el presupuesto a partir de la meta y de los objetivos planteados.",c:true,w:"Correcto: el método 'por objetivos' parte de la meta y los objetivos."},
+  {t:"En establecer el presupuesto como un porcentaje de las ventas pasadas o futuras.",w:"Ese es el método 'por porcentaje de ventas'."},
+  {t:"En asignar los recursos según el número de actividades que se vayan a realizar.",w:"Ese es el método 'por cantidad de actividades'."}
  ],
  e:"Métodos de asignación: aleatorio/arbitrario, cantidad fija, cantidad de actividades, porcentaje de ventas y por objetivos. No hay método infalible; suele haber parte fija y parte variable.",
  r:"Contenido que el resumen omite: existen 5 métodos de asignación presupuestaria."},
@@ -626,31 +626,31 @@ const BANK_CAPRIOTTI = [
 {t:"Presupuesto ↔ fases",d:"Difícil",type:"Relación",
  q:"La partida presupuestaria de Investigación se vincula directamente con:",
  opts:[
-  {t:"Las fases de Análisis (A) y Evaluación (E).",c:true,w:"Correcto: cubre el análisis inicial (Fase A) y la medición final (Fase E)."},
-  {t:"Únicamente la fase de Implementación (D).",w:"La implementación no es el destino principal de esta partida."},
-  {t:"La etapa de Estructura (11) de la campaña.",w:"La Estructura organiza el equipo humano, no la investigación."},
-  {t:"El núcleo comunicativo de la fase de Dirección.",w:"El núcleo comunicativo son estrategias de mensaje, no investigación."}
+  {t:"Las fases de Análisis (A) y de Evaluación (E) de la campaña.",c:true,w:"Correcto: cubre el análisis inicial (A) y la medición final de resultados (E)."},
+  {t:"Únicamente la fase de Implementación (D) de la campaña.",w:"La implementación no es el destino principal de esta partida."},
+  {t:"La etapa de Estructura (11) y la organización del equipo humano.",w:"La Estructura organiza el equipo humano, no la investigación."},
+  {t:"El Núcleo Comunicativo de la fase de Dirección de la campaña.",w:"El núcleo comunicativo son estrategias de mensaje, no investigación."}
  ],
  e:"La partida de Investigación cubre la obtención de información antes (Fase A), durante (seguimiento) y después (Fase E) de la campaña.",
  r:"No confundas la PARTIDA 'Investigación' con la FASE A: se vinculan, pero la partida también financia la evaluación (Fase E)."},
 
 {t:"Fase E",d:"Media",
- q:"La Fase E (Evaluación) tiene como objeto:",
+ q:"¿Cuál es el objeto de la Fase E (Evaluación)?",
  opts:[
-  {t:"Definir los públicos y los objetivos de la campaña.",w:"Eso es la Fase B (Dirección)."},
-  {t:"Medir los resultados y el cumplimiento de objetivos.",c:true,w:"Correcto: la Evaluación mide resultados y valora el cumplimiento."},
-  {t:"Seleccionar el mix de medios y de contenidos de la campaña.",w:"Eso es la Fase C (Planificación)."},
-  {t:"Poner en marcha las acciones que fueron planificadas.",w:"Eso es la Fase D (Implementación)."}
+  {t:"Definir los públicos y los objetivos que orientarán la campaña de comunicación.",w:"Eso corresponde a la Fase B (Dirección)."},
+  {t:"Medir los resultados finales y valorar el grado de cumplimiento de los objetivos.",c:true,w:"Correcto: la Evaluación mide resultados y valora el cumplimiento."},
+  {t:"Seleccionar el mix de medios y de contenidos que tendrá la campaña.",w:"Eso corresponde a la Fase C (Planificación)."},
+  {t:"Poner en marcha en el día a día las acciones que fueron planificadas.",w:"Eso corresponde a la Fase D (Implementación)."}
  ],
  e:"La Evaluación es la fase final: establece la medición de resultados y la valoración del grado de cumplimiento de los objetivos definidos en la Dirección."},
 
 {t:"Feedback / feedforward",d:"Difícil",type:"Comparación",
  q:"Sobre el feedback y el feedforward en la fase de Evaluación, ¿cuál afirmación es la más precisa según el texto?",
  opts:[
-  {t:"La evaluación produce únicamente feedforward y reemplaza al feedback.",w:"Inexacto: el texto dice que se obtiene feedback Y también feedforward."},
-  {t:"La evaluación genera feedback y también feedforward para el futuro.",c:true,w:"Correcto: produce ambos; el feedforward aporta a campañas futuras."},
-  {t:"El feedback proyecta al futuro y el feedforward corrige el pasado.",w:"Está invertido: feedback mira atrás; feedforward proyecta."},
-  {t:"El feedforward solo aplica a la gestión estratégica, no a campañas.",w:"El feedforward se plantea para el ciclo de campañas."}
+  {t:"La evaluación produce únicamente feedforward, que reemplaza por completo al feedback.",w:"Inexacto: el texto dice que la evaluación obtiene feedback Y también feedforward."},
+  {t:"La evaluación genera feedback y también feedforward para alimentar campañas futuras.",c:true,w:"Correcto: produce ambos; el feedforward aporta a las campañas siguientes."},
+  {t:"El feedback proyecta hacia el futuro y el feedforward corrige los errores del pasado.",w:"Está invertido: el feedback mira atrás y el feedforward proyecta."},
+  {t:"El feedforward solo aplica a la gestión estratégica, no a las campañas tácticas.",w:"El feedforward se plantea precisamente para el ciclo de campañas."}
  ],
  e:"El texto: la evaluación 'permitirá obtener un feedback... También facilita establecer un feedforward'. El resumen tiende a sobreenfatizar el feedforward, pero se producen ambos.",
  r:"Feedback = mira atrás (corrige). Feedforward = mira adelante (los resultados de hoy son el análisis de mañana). La evaluación da los DOS."},
@@ -658,9 +658,9 @@ const BANK_CAPRIOTTI = [
 {t:"Proceso (integradora)",d:"Difícil",type:"Todas/Ninguna",noShuffle:true,
  q:"Señale la opción correcta. En relación con el proceso de campaña de Capriotti:",
  opts:[
-  {t:"El modelo consta de cuatro fases y de doce etapas.",w:"Falso: son cinco fases y quince etapas."},
-  {t:"La Dirección se ubica después de la Planificación.",w:"Falso: la Dirección (B) precede a la Planificación (C)."},
-  {t:"La Implementación es la fase inicial del proceso.",w:"Falso: la fase inicial es el Análisis (A)."},
+  {t:"El modelo consta de cuatro fases y de doce etapas en total.",w:"Falso: son cinco fases y quince etapas."},
+  {t:"La fase de Dirección se ubica después de la fase de Planificación.",w:"Falso: la Dirección (B) precede a la Planificación (C)."},
+  {t:"La Implementación es la fase inicial de todo el proceso de campaña.",w:"Falso: la fase inicial es el Análisis (A)."},
   {t:"Ninguna de las anteriores es correcta.",c:true,w:"Correcto: las tres afirmaciones previas son falsas."}
  ],
  e:"5 fases y 15 etapas; el orden es A-B-C-D-E (Dirección antes que Planificación; Análisis es la fase inicial). Por eso la respuesta es 'ninguna de las anteriores'.",
@@ -669,10 +669,10 @@ const BANK_CAPRIOTTI = [
 {t:"Aplicación integradora",d:"Difícil",type:"Aplicación",
  q:"Una marca detecta una caída de imagen tras una crisis y lanza una iniciativa de 2 meses, con varias acciones coordinadas dirigidas a periodistas y clientes, para recuperar la confianza. Según Capriotti, esto es:",
  opts:[
-  {t:"Una acción de comunicación aislada de tipo operativo.",w:"No es aislada: integra varias acciones coordinadas con una meta."},
-  {t:"Una campaña de gestión táctica situacional.",c:true,w:"Correcto: iniciativa específica, integrada, de corto plazo y situacional."},
-  {t:"Un plan plurianual de la gestión estratégica general.",w:"El plurianual es estructural (3-5 años), no una respuesta de 2 meses."},
-  {t:"Un plan anual de comunicación de la organización.",w:"El plan anual organiza un año entero; aquí hay una iniciativa puntual."}
+  {t:"Una acción de comunicación aislada y puntual, de carácter operativo y de muy corto plazo.",w:"No es aislada: integra varias acciones coordinadas con una meta común."},
+  {t:"Una campaña de comunicación de gestión táctica situacional, integrada y de corto plazo.",c:true,w:"Correcto: iniciativa específica, integrada, de corto plazo y situacional."},
+  {t:"Un plan plurianual propio de la gestión estratégica, a tres o cinco años.",w:"El plurianual es estructural (3-5 años), no una respuesta de 2 meses."},
+  {t:"Un plan anual de comunicación que organiza toda la actividad del año.",w:"El plan anual organiza un año entero; aquí hay una iniciativa puntual."}
  ],
  e:"Reúne los rasgos de campaña: intervención específica, conjunto coordinado de acciones, meta (recuperar confianza), públicos definidos y tiempo limitado situacional (corto plazo).",
  r:"Si ves varias acciones coordinadas + meta + plazo corto + situación concreta → es una CAMPAÑA táctica."},
@@ -682,8 +682,8 @@ const BANK_CAPRIOTTI = [
  opts:[
   {t:"Solo las afirmaciones I y II.",w:"Incompletas: III y IV también son características del proceso."},
   {t:"Solo las afirmaciones III y IV.",w:"Incompletas: I y II también lo son."},
-  {t:"Solo las afirmaciones I, II y IV.",w:"Falta III (Agilidad), que también es característica."},
-  {t:"Las cuatro afirmaciones.",c:true,w:"Correcto: las cuatro son características (junto con 'situacional', la quinta)."}
+  {t:"Solo las afirmaciones I, II y IV.",w:"Falta III (Agilidad), que también es una característica."},
+  {t:"Las cuatro afirmaciones son correctas.",c:true,w:"Correcto: las cuatro lo son (junto con 'situacional', la quinta)."}
  ],
  e:"Las cinco características del proceso son: Linealidad, Especificidad, Situacional, Agilidad y Temporalidad. Las cuatro listadas son válidas.",
  r:"Son 5 características: Linealidad, Especificidad, Situacional, Agilidad, Temporalidad."}
